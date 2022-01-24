@@ -43,8 +43,33 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/i18n',
   ],
-
+  i18n: {
+    locales: [
+      {
+        dir: 'rtl',
+        lang: 'fa-IR',
+        code: 'fa',
+        name: 'فا',
+        file: 'fa-IR.js',
+      },
+      {
+        dir: 'ltr',
+        lang: 'en-US',
+        code: 'en',
+        name: 'EN',
+        file: 'en-US.js',
+      },
+    ],
+    defaultLocale: 'fa',
+    lazy: true,
+    detectBrowserLanguage: false,
+    langDir: 'lang/',
+    vueI18n: {
+      fallbackLocale: 'fa',
+    },
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
@@ -63,6 +88,9 @@ export default {
     theme: {
       dark: false,
       themes: {
+        light: {
+          cGreen: '#00522e',
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,

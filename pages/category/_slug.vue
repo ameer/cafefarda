@@ -1,30 +1,42 @@
 <template>
-  <section>
-    <v-slide-group show-arrows center-active mandatory>
-      <v-slide-item
-        v-for="(value, key, n) in menuData[$route.params.slug]"
-        :key="n"
-        v-slot="{ active, toggle }"
-      >
-        <v-btn
-          class="mx-2"
-          :input-value="active"
-          active-class="purple white--text"
-          depressed
-          rounded
-          @click="toggle"
+  <v-row justify-md="center">
+    <v-col cols="12" md="6">
+      <v-slide-group v-model="selectedChip" show-arrows center-active mandatory>
+        <v-slide-item
+          v-for="(value, key, n) in menuData[$route.params.slug]"
+          :key="n"
+          v-slot="{ active, toggle }"
         >
-          {{ key }}
-        </v-btn>
-      </v-slide-item>
-    </v-slide-group>
-  </section>
+          <v-btn
+            class="mx-2"
+            :input-value="active"
+            active-class="cGreen white--text"
+            depressed
+            rounded
+            @click="toggle"
+          >
+            {{ $t(`${$route.params.slug}.${key}`, $route.params.locale) }}
+          </v-btn>
+        </v-slide-item>
+      </v-slide-group>
+      <v-row v-if="products" class="mt-4">
+        <v-col v-for="(item, i) in products" :key="i" cols="6" md="4">
+          <v-card>
+            <v-card-text>
+              {{ item.name }}
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 <script>
 export default {
   layout: 'default',
   data() {
     return {
+      selectedChip: 0,
       menuData: {
         hot: {
           espersso: [
@@ -551,6 +563,12 @@ export default {
         },
       },
     }
+  },
+  computed: {
+    products() {
+      const keys = Object.keys(this.menuData[this.$route.params.slug])
+      return this.menuData[this.$route.params.slug][keys[this.selectedChip]]
+    },
   },
 }
 </script>
