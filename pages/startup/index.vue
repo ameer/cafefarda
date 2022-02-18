@@ -6,7 +6,7 @@
                 <v-col cols="12" md="6">
                    <h3 class="text-h3 font-weight-bold text-center mb-4 brownish">کافه فردا</h3>
                    <p class="brownish text-center mb-8">زندگی بعد از قهوه آغاز می‌شود</p>
-                   <v-btn color="#00522e" rounded dark block x-large>شروع کنید!</v-btn>
+                   <v-btn color="#00522e" rounded dark block x-large to="/startup/profileBuilder">شروع کنید!</v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -16,6 +16,7 @@
 <script>
 export default {
     layout: 'startup',
+    transition: 'slide'
 }
 </script>
 <style>

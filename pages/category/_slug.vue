@@ -19,12 +19,71 @@
           </v-btn>
         </v-slide-item>
       </v-slide-group>
-      <v-row v-if="products" class="mt-4">
+      <v-row v-if="products && $route.params.slug !== 'cake'" class="mt-4" align="stretch">
         <v-col v-for="(item, i) in products" :key="i" cols="6" md="4">
-          <v-card>
-            <v-card-text>
-              {{ item.name }}
-            </v-card-text>
+          <v-card
+            elevation="1"
+            min-height="160"
+            style="border-radius: 24px"
+            class="product-card mx-auto pt-2 h-100"
+          >
+            <v-img
+              :src="image"
+              max-width="90%"
+              max-height="90%"
+              style="border-radius: 24px"
+              class="mx-auto"
+              aspect-ratio="1"
+            ></v-img>
+            <v-card-title>
+              <div class="font-weight-bold text-body-1 brown--text">
+                {{ item.name }}
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <p class="text--primary font-weight-bold text-h5 mb-0">
+                {{ item.price }}
+                <span class="text--secondary text-caption price-unit"
+                  >هــزار تومان</span
+                >
+              </p>
+              <v-spacer></v-spacer>
+              <v-btn fab icon small color="cGreen"><v-icon>mdi-plus-circle</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row v-else class="mt-4" align="stretch" justify="center">
+        <v-col v-for="(item, i) in products" :key="i" cols="12" md="6">
+          <v-card
+            elevation="1"
+            min-height="160"
+            style="border-radius: 24px"
+            class="product-card mx-auto pt-2 h-100"
+          >
+            <v-img
+              src="/cake.jpg"
+              max-width="90%"
+              max-height="90%"
+              style="border-radius: 24px"
+              class="mx-auto"
+              aspect-ratio="1"
+            ></v-img>
+            <v-card-title>
+              <div class="font-weight-bold text-body-1 brown--text">
+                {{ item.name }}
+              </div>
+            </v-card-title>
+            <v-card-actions>
+              <p class="text--primary font-weight-bold text-h5 mb-0">
+                {{ item.price }}
+                <span class="text--secondary text-caption price-unit"
+                  >هــزار تومان</span
+                >
+              </p>
+              <v-spacer></v-spacer>
+              <v-btn fab icon small color="cGreen"><v-icon>mdi-plus-circle</v-icon></v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -346,7 +405,7 @@ export default {
               desc: '',
             },
           ],
-          sharbat: [
+          nectar: [
             {
               name: 'زعفران',
               price: '۳۹',
@@ -368,7 +427,7 @@ export default {
               desc: '',
             },
           ],
-          smoti: [
+          smoothie: [
             {
               name: 'بلک اسموتی',
               price: '۶۵',
@@ -385,7 +444,7 @@ export default {
               desc: '',
             },
           ],
-          mocktel: [
+          mocktail: [
             {
               name: 'لیموناد',
               price: '۳۸',
@@ -491,9 +550,9 @@ export default {
               name: `کافه فردا یه بیکری هم داره!
 بنابراین هر روز اینجا کیک‌های تازه،جذاب و متنوعی پخته و سرو می‌شه.
 پس حتماً به ویترین کیک کافه سر بزنید یا از ما سوال بپرسید.
-قیمت کیک‌هامون هم از ۲۵ تومان شروع می‌شه.
-در ضمن یک لیوان جای سیاه هم کنار کیک‌تون مهمون ما هستید!!
+در ضمن یک لیوان چای سیاه هم کنار کیک‌تون مهمون ما هستید!!
 (البته اگر در زمان سفارش بهمون بگید)`,
+              price: 'از ۲۵'
             },
           ],
         },
@@ -569,6 +628,19 @@ export default {
       const keys = Object.keys(this.menuData[this.$route.params.slug])
       return this.menuData[this.$route.params.slug][keys[this.selectedChip]]
     },
+    image(){
+      if(this.$route.params.slug === 'hot'){
+        return '/coffee-1.jpg'
+      } else if(this.$route.params.slug === 'cold'){
+        return '/ice.jpg'
+      } else if(this.$route.params.slug === 'cake'){
+        return '/cake.jpg'
+      } else if(this.$route.params.slug === 'breakfast'){
+        return '/breakfast.jpg'
+      } else {
+        return '/coffee-1.jpg'
+      }
+    }
   },
 }
 </script>

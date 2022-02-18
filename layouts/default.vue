@@ -24,26 +24,17 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer> -->
-    <v-app-bar
-      fixed
-      app
-      elevate-on-scroll
-      color="white"
-    >
-      <v-avatar
-        color="primary"
-        size="32"
-      >
-        <v-img src="https://pps.whatsapp.net/v/t61.24694-24/s96x96/237400857_272014584831846_6374262681021034317_n.jpg?ccb=11-4&oh=01_AVwViVmgLVZGn_lbItWO8WxBQ2zd1-rXon_xKdNSewJxlQ&oe=61F13C7B"></v-img>
+    <v-app-bar fixed app elevate-on-scroll color="white">
+      <v-avatar color="brown" size="32">
+        <v-img v-if="user.avatar" :src="user.avatar"></v-img>
+        <v-icon v-else dark size="28"> mdi-account-circle </v-icon>
       </v-avatar>
       <v-spacer></v-spacer>
-      <v-toolbar-title class="font-weight-bold brownish">کافه فردا</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-badge
-        color="#00522e"
-        dot
-        overlap
+      <v-toolbar-title class="font-weight-bold brownish"
+        >کافه فردا</v-toolbar-title
       >
+      <v-spacer></v-spacer>
+      <v-badge color="#00522e" dot overlap>
         <v-icon>mdi-bell</v-icon>
       </v-badge>
     </v-app-bar>
@@ -52,15 +43,8 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation
-      :value="value"
-      color="teal"
-      grow
-      shift
-      fixed
-      app
-    >
-      <v-btn>
+    <v-bottom-navigation color="teal" grow shift fixed app>
+      <v-btn to="/" nuxt exact>
         <span>خانه</span>
 
         <v-icon>mdi-home</v-icon>
@@ -83,10 +67,17 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      value: null
+      value: null,
     }
-  }
+  },
+  computed: {
+    user() {
+      return this.$store.state.user
+        ? this.$store.state.user
+        : { username: 'کافه فردایی', avatar: false }
+    },
+  },
 }
 </script>
