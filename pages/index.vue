@@ -4,7 +4,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" class="pa-0">
-            <p class="brownish font-weight-bold text-h6">
+            <p class="brownish text-h6">
               سلام {{ user.username }}، {{ greetingsBasedOnTime }}!
             </p>
             <div id="search-field-container">
@@ -80,7 +80,9 @@
                     <div class="font-weight-bold text-body-1 brown--text mt-4">
                       دابل اسپرسو
                     </div>
-                    <div class="font-weight-light text-body-2 text--secondary mt-2">
+                    <div
+                      class="font-weight-light text-body-2 text--secondary mt-2"
+                    >
                       یک فنجان دابل اسپرسو + یک اسلایس از کیک روز
                     </div>
                   </v-col>
@@ -113,7 +115,7 @@ export default {
         },
         {
           name: 'صبحانه',
-          url: 'breakfast',
+          url: 'sandwiches',
         },
       ],
     }
@@ -129,7 +131,7 @@ export default {
       const hour = date.getHours()
       if (hour < 12) {
         return 'صبح بخیر'
-      } else if (hour < 18) {
+      } else if (hour < 20) {
         return 'عصر بخیر'
       } else {
         return 'شب بخیر'

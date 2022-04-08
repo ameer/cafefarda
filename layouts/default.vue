@@ -50,7 +50,7 @@
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
-      <v-btn>
+      <v-btn to="/favorites">
         <span>پسندیده‌ها</span>
 
         <v-icon>mdi-heart</v-icon>

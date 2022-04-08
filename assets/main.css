@@ -2,15 +2,29 @@
   font-family: Vazir;
   font-weight: 400;
   font-display: swap;
-  src: url('~assets/fonts/Vazir-Thin-UI.woff') format('woff'),
-    url('/fonts/Vazir-Thin-UI.woff2') format('woff2');
+  src: url('~assets/fonts/Vazir-Light-UI.woff') format('woff'),
+    url('~assets/fonts/Vazir-Light-UI.woff2') format('woff2');
 }
 @font-face {
   font-family: Vazir;
   font-weight: 700;
   font-display: swap;
   src: url('~assets/fonts/Vazir-Black-UI.woff') format('woff'),
-    url('/fonts/Vazir-Black-UI.woff2') format('woff2');
+    url('~assets/fonts/Vazir-Black-UI.woff2') format('woff2');
+}
+@font-face {
+  font-family: VazirFarsiDigits;
+  font-weight: 700;
+  font-display: swap;
+  src: url('~assets/fonts/Vazir-Black-FD-WOL-UI.woff') format('woff'),
+    url('~assets/fonts/Vazir-Black-FD-WOL-UI.woff2') format('woff2');
+}
+.v-card--link:focus:before {
+  border-radius: 24px !important;
+}
+.faNum {
+  font-family: VazirFarsiDigits;
+  font-weight: bold;
 }
 .h-100 {
   height: 100%;
@@ -118,4 +132,11 @@ label[for='username'] {
 }
 .product-card .v-card__actions {
   margin-top: auto;
+}
+.product-detail-card .v-card__actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 !important;
 }

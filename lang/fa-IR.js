@@ -17,8 +17,8 @@ export default {
   cake: {
     cakes: 'کیک‌ها'
   },
-  breakfast: {
-    break: 'صبحانه'
+  sandwiches: {
+    sandwiches: 'ساندویچ‌ها'
   },
   avatarOptions: {
     top: {
