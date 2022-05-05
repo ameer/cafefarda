@@ -65,6 +65,7 @@ export default {
   },
   mounted() {
     this.avatar = `https://avataaars.io/`
+    this.username = this.$store.state.user.username
   },
   methods: {
     saveAvatar(newAvatar) {

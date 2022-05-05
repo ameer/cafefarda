@@ -25,32 +25,29 @@
       </v-list>
     </v-navigation-drawer> -->
     <v-app-bar fixed app elevate-on-scroll color="white">
-      <v-avatar color="brown" size="32">
+      <v-img src="/cafe-farda-logo.svg" contain max-height="42px" class="flex-1"></v-img>
+      <v-spacer></v-spacer>
+      <v-avatar color="brown" size="32" @click="$router.push('/startup/profileBuilder')">
         <v-img v-if="user.avatar" :src="user.avatar"></v-img>
         <v-icon v-else dark size="28"> mdi-account-circle </v-icon>
       </v-avatar>
-      <v-spacer></v-spacer>
-      <v-toolbar-title class="font-weight-bold brownish"
-        >کافه فردا</v-toolbar-title
-      >
-      <v-spacer></v-spacer>
-      <v-badge color="#00522e" dot overlap>
+      <!-- <v-badge color="#00522e" dot overlap>
         <v-icon>mdi-bell</v-icon>
-      </v-badge>
+      </v-badge> -->
     </v-app-bar>
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation color="teal" grow shift fixed app>
+    <v-bottom-navigation color="teal" grow  fixed app>
       <v-btn to="/" nuxt exact>
         <span>خانه</span>
 
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
-      <v-btn to="/favorites">
+      <!-- <v-btn to="/favorites">
         <span>پسندیده‌ها</span>
 
         <v-icon>mdi-heart</v-icon>
@@ -60,7 +57,7 @@
         <span>سبد خرید</span>
 
         <v-icon>mdi-cart</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-bottom-navigation>
   </v-app>
 </template>

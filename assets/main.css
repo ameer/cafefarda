@@ -140,3 +140,12 @@ label[for='username'] {
   right: 0;
   padding: 0 !important;
 }
+.flex-1 {
+  flex: 1 !important;
+}
+.v-slide-group__next--disabled, .v-slide-group__prev--disabled {
+  opacity: 0;
+}
+.backdrop-filter {
+  backdrop-filter: brightness(0.5);
+}

@@ -115,7 +115,7 @@ export default {
         },
         {
           name: 'صبحانه',
-          url: 'sandwiches',
+          url: 'breakfast',
         },
       ],
     }

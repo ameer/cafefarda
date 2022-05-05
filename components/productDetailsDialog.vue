@@ -6,7 +6,7 @@
       class="product-detail-card"
     >
       <div></div>
-      <v-img :src="image" contain>
+      <v-img :src="'/images/'+ product.image + '.jpg'" contain>
         <v-btn
           icon
           text
@@ -14,7 +14,7 @@
           left
           absolute
           small
-          class="mt-4"
+          class="mt-4 backdrop-filter"
           @click="closeDialog"
         >
           <v-icon>mdi-close</v-icon>
@@ -46,7 +46,7 @@
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
       <div></div>
-      <v-img :src="image" contain>
+      <v-img :src="'/images/'+ product.image + '.jpg'" contain>
         <v-btn
           icon
           text
@@ -54,7 +54,7 @@
           left
           absolute
           small
-          class="mt-4"
+          class="mt-4 backdrop-filter"
           @click="closeDialog"
         >
           <v-icon>mdi-close</v-icon>

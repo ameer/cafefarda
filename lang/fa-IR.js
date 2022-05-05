@@ -1,6 +1,6 @@
 export default {
   hot: {
-    espersso: 'اسپرسو بار',
+    espresso: 'اسپرسو بار',
     browing: 'بروئینگ بار',
     chocolate: 'چاکلت بار',
     hotbar: 'گرم نوش بار',
@@ -17,7 +17,7 @@ export default {
   cake: {
     cakes: 'کیک‌ها'
   },
-  sandwiches: {
+  breakfast: {
     sandwiches: 'ساندویچ‌ها'
   },
   avatarOptions: {
