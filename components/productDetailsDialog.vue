@@ -25,7 +25,7 @@
         :key="'vars-' + k"
       >
         <div>
-          <div class="font-weight-bold text-h4 brown--text">
+          <div class="font-weight-bold text-h5 mb-2 brown--text">
             {{ variable.name }}
           </div>
           <div class="text-body-2">
@@ -39,9 +39,9 @@
             >هــزار تومان</span
           >
         </div>
-        <v-btn fab icon small color="cGreen"
+        <!-- <v-btn fab icon small color="cGreen"
           ><v-icon>mdi-plus-circle</v-icon></v-btn
-        >
+        > -->
       </v-card-title>
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
@@ -101,13 +101,13 @@
           <v-chip dark :color="caffeine[0]">{{ caffeine[1] }}</v-chip>
         </div>
       </v-card-text>
-      <v-card-actions>
+      <!-- <v-card-actions>
         <v-btn tile block x-large min-height="64px" color="cGreen">
           <span class="white--text text-h6 font-weight-bold"
             >افزودن به سبد خرید</span
           >
         </v-btn>
-      </v-card-actions>
+      </v-card-actions> -->
     </v-card>
   </v-dialog>
 </template>

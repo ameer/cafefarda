@@ -7,7 +7,7 @@
             <p class="brownish text-h6">
               سلام {{ user.username }}، {{ greetingsBasedOnTime }}!
             </p>
-            <div id="search-field-container">
+            <!-- <div id="search-field-container">
               <v-text-field
                 background-color="#f4f4f4"
                 clearable
@@ -24,7 +24,7 @@
                   </v-btn>
                 </template>
               </v-text-field>
-            </div>
+            </div> -->
           </v-col>
           <v-col cols="12" class="pb-6">
             <p class="brownish font-weight-bold text-body-1 mb-0 mt-3">
@@ -59,7 +59,7 @@
               </nuxt-link>
             </v-col>
           </v-row>
-          <v-col cols="12">
+          <!-- <v-col cols="12">
             <p class="brownish font-weight-bold text-body-1 mb-4 mt-3">
               پیشنهاد ویژه🔥
             </p>
@@ -89,7 +89,7 @@
                 </v-row>
               </v-card-text>
             </v-card>
-          </v-col>
+          </v-col> -->
         </v-row>
       </v-container>
     </v-col>
@@ -114,7 +114,7 @@ export default {
           url: 'cake',
         },
         {
-          name: 'صبحانه',
+          name: 'ساندویچ',
           url: 'breakfast',
         },
       ],

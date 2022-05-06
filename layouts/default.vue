@@ -25,9 +25,19 @@
       </v-list>
     </v-navigation-drawer> -->
     <v-app-bar fixed app elevate-on-scroll color="white">
-      <v-img src="/cafe-farda-logo.svg" contain max-height="42px" class="flex-1"></v-img>
+      <v-img
+        src="/cafe-farda-logo.svg"
+        contain
+        max-height="42px"
+        class="flex-1"
+        @click="$router.push('/')"
+      ></v-img>
       <v-spacer></v-spacer>
-      <v-avatar color="brown" size="32" @click="$router.push('/startup/profileBuilder')">
+      <v-avatar
+        color="brown"
+        size="32"
+        @click="$router.push('/startup/profileBuilder')"
+      >
         <v-img v-if="user.avatar" :src="user.avatar"></v-img>
         <v-icon v-else dark size="28"> mdi-account-circle </v-icon>
       </v-avatar>
@@ -40,7 +50,7 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation color="teal" grow  fixed app>
+    <v-bottom-navigation color="teal" grow fixed app>
       <v-btn to="/" nuxt exact>
         <span>خانه</span>
 

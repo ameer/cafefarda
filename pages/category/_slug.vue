@@ -76,9 +76,9 @@
                 >
               </p>
               <v-spacer></v-spacer>
-              <v-btn fab icon small color="cGreen"
+              <!-- <v-btn fab icon small color="cGreen"
                 ><v-icon>mdi-plus-circle</v-icon></v-btn
-              >
+              > -->
             </v-card-actions>
           </v-card>
         </v-col>
