@@ -2,22 +2,22 @@
   font-family: Vazir;
   font-weight: 400;
   font-display: swap;
-  src: url('~assets/fonts/Vazir-Light-UI.woff') format('woff'),
-    url('~assets/fonts/Vazir-Light-UI.woff2') format('woff2');
+  src: url("~assets/fonts/Vazir-Light-UI.woff") format("woff"),
+    url("~assets/fonts/Vazir-Light-UI.woff2") format("woff2");
 }
 @font-face {
   font-family: Vazir;
   font-weight: 700;
   font-display: swap;
-  src: url('~assets/fonts/Vazir-Black-UI.woff') format('woff'),
-    url('~assets/fonts/Vazir-Black-UI.woff2') format('woff2');
+  src: url("~assets/fonts/Vazir-Black-UI.woff") format("woff"),
+    url("~assets/fonts/Vazir-Black-UI.woff2") format("woff2");
 }
 @font-face {
   font-family: VazirFarsiDigits;
   font-weight: 700;
   font-display: swap;
-  src: url('~assets/fonts/Vazir-Black-FD-WOL-UI.woff') format('woff'),
-    url('~assets/fonts/Vazir-Black-FD-WOL-UI.woff2') format('woff2');
+  src: url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff") format("woff"),
+    url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff2") format("woff2");
 }
 .v-card--link:focus:before {
   border-radius: 24px !important;
@@ -37,14 +37,10 @@
 }
 .brown-gr {
   background: #ce9f69;
-  background: radial-gradient(
-    circle,
-    rgba(206, 159, 105, 1) 0%,
-    rgba(176, 130, 80, 1) 100%
-  );
+  background: radial-gradient(circle, rgba(206, 159, 105, 1) 0%, rgba(176, 130, 80, 1) 100%);
 }
 body {
-  font-family: 'Vazir' !important;
+  font-family: "Vazir" !important;
 }
 .v-input__append-inner {
   margin: auto 0 !important;
@@ -105,7 +101,7 @@ body {
 .slide-enter {
   transform: translate(100%);
 }
-label[for='username'] {
+label[for="username"] {
   right: 0 !important;
   left: 0 !important;
   max-width: 100% !important;
@@ -143,7 +139,8 @@ label[for='username'] {
 .flex-1 {
   flex: 1 !important;
 }
-.v-slide-group__next--disabled, .v-slide-group__prev--disabled {
+.v-slide-group__next--disabled,
+.v-slide-group__prev--disabled {
   opacity: 0;
 }
 .backdrop-filter {
@@ -152,4 +149,7 @@ label[for='username'] {
 .v-speed-dial--direction-top.v-speed-dial--right .v-speed-dial__list {
   left: auto !important;
   right: 0 !important;
+}
+.v-main {
+  padding-bottom: 75px !important;
 }
