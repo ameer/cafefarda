@@ -50,25 +50,33 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation color="teal" grow fixed app>
-      <v-btn to="/" nuxt exact>
-        <span>خانه</span>
-
-        <v-icon>mdi-home</v-icon>
+    <v-speed-dial
+      v-model="fab"
+      bottom
+      app
+      fixed
+      :right="true"
+      :left="false"
+      direction="top"
+      transition="slide-y-reverse-transition"
+    >
+      <template #activator>
+        <v-btn v-model="fab" color="brown" dark fab>
+          <v-icon v-if="fab"> mdi-close </v-icon>
+          <v-icon v-else> mdi-menu </v-icon>
+        </v-btn>
+      </template>
+      <v-btn
+        v-for="(item, i) in cats"
+        :key="i"
+        fab
+        dark
+        color="brown darken-2"
+        @click="$router.push(`/category/${item.url}`)"
+      >
+        <v-img :src="`/icons/${item.url}.png`" contain max-height="32px"></v-img>
       </v-btn>
-
-      <!-- <v-btn to="/favorites">
-        <span>پسندیده‌ها</span>
-
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span>سبد خرید</span>
-
-        <v-icon>mdi-cart</v-icon>
-      </v-btn> -->
-    </v-bottom-navigation>
+    </v-speed-dial>
   </v-app>
 </template>
 
@@ -77,6 +85,25 @@ export default {
   data() {
     return {
       value: null,
+      fab: false,
+      cats: [
+        {
+          name: 'نوشیدنی گرم',
+          url: 'hot',
+        },
+        {
+          name: 'نوشیدنی سرد',
+          url: 'cold',
+        },
+        {
+          name: 'کیک',
+          url: 'cake',
+        },
+        {
+          name: 'ساندویچ',
+          url: 'breakfast',
+        },
+      ],
     }
   },
   computed: {
