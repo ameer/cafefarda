@@ -1,5 +1,6 @@
 export default {
   hot: {
+    name: 'نوشیدنی گرم',
     espresso: 'اسپرسو بار',
     browing: 'بروئینگ بار',
     chocolate: 'چاکلت بار',
@@ -8,6 +9,7 @@ export default {
     tea: 'چای بار',
   },
   cold: {
+    name: 'نوشیدنی سرد',
     ice: 'نوشیدنی یخ',
     nectar: 'شربت',
     smoothie: 'اسموتی',
@@ -15,9 +17,11 @@ export default {
     shake: 'شیک'
   },
   cake: {
+    name: 'کیک',
     cakes: 'کیک‌ها'
   },
   breakfast: {
+    name: 'ساندویچ‌ها',
     sandwiches: 'ساندویچ‌ها'
   },
   avatarOptions: {

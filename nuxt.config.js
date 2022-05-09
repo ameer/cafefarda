@@ -41,10 +41,25 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/i18n',
   ],
+  auth: {
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: 'http://localhost:8000'
+      },
+    },
+    redirect: {
+      login: '/auth/login',
+      logout: '/logout',
+      callback: '/login',
+      home: '/'
+    }
+  },
   i18n: {
     locales: [
       {
@@ -71,7 +86,10 @@ export default {
     },
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: '//api.cafefarda.ir',
+    withCredentials: true,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

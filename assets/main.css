@@ -19,12 +19,21 @@
   src: url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff") format("woff"),
     url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff2") format("woff2");
 }
+.pointer {
+  cursor: pointer;
+}
 .v-card--link:focus:before {
   border-radius: 24px !important;
 }
 .faNum {
   font-family: VazirFarsiDigits;
   font-weight: bold;
+}
+.fs-16 {
+  font-size: 16px !important;
+}
+.fs-18 {
+  font-size: 18px !important;
 }
 .h-100 {
   height: 100%;
@@ -152,4 +161,11 @@ label[for="username"] {
 }
 .v-main {
   padding-bottom: 75px !important;
+}
+.banded-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.banded-table tbody tr:nth-child(even) {
+  background-color: #e6e6e6;
 }

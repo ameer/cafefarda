@@ -1,9 +1,13 @@
 export const state = () => ({
+  products: {},
   user: JSON.parse(window.localStorage.getItem('user')),
   favs: window.localStorage.getItem('favs') === null ? [] : JSON.parse(window.localStorage.getItem('favs')) ,
 })
 
 export const mutations = {
+  setProducts(state, products) {
+    state.products = products
+  },
   setUser(state, user) {
     window.localStorage.setItem('user', JSON.stringify(user))
     state.user = user
