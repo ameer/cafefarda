@@ -1,12 +1,11 @@
 <template>
-  <v-dialog fullscreen transition="dialog-bottom-transition" :value="open">
+  <v-dialog :fullscreen="$vuetify.breakpoint.smAndDown" :max-width="$vuetify.breakpoint.smAndDown ? '' : '500px'" transition="dialog-bottom-transition" :value="open">
     <v-card
       v-if="product.isVariable"
       color="grey lighten-3"
       class="product-detail-card"
     >
-      <div></div>
-      <v-img :src="'/images/'+ product.image + '.jpg'" contain>
+      <v-img :src="'/images/'+ product.image + imageExt" contain>
         <v-btn
           icon
           text
@@ -46,7 +45,7 @@
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
       <div></div>
-      <v-img :src="'/images/'+ product.image + '.webp'" contain>
+      <v-img :src="'/images/'+ product.image + imageExt" contain>
         <v-btn
           icon
           text
@@ -125,6 +124,10 @@ export default {
     image: {
         type: String,
         default: '/coffee-1.jpg'
+    },
+    imageExt: {
+        type: String,
+        default: 'jpg'
     }
   },
   computed: {

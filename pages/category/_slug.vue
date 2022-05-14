@@ -3,9 +3,10 @@
     <product-details-dialog
       :open="dialogOpen"
       :product="selectedProduct"
+      :image-ext="imageExt"
       @close="dialogOpen = false"
     />
-    <v-col cols="12" md="6">
+    <v-col cols="12" md="6" lg="9">
       <v-slide-group v-model="selectedChip" show-arrows center-active mandatory>
         <v-slide-item
           v-for="(value, key, n) in menuData[$route.params.slug]"
@@ -29,23 +30,21 @@
         class="mt-4"
         align="stretch"
       >
-        <v-col v-for="(item, i) in products" :key="i" cols="6" md="4">
+        <v-col v-for="(item, i) in products" :key="i" cols="6" md="4" lg="3">
           <v-card
             elevation="1"
             min-height="160"
             style="border-radius: 24px"
-            class="product-card mx-auto pt-2 h-100"
+            class="product-card mx-auto pt-0 h-100"
             @click="openDetailDialog(item)"
           >
             <v-img
-              :src="'/images/' + item.image + '.webp'"
-              max-width="90%"
-              max-height="90%"
+              :src="'/images/' + item.image + imageExt"
               style="border-radius: 24px"
               class="mx-auto"
               aspect-ratio="1"
               lazy-src="/images/cafe-farda-logo.webp"
-            >
+            />
               <!-- <v-btn
                 icon
                 class="backdrop-filter"
@@ -54,7 +53,6 @@
                 @click.stop="toggleFavs(item.name)"
                 ><v-icon>mdi-heart</v-icon></v-btn
               > -->
-            </v-img>
             <v-card-title>
               <div class="font-weight-bold text-body-1 brown--text">
                 {{ item.name }}
@@ -112,9 +110,9 @@
                 >
               </p>
               <v-spacer></v-spacer>
-              <v-btn fab icon small color="cGreen"
+              <!-- <v-btn fab icon small color="cGreen"
                 ><v-icon>mdi-plus-circle</v-icon></v-btn
-              >
+              > -->
             </v-card-actions>
           </v-card>
         </v-col>
@@ -127,15 +125,19 @@ import productDetailsDialog from '~/components/productDetailsDialog.vue'
 export default {
   components: { productDetailsDialog },
   layout: 'default',
-  data() {
+    data() {
     return {
       dialogOpen: false,
       selectedChip: 0,
       selectedProduct: {},
       menuData: {},
+      webpSupport: false,
     }
   },
   computed: {
+    imageExt(){
+      return this.webpSupport ? '.webp' : '.jpg'
+    },
     products() {
       if (Object.keys(this.menuData).length === 0) {
         return []
@@ -157,14 +159,20 @@ export default {
       }
     },
   },
-  beforeMount() {
-    this.$axios.get('/storage/menuData.json').then((response) => {
-      this.menuData = response.data
-    })
+  async beforeMount() {
+    this.menuData = await this.$store.state.products
+  },
+  mounted(){
+    this.testWebP(document.body)
   },
   methods: {
-    calcImage(i) {
-      return `/new (${Math.floor(Math.random() * 22) + 1}).jpeg`
+    testWebP (elem) {
+      const self = this
+      const webP = new Image();
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      webP.onload = webP.onerror = function () {
+        self.webpSupport = webP.height === 2
+      }
     },
     openDetailDialog(item) {
       this.selectedProduct = item

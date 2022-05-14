@@ -60,13 +60,13 @@ export default {
     '@nuxtjs/gtm',
   ],
   gtm: {
-    id: 'GTM-XXXXXXX', // Used as fallback if no runtime config is provided
+    id: 'GTM-KN2BKP3', // Used as fallback if no runtime config is provided
   },
   auth: {
     strategies: {
       laravelSanctum: {
         provider: 'laravel/sanctum',
-        url: '//api.fardacafe.ir'
+        url: process.env.baseUrl || '//api.fardacafe.ir',
       },
     },
     redirect: {
@@ -103,7 +103,7 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '//api.fardacafe.ir',
+    baseURL: process.env.baseUrl || '//api.fardacafe.ir',
     withCredentials: true,
   },
 

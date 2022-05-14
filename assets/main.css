@@ -51,6 +51,9 @@
 body {
   font-family: "Vazir" !important;
 }
+.relative {
+  position: relative;
+}
 .v-input__append-inner {
   margin: auto 0 !important;
 }

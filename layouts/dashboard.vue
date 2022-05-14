@@ -4,7 +4,9 @@
       <v-spacer></v-spacer>
       <div class="pointer">
         <v-icon left large>mdi-account-circle</v-icon>
-        <span>{{ $store.$auth.user.name }}</span>
+        <span>{{
+          $store.$auth.user !== null ? $store.$auth.user.name : 'user'
+        }}</span>
       </div>
     </v-app-bar>
     <v-navigation-drawer app right fixed>
@@ -51,7 +53,7 @@
 </template>
 <script>
 export default {
-  middleware: 'auth',
+  // middleware: 'auth',
   data() {
     return {
       navItems: [
