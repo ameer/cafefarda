@@ -38,13 +38,13 @@
             @click="openDetailDialog(item)"
           >
             <v-img
-              :src="'/images/' + item.image + '.jpg'"
+              :src="'/images/' + item.image + '.webp'"
               max-width="90%"
               max-height="90%"
               style="border-radius: 24px"
               class="mx-auto"
               aspect-ratio="1"
-              lazy-src="/cafe-farda-logo.jpg"
+              lazy-src="/images/cafe-farda-logo.webp"
             >
               <!-- <v-btn
                 icon
@@ -158,7 +158,7 @@ export default {
     },
   },
   beforeMount() {
-    this.$axios.get('http://localhost:8000/data/menu').then((response) => {
+    this.$axios.get('/storage/menuData.json').then((response) => {
       this.menuData = response.data
     })
   },

@@ -46,7 +46,7 @@
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
       <div></div>
-      <v-img :src="'/images/'+ product.image + '.jpg'" contain>
+      <v-img :src="'/images/'+ product.image + '.webp'" contain>
         <v-btn
           icon
           text
