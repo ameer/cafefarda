@@ -1,11 +1,11 @@
 <template>
-  <v-dialog :fullscreen="$vuetify.breakpoint.smAndDown" :max-width="$vuetify.breakpoint.smAndDown ? '' : '500px'" transition="dialog-bottom-transition" :value="open">
+  <v-dialog :fullscreen="$vuetify.breakpoint.smAndDown" :max-width="$vuetify.breakpoint.smAndDown ? '' : '500px'" transition="dialog-bottom-transition" :value="open" @click:outside="closeDialog">
     <v-card
       v-if="product.isVariable"
       color="grey lighten-3"
       class="product-detail-card"
     >
-      <v-img :src="'/images/'+ product.image + imageExt" contain>
+      <v-img :src="image" contain>
         <v-btn
           icon
           text
@@ -45,7 +45,7 @@
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
       <div></div>
-      <v-img :src="'/images/'+ product.image + imageExt" contain>
+      <v-img :src="image" contain>
         <v-btn
           icon
           text
@@ -166,7 +166,7 @@ export default {
   },
   methods: {
     closeDialog() {
-      this.$emit('close')
+      this.$emit('close', false)
     },
   },
 }

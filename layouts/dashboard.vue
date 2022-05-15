@@ -53,7 +53,7 @@
 </template>
 <script>
 export default {
-  // middleware: 'auth',
+  middleware: 'auth',
   data() {
     return {
       navItems: [
@@ -72,6 +72,19 @@ export default {
       this.menuData = response.data
     })
   },
+  mounted(){
+    this.testWebP()
+  },
+  methods: {
+    testWebP (elem) {
+      const self = this
+      const webP = new Image();
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      webP.onload = webP.onerror = function () {
+        self.$store.commit('setWebpSupport', webP.height === 2) 
+      }
+    }
+  }
 }
 </script>
 <style></style>

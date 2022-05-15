@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <image-select-dialog :image="dialogImageURL" :image-ext="$store.getters.imageExt" :images="images" :open="imageSelectDialogOpen" :url="apiURL" @close="imageSelectDialogOpen = false"></image-select-dialog>
     <v-row>
       <v-col cols="12" sm="3" class="mb-4">
         <v-select
@@ -62,7 +63,6 @@
             hide-default-footer
             no-data-text="لطفا یک دسته را انتخاب کنید"
             fixed-header
-            hide-default-header
           >
             <template
               v-for="(header, i) in headers"
@@ -71,6 +71,9 @@
               <span v-if="header.readonly" :key="i">
                 {{ item[header.value] }}
               </span>
+              <v-btn v-else-if="header.type === 'image'" :key="'image-'+i" @click="openSelectImageDialog(item)">
+                  مشاهده و ویرایش
+              </v-btn>
               <v-edit-dialog
                 v-else
                 :key="'edit-dialog-' + i"
@@ -107,10 +110,13 @@
   </v-container>
 </template>
 <script>
+import imageSelectDialog from '~/components/imageSelectDialog.vue'
 export default {
+  components: { imageSelectDialog },
   layout: 'dashboard',
   data() {
     return {
+      imageSelectDialogOpen: false,
       editedItem: {},
       selectedCategory: '',
       selectedSubCategory: '',
@@ -121,7 +127,7 @@ export default {
         {
           text: 'نام',
           align: 'start',
-          sortable: false,
+          sortable: true,
           value: 'name',
           class: 'text-body-1 font-weight-bold',
           cellClass: 'text-body-1',
@@ -141,8 +147,18 @@ export default {
           type: 'textarea',
           class: 'text-body-1 font-weight-bold',
         },
+        {
+          text: 'تصویر',
+          value: 'image',
+          type: 'image',
+          sortable: false,
+          readonly: false,
+          class: 'text-body-1 font-weight-bold',
+        },
       ],
       unsaved: false,
+      images: [],
+      selectedProduct: {},
     }
   },
   computed: {
@@ -150,6 +166,18 @@ export default {
       return Object.keys(this.$store.state.products).length
         ? Object.keys(this.$store.state.products)
         : []
+    },
+    dialogImageURL(){
+      if(this.selectedProduct.image){
+        return `${this.apiURL}/images/${this.imageExt}/${this.selectedProduct.image}.${this.imageExt}`
+      }
+      return `${this.apiURL}/images/${this.imageExt}/cafe-farda-logo.${this.imageExt}`
+    },
+    apiURL(){
+      return this.$axios.defaults.baseURL + '/storage'
+    },
+    imageExt(){
+      return this.$store.getters.imageExt
     },
   },
   watch: {
@@ -179,10 +207,23 @@ export default {
       this.getProducts()
     })
   },
+  mounted() {
+    this.getImages()
+  },
   beforeDestroy() {
     this.$nuxt.$off('dataLoaded')
   },
   methods: {
+    getImages() {
+      const ext = this.$store.getters.imageExt.replace(/\./g, '')
+      this.$axios.get(`/api/images/${ext}`, {withCredentials: true}).then(res => {
+        this.images = res.data.map(image => image.replace(/public/g, ''))
+      })
+    },
+    openSelectImageDialog(item) {
+      this.selectedProduct = item
+      this.imageSelectDialogOpen = true
+    },
     getProducts() {
       this.products = JSON.parse(JSON.stringify(this.$store.state.products))
     },

@@ -3,6 +3,7 @@
     <product-details-dialog
       :open="dialogOpen"
       :product="selectedProduct"
+      :image="dialogImageURL"
       :image-ext="imageExt"
       @close="dialogOpen = false"
     />
@@ -39,7 +40,7 @@
             @click="openDetailDialog(item)"
           >
             <v-img
-              :src="'/images/' + item.image + imageExt"
+              :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`"
               style="border-radius: 24px"
               class="mx-auto"
               aspect-ratio="1"
@@ -135,8 +136,17 @@ export default {
     }
   },
   computed: {
+    dialogImageURL(){
+      if(this.selectedProduct.image){
+        return `${this.apiURL}/images/${this.imageExt}/${this.selectedProduct.image}.${this.imageExt}`
+      }
+      return `${this.apiURL}/images/${this.imageExt}/cafe-farda-logo.${this.imageExt}`
+    },
+    apiURL(){
+      return this.$axios.defaults.baseURL + '/storage'
+    },
     imageExt(){
-      return this.webpSupport ? '.webp' : '.jpg'
+      return this.$store.getters.imageExt
     },
     products() {
       if (Object.keys(this.menuData).length === 0) {
