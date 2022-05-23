@@ -131,11 +131,13 @@ export default {
       dialogOpen: false,
       selectedChip: 0,
       selectedProduct: {},
-      menuData: {},
       webpSupport: false,
     }
   },
   computed: {
+    menuData(){
+      return this.$store.state.products
+    },
     dialogImageURL(){
       if(this.selectedProduct.image){
         return `${this.apiURL}/images/${this.imageExt}/${this.selectedProduct.image}.${this.imageExt}`
@@ -168,9 +170,6 @@ export default {
         return '/coffee-1.jpg'
       }
     },
-  },
-  async beforeMount() {
-    this.menuData = await this.$store.state.products
   },
   mounted(){
     this.testWebP(document.body)

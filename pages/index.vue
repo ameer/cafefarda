@@ -114,7 +114,7 @@ export default {
           url: 'cake',
         },
         {
-          name: 'ساندویچ',
+          name: 'کلاب',
           url: 'breakfast',
         },
       ],
