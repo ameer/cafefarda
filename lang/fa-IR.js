@@ -10,7 +10,7 @@ export default {
   },
   cold: {
     name: 'نوشیدنی سرد',
-    ice: 'نوشیدنی یخ',
+    ice: 'آیس بار',
     nectar: 'شربت',
     smoothie: 'اسموتی',
     mocktail: 'ماکتل',

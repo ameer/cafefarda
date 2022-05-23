@@ -60,7 +60,6 @@
             :items="filterdProducts"
             :items-per-page="5"
             class="elevation-1 banded-table"
-            hide-default-footer
             no-data-text="لطفا یک دسته را انتخاب کنید"
             fixed-header
           >
