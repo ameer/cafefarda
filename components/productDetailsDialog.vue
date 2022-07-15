@@ -11,7 +11,7 @@
         class="d-flex align-center flex-wrap mt-8">
         <div class="font-weight-bold text-h5 mb-2 brown--text">
           {{ variable.name }} 
-          <v-img class="d-inline-block vr-middle" contain :src="`/icons/${variable.flag}.svg`" width="24" height="24"></v-img>
+          <!-- <v-img class="d-inline-block vr-middle" contain :src="`/icons/${variable.flag}.svg`" width="24" height="24"></v-img> -->
         </div>
         <v-spacer></v-spacer>
         <div class="text--primary text-h5 font-weight-bold mb-0">
