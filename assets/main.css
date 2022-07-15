@@ -151,6 +151,9 @@ label[for="username"] {
 .flex-1 {
   flex: 1 !important;
 }
+.flex-100 {
+  flex: 1 1 100% !important;
+}
 .v-slide-group__next--disabled,
 .v-slide-group__prev--disabled {
   opacity: 0;
@@ -171,4 +174,7 @@ label[for="username"] {
 
 .banded-table tbody tr:nth-child(even) {
   background-color: #e6e6e6;
+}
+.vr-middle {
+  vertical-align: middle;
 }

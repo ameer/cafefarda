@@ -1,61 +1,52 @@
 <template>
-  <v-dialog :fullscreen="$vuetify.breakpoint.smAndDown" :max-width="$vuetify.breakpoint.smAndDown ? '' : '500px'" transition="dialog-bottom-transition" :value="open" @click:outside="closeDialog">
-    <v-card
-      v-if="product.isVariable"
-      color="grey lighten-3"
-      class="product-detail-card"
-    >
+  <v-dialog :fullscreen="$vuetify.breakpoint.smAndDown" :max-width="$vuetify.breakpoint.smAndDown ? '' : '500px'"
+    transition="dialog-bottom-transition" :value="open" @click:outside="closeDialog">
+    <v-card v-if="product.isVariable" color="grey lighten-3" class="product-detail-card">
       <v-img :src="image" contain>
-        <v-btn
-          icon
-          text
-          color="white"
-          left
-          absolute
-          small
-          class="mt-4 backdrop-filter"
-          @click="closeDialog"
-        >
+        <v-btn icon text color="white" left absolute small class="mt-4 backdrop-filter" @click="closeDialog">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-img>
-      <v-card-title
-        v-for="(variable, k) in product.variables"
-        :key="'vars-' + k"
-      >
-        <div>
-          <div class="font-weight-bold text-h5 mb-2 brown--text">
-            {{ variable.name }}
-          </div>
-          <div class="text-body-2">
-            ارتفاع کشت: <span>{{ variable.height }}</span>
-          </div>
+      <v-card-text v-for="(variable, k) in product.variables" :key="'vars-' + k"
+        class="d-flex align-center flex-wrap mt-8">
+        <div class="font-weight-bold text-h5 mb-2 brown--text">
+          {{ variable.name }} 
+          <v-img class="d-inline-block vr-middle" contain :src="`/icons/${variable.flag}.svg`" width="24" height="24"></v-img>
         </div>
         <v-spacer></v-spacer>
         <div class="text--primary text-h5 font-weight-bold mb-0">
           <span class="price faNum">{{ variable.price }}</span>
-          <span class="text--secondary text-caption price-unit"
-            >هــزار تومان</span
-          >
+          <span class="text--secondary text-caption price-unit">هــزار تومان</span>
         </div>
-        <!-- <v-btn fab icon small color="cGreen"
-          ><v-icon>mdi-plus-circle</v-icon></v-btn
-        > -->
-      </v-card-title>
+        <div class="flex-100 mt-4">
+          <div class="mb-2">
+            <v-icon color="brown lighten-1">mdi-waves-arrow-up</v-icon>
+            <span class="mx-1 brown--text">ارتفاع کشت:</span>
+            <span class="faNum">{{ variable.height }} متر</span>
+          </div>
+          <div class="mb-2">
+            <v-icon color="brown lighten-1">mdi-coffee-maker-outline</v-icon>
+            <span class="mx-1 brown--text">روش فرآوری:</span>
+            <span class="faNum">{{ variable.method }}</span>
+          </div>
+          <div class="mb-2">
+            <v-icon color="brown lighten-1">mdi-leaf</v-icon>
+            <span class="mx-1 brown--text">طعم‌یادها:</span>
+            <span class="faNum">{{ variable.mem[0].replaceAll('/', ' | ') }}</span>
+          </div>
+          <div v-if="variable.type !== ''" class="mb-2">
+            <v-icon color="brown lighten-1">mdi-star</v-icon>
+            <span class="mx-1 brown--text">نمره ارزیابی:</span>
+            <v-chip label color="green darken-2" dark class="">{{ Intl.NumberFormat('fa-IR').format(variable.type) }}</v-chip>
+          </div>
+        </div>
+        <v-divider class="flex-100 mt-8"></v-divider>
+      </v-card-text>
     </v-card>
     <v-card v-else color="grey lighten-3" class="product-detail-card">
       <div></div>
       <v-img :src="image" contain>
-        <v-btn
-          icon
-          text
-          color="white"
-          left
-          absolute
-          small
-          class="mt-4 backdrop-filter"
-          @click="closeDialog"
-        >
+        <v-btn icon text color="white" left absolute small class="mt-4 backdrop-filter" @click="closeDialog">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-img>
@@ -65,9 +56,7 @@
         </div>
         <div class="text--primary text-h5 font-weight-bold mb-0">
           <span class="price faNum">{{ product.price }}</span>
-          <span class="text--secondary text-caption price-unit"
-            >هــزار تومان</span
-          >
+          <span class="text--secondary text-caption price-unit">هــزار تومان</span>
         </div>
       </v-card-title>
       <v-card-text>
@@ -85,13 +74,7 @@
         <v-divider class="my-4"></v-divider>
         <div v-if="hasFlavor" class="mt-4">
           <span class="text-body-1"> طعم‌یادها: </span>
-          <v-chip
-            v-for="(flavor, i) in product.etc.mem"
-            :key="'flavor-' + i"
-            color="brown darken-2"
-            class="mx-1"
-            dark
-          >
+          <v-chip v-for="(flavor, i) in product.etc.mem" :key="'flavor-' + i" color="brown darken-2" class="mx-1" dark>
             <span class="text-body-2">{{ flavor }}</span>
           </v-chip>
         </div>
@@ -119,15 +102,15 @@ export default {
     },
     product: {
       type: Object,
-      default: () => {},
+      default: () => { },
     },
     image: {
-        type: String,
-        default: '/coffee-1.jpg'
+      type: String,
+      default: '/coffee-1.jpg'
     },
     imageExt: {
-        type: String,
-        default: 'jpg'
+      type: String,
+      default: 'jpg'
     }
   },
   computed: {
@@ -171,4 +154,5 @@ export default {
   },
 }
 </script>
-<style></style>
+<style>
+</style>
