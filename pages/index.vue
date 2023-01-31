@@ -1,10 +1,10 @@
 <template>
   <v-row justify-md="center">
-    <v-col cols="12" md="6" lg="9">
+    <v-col cols="12" lg="9">
       <v-container>
         <v-row>
           <v-col cols="12" class="pa-0">
-            <p class="brownish text-h6">
+            <p class="fardaGreenish text-h6">
               سلام {{ user.username }}، {{ greetingsBasedOnTime }}!
             </p>
             <!-- <div id="search-field-container">
@@ -27,7 +27,7 @@
             </div> -->
           </v-col>
           <v-col cols="12" class="pb-6">
-            <p class="brownish font-weight-bold text-body-1 mb-0 mt-3">
+            <p class="fardaGreenish font-weight-bold text-body-1 mb-0 mt-3">
               دسته‌بندی‌ها
             </p>
           </v-col>
@@ -44,7 +44,7 @@
                 :to="`/category/${cat.url}`"
                 class="text-decoration-none"
               >
-                <v-card color="#8a624a" rounded="xl" elevation="0">
+                <v-card color="fardaGreen" rounded="xl" elevation="0">
                   <v-card-text>
                     <v-img
                       :src="`/icons/${cat.url}.png`"
@@ -60,7 +60,7 @@
             </v-col>
           </v-row>
           <!-- <v-col cols="12">
-            <p class="brownish font-weight-bold text-body-1 mb-4 mt-3">
+            <p class="fardaGreenish font-weight-bold text-body-1 mb-4 mt-3">
               پیشنهاد ویژه🔥
             </p>
             <v-card style="border-radius: 24px" min-height="128px">
@@ -77,7 +77,7 @@
                   </v-col>
                   <v-col cols="7">
                     <v-chip>تخفیف ویژه</v-chip>
-                    <div class="font-weight-bold text-body-1 brown--text mt-4">
+                    <div class="font-weight-bold text-body-1 fardaGreen--text mt-4">
                       دابل اسپرسو
                     </div>
                     <div
@@ -114,7 +114,7 @@ export default {
           url: 'cake',
         },
         {
-          name: 'کلاب',
+          name: 'کلاب و ساندویچ',
           url: 'breakfast',
         },
       ],

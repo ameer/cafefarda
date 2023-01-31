@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0 h-100 brown-gr">
+  <v-container fluid class="pa-0 h-100 fardaGreen-gr">
     <avatar-dialog
       :open="avatarDialogOpen"
       :avatar="avatar"
@@ -10,13 +10,13 @@
       <v-container class="h-100">
         <v-row align="center" justify="center" class="h-100">
           <v-col cols="12" md="6" class="text-center" align-self="start">
-            <h3 class="text-h3 font-weight-bold text-center py-4 brownish">
+            <h3 class="text-h3 font-weight-bold text-center py-4 fardaGreenish">
               کافه فردا
             </h3>
           </v-col>
           <v-col align-self="start" cols="12" md="6" class="text-center">
             <v-avatar
-              color="brown"
+              color="fardaGreen"
               size="150px"
               @click="avatarDialogOpen = true"
             >

@@ -2,7 +2,7 @@
   <v-row justify-md="center">
     <product-details-dialog :open="dialogOpen" :product="selectedProduct" :image="dialogImageURL" :image-ext="imageExt"
       @close="dialogOpen = false" />
-    <v-col cols="12" md="6" lg="9">
+    <v-col cols="12" lg="9">
       <v-slide-group v-model="selectedChip" show-arrows center-active mandatory>
         <v-slide-item v-for="(value, key, n) in menuData[$route.params.slug]" :key="n" v-slot="{ active, toggle }">
           <v-btn class="mx-2" :input-value="active" active-class="cGreen white--text" depressed rounded @click="toggle">
@@ -11,7 +11,7 @@
         </v-slide-item>
       </v-slide-group>
       <v-row v-if="products && $route.params.slug !== 'cake'" class="mt-4" align="stretch">
-        <v-col v-for="(item, i) in products" :key="i" cols="6" md="4" lg="3">
+        <v-col v-for="(item, i) in products" :key="i" cols="6" sm="4" md="3" xl="2">
           <v-card elevation="1" min-height="160" style="border-radius: 24px" class="product-card mx-auto pt-0 h-100"
             @click="openDetailDialog(item)">
             <v-img :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`" style="border-radius: 24px"
@@ -25,13 +25,13 @@
                 ><v-icon>mdi-heart</v-icon></v-btn
               > -->
             <v-card-title>
-              <div class="font-weight-bold text-body-1 brown--text">
+              <div class="font-weight-bold text-body-1 fardaGreen--text">
                 {{ item.name }}
               </div>
             </v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn v-if="item.isVariable" class="font-weight-bold text-body-2 rounded-xl" dark outlined color="brown">
+              <v-btn v-if="item.isVariable" class="font-weight-bold text-body-2 rounded-xl" dark outlined color="fardaGreen">
                 <span class="">مشاهده گزینه‌ها</span>
               </v-btn>
               <p v-else class="text--primary font-weight-bold text-h5 mb-0">
@@ -51,7 +51,7 @@
             <v-img src="/cake.jpg" max-width="90%" max-height="90%" style="border-radius: 24px" class="mx-auto"
               aspect-ratio="1"></v-img>
             <v-card-title>
-              <div class="font-weight-bold text-body-1 brown--text">
+              <div class="font-weight-bold text-body-1 fardaGreen--text">
                 {{ item.name }}
               </div>
             </v-card-title>

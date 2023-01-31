@@ -124,6 +124,7 @@ export default {
       themes: {
         light: {
           cGreen: '#00522e',
+          fardaGreen: '#386864'
         },
         dark: {
           primary: colors.blue.darken2,

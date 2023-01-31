@@ -7,14 +7,14 @@
   >
     <v-card color="grey lighten-3">
       <v-form ref="avatarForm" @submit.prevent="saveAvatar">
-        <v-toolbar dark color="brown">
+        <v-toolbar dark color="fardaGreen">
           <v-btn icon dark @click="closeDialog">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title>ساخت آواتار</v-toolbar-title>
         </v-toolbar>
         <v-card-title class="justify-center">
-          <v-avatar color="brown" size="150px" class="mb-4">
+          <v-avatar color="fardaGreen" size="150px" class="mb-4">
             <v-img v-if="newAvatar" :src="newAvatar"></v-img>
             <v-icon v-else dark size="128"> mdi-account-circle </v-icon>
           </v-avatar>
@@ -68,7 +68,7 @@
         <v-card-actions>
           <v-btn
             block
-            color="brown darken-2"
+            color="fardaGreen darken-2"
             dark
             x-large
             rounded
@@ -147,8 +147,8 @@ export default {
         'Black',
         'Blonde',
         'BlondeGolden',
-        'Brown',
-        'BrownDark',
+        'fardaGreen',
+        'fardaGreenDark',
         'PastelPink',
         'Platinum',
         'Red',

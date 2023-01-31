@@ -9,7 +9,7 @@
       </v-img>
       <v-card-text v-for="(variable, k) in product.variables" :key="'vars-' + k"
         class="d-flex align-center flex-wrap mt-8">
-        <div class="font-weight-bold text-h5 mb-2 brown--text">
+        <div class="font-weight-bold text-h5 mb-2 fardaGreen--text">
           {{ variable.name }} 
           <!-- <v-img class="d-inline-block vr-middle" contain :src="`/icons/${variable.flag}.svg`" width="24" height="24"></v-img> -->
         </div>
@@ -20,23 +20,23 @@
         </div>
         <div class="flex-100 mt-4">
           <div class="mb-2">
-            <v-icon color="brown lighten-1">mdi-waves-arrow-up</v-icon>
-            <span class="mx-1 brown--text">ارتفاع کشت:</span>
+            <v-icon color="fardaGreen lighten-1">mdi-waves-arrow-up</v-icon>
+            <span class="mx-1 fardaGreen--text">ارتفاع کشت:</span>
             <span class="faNum">{{ variable.height }} متر</span>
           </div>
           <div class="mb-2">
-            <v-icon color="brown lighten-1">mdi-coffee-maker-outline</v-icon>
-            <span class="mx-1 brown--text">روش فرآوری:</span>
+            <v-icon color="fardaGreen lighten-1">mdi-coffee-maker-outline</v-icon>
+            <span class="mx-1 fardaGreen--text">روش فرآوری:</span>
             <span class="faNum">{{ variable.method }}</span>
           </div>
           <div class="mb-2">
-            <v-icon color="brown lighten-1">mdi-leaf</v-icon>
-            <span class="mx-1 brown--text">طعم‌یادها:</span>
+            <v-icon color="fardaGreen lighten-1">mdi-leaf</v-icon>
+            <span class="mx-1 fardaGreen--text">طعم‌یادها:</span>
             <span class="faNum">{{ variable.mem[0].replaceAll('/', ' | ') }}</span>
           </div>
           <div v-if="variable.type !== ''" class="mb-2">
-            <v-icon color="brown lighten-1">mdi-star</v-icon>
-            <span class="mx-1 brown--text">نمره ارزیابی:</span>
+            <v-icon color="fardaGreen lighten-1">mdi-star</v-icon>
+            <span class="mx-1 fardaGreen--text">نمره ارزیابی:</span>
             <v-chip label color="green darken-2" dark class="">{{ Intl.NumberFormat('fa-IR').format(variable.type) }}</v-chip>
           </div>
         </div>
@@ -51,7 +51,7 @@
         </v-btn>
       </v-img>
       <v-card-title class="justify-space-between">
-        <div class="font-weight-bold text-h4 brown--text">
+        <div class="font-weight-bold text-h4 fardaGreen--text">
           {{ product.name }}
         </div>
         <div class="text--primary text-h5 font-weight-bold mb-0">
@@ -74,7 +74,7 @@
         <v-divider class="my-4"></v-divider>
         <div v-if="hasFlavor" class="mt-4">
           <span class="text-body-1"> طعم‌یادها: </span>
-          <v-chip v-for="(flavor, i) in product.etc.mem" :key="'flavor-' + i" color="brown darken-2" class="mx-1" dark>
+          <v-chip v-for="(flavor, i) in product.etc.mem" :key="'flavor-' + i" color="fardaGreen darken-2" class="mx-1" dark>
             <span class="text-body-2">{{ flavor }}</span>
           </v-chip>
         </div>

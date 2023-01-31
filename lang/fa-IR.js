@@ -22,7 +22,8 @@ export default {
   },
   breakfast: {
     name: 'کلاب',
-    sandwiches: '‌کلاب'
+    sandwiches: 'ساندویچ',
+    club: 'کلاب'
   },
   avatarOptions: {
     top: {

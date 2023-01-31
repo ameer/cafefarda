@@ -3,7 +3,7 @@
     <v-app-bar fixed app elevate-on-scroll color="white">
       <v-container class="px-0">
         <v-row align="center" justify="center">
-          <v-col cols="12" md="6" lg="9" class="d-flex align-center">
+          <v-col cols="12" lg="9" class="d-flex align-center">
             <div>
               <v-img
                 src="/cafe-farda-logo.svg"
@@ -16,7 +16,7 @@
             </div>
             <v-spacer></v-spacer>
             <v-avatar
-              color="brown"
+              color="fardaGreen"
               size="32"
               @click="$router.push('/startup/profileBuilder')"
             >
@@ -46,7 +46,7 @@
       transition="slide-y-reverse-transition"
     >
       <template #activator>
-        <v-btn v-model="fab" color="brown" dark fab>
+        <v-btn v-model="fab" color="fardaGreen" dark fab>
           <v-icon v-if="fab"> mdi-close </v-icon>
           <v-icon v-else> mdi-menu </v-icon>
         </v-btn>
@@ -56,7 +56,7 @@
         :key="i"
         fab
         dark
-        color="brown darken-2"
+        color="fardaGreen darken-2"
         @click="$router.push(`/category/${item.url}`)"
       >
         <v-img
