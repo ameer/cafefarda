@@ -3,7 +3,7 @@
     <product-details-dialog :open="dialogOpen" :product="selectedProduct" :image="dialogImageURL" :image-ext="imageExt"
       @close="dialogOpen = false" />
     <v-col cols="12" lg="9">
-      <v-slide-group v-model="selectedChip" show-arrows center-active mandatory>
+      <v-slide-group v-if="products && $route.params.slug !== 'cake'" v-model="selectedChip" center-active mandatory>
         <v-slide-item v-for="(value, key, n) in menuData[$route.params.slug]" :key="n" v-slot="{ active, toggle }">
           <v-btn class="mx-2" :input-value="active" active-class="cGreen white--text" depressed rounded @click="toggle">
             {{ $t(`${$route.params.slug}.${key}`, $route.params.locale) }}
@@ -13,9 +13,11 @@
       <v-row v-if="products && $route.params.slug !== 'cake'" class="mt-4" align="stretch">
         <v-col v-for="(item, i) in products" :key="i" cols="6" sm="4" md="3" xl="2">
           <v-card elevation="1" min-height="160" style="border-radius: 24px" class="product-card mx-auto pt-0 h-100"
-            @click="openDetailDialog(item)">
-            <v-img :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`" style="border-radius: 24px"
+            color="#e1ddd4" @click="openDetailDialog(item)">
+            <div class="pa-2">
+              <v-img :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`" style="border-radius: 24px"
               class="mx-auto" aspect-ratio="1" lazy-src="/images/cafe-farda-logo.webp" />
+            </div>
             <!-- <v-btn
                 icon
                 class="backdrop-filter"
@@ -24,19 +26,19 @@
                 @click.stop="toggleFavs(item.name)"
                 ><v-icon>mdi-heart</v-icon></v-btn
               > -->
-            <v-card-title>
+              <div class="golden-idea thin mb-2 mx-auto"></div>
+            <v-card-title class="justify-center py-0">
               <div class="font-weight-bold text-body-1 fardaGreen--text">
                 {{ item.name }}
               </div>
             </v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn v-if="item.isVariable" class="font-weight-bold text-body-2 rounded-xl" dark outlined color="fardaGreen">
-                <span class="">مشاهده گزینه‌ها</span>
+            <v-card-actions class="justify-center">
+              <v-btn v-if="item.isVariable" class="font-weight-bold text-body-2 rounded-xl" dark outlined color="fardaGreen" block>
+                <span class="font-weight-regular">مشاهده لاین‌های قهوه</span>
               </v-btn>
-              <p v-else class="text--primary font-weight-bold text-h5 mb-0">
-                <span class="price faNum">{{ item.price }}</span>
-                <span class="text--secondary text-caption price-unit">هــزار تومان</span>
+              <p v-else class="text-body-1 mb-0 d-flex">
+                <span class="text--secondary price faNum me-1 mt-1">{{ item.price }}</span>
+                <span class="text--secondary price-unit">هــزار تومان</span>
               </p>
               <!-- <v-btn fab icon small color="cGreen"
                 ><v-icon>mdi-plus-circle</v-icon></v-btn
@@ -51,7 +53,7 @@
             <v-img src="/cake.jpg" max-width="90%" max-height="90%" style="border-radius: 24px" class="mx-auto"
               aspect-ratio="1"></v-img>
             <v-card-title>
-              <div class="font-weight-bold text-body-1 fardaGreen--text">
+              <div class="font-weight-regular text-center text-body-2 fardaGreen--text">
                 {{ item.name }}
               </div>
             </v-card-title>
@@ -82,6 +84,11 @@ export default {
       selectedChip: 0,
       selectedProduct: {},
       webpSupport: false,
+    }
+  },
+  head(){
+    return {
+      title: this.$t(this.$route.params.slug).name,
     }
   },
   computed: {
@@ -144,4 +151,14 @@ export default {
 }
 </script>
 <style>
+.golden-idea {
+  background-color: #c8933f;
+  height: 6px;
+  width: 36px;
+  border-radius: 4px;
+}
+.golden-idea.thin {
+   height: 3px;
+  width: 28px;
+}
 </style>

@@ -1,20 +1,20 @@
 <template>
   <v-app>
-    <v-app-bar fixed app elevate-on-scroll color="white">
+    <v-app-bar fixed app elevate-on-scroll color="#f7f6f2">
       <v-container class="px-0">
         <v-row align="center" justify="center">
-          <v-col cols="12" lg="9" class="d-flex align-center">
+          <v-col cols="12" lg="9" class="d-flex align-center justify-center">
             <div>
               <v-img
                 src="/cafe-farda-logo.svg"
                 contain
                 max-height="42px"
-                max-width="165px"
+                max-width="128px"
                 class="flex-1 pointer"
                 @click="$router.push('/')"
               ></v-img>
             </div>
-            <v-spacer></v-spacer>
+            <!-- <v-spacer></v-spacer>
             <v-avatar
               color="fardaGreen"
               size="32"
@@ -22,7 +22,7 @@
             >
               <v-img v-if="user.avatar" :src="user.avatar"></v-img>
               <v-icon v-else dark size="28"> mdi-account-circle </v-icon>
-            </v-avatar>
+            </v-avatar> -->
             <!-- <v-badge color="#00522e" dot overlap>
         <v-icon>mdi-bell</v-icon>
       </v-badge> -->
@@ -35,7 +35,7 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-speed-dial
+    <!-- <v-speed-dial
       v-model="fab"
       bottom
       app
@@ -63,9 +63,31 @@
           :src="`/icons/${item.url}.png`"
           contain
           max-height="32px"
+          eager
         ></v-img>
       </v-btn>
-    </v-speed-dial>
+    </v-speed-dial> -->
+    <v-footer fixed color="transparent">
+      <v-sheet color="fardaGreen darken-2" width="100%" class="d-flex align-center justify-space-between rounded-xl px-2 py-4">
+        <v-btn
+        v-for="(item, i) in cats"
+        :key="i"
+        plain
+        width="32px"
+        height="32px"
+        color="fardaGreen darken-2"
+        @click="$router.push(`/category/${item.url}`)"
+      >
+        <v-img
+          :src="`/icons/${item.url}.png`"
+          contain
+          max-width="32px"
+          max-height="32px"
+          eager
+        ></v-img>
+      </v-btn>
+      </v-sheet>
+    </v-footer>
   </v-app>
 </template>
 

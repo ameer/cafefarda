@@ -26,11 +26,11 @@
               </v-text-field>
             </div> -->
           </v-col>
-          <v-col cols="12" class="pb-6">
+          <!-- <v-col cols="12" class="pb-6">
             <p class="fardaGreenish font-weight-bold text-body-1 mb-0 mt-3">
               دسته‌بندی‌ها
             </p>
-          </v-col>
+          </v-col> -->
           <v-row class="overflow-hidden" dense>
             <v-col
               v-for="(cat, i) in cats"
@@ -99,6 +99,7 @@
 export default {
   data() {
     return {
+      title: 'منو',
       active: false,
       cats: [
         {
@@ -118,6 +119,11 @@ export default {
           url: 'breakfast',
         },
       ],
+    }
+  },
+  head(){
+    return {
+      title: this.title,
     }
   },
   computed: {

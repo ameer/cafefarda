@@ -8,7 +8,7 @@
   >
     <v-card color="grey lighten-3" class="product-detail-card">
       <v-card-text>
-        <v-img :src="image" contain>
+        <v-img :src="image">
           <v-btn
             icon
             text

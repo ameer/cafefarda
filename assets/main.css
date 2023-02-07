@@ -16,8 +16,10 @@
   font-family: VazirFarsiDigits;
   font-weight: 700;
   font-display: swap;
-  src: url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff") format("woff"),
-    url("~assets/fonts/Vazir-Black-FD-WOL-UI.woff2") format("woff2");
+  src: url("~assets/fonts/Vazirmatn-UI-FD-Regular.woff2") format("woff2");
+}
+.theme--light.v-application {
+  background-color: #e7e6e1 !important;
 }
 .pointer {
   cursor: pointer;
@@ -126,7 +128,7 @@ label[for="username"] {
 .price-unit {
   display: inline-block;
   width: 28px;
-  font-weight: bold !important;
+  font-size: 10px !important;
   line-height: 12px !important;
   vertical-align: baseline;
 }
