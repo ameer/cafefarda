@@ -26,12 +26,29 @@
               </v-text-field>
             </div> -->
           </v-col>
+          <v-col
+            v-for="(subCategory, category, i) in categories"
+            :key="`category-box-${i}`"
+            cols="12"
+            class="pa-0"
+          >
+            <CategoryBox :category="category" :sub-categories="subCategory" />
+            <v-divider class="mb-6 mt-4"></v-divider>
+          </v-col>
           <!-- <v-col cols="12" class="pb-6">
             <p class="fardaGreenish font-weight-bold text-body-1 mb-0 mt-3">
               دسته‌بندی‌ها
             </p>
           </v-col> -->
-          <v-row class="overflow-hidden" dense>
+          <!-- <v-col cols="12">
+            <div ref="zoneChanger" class="zone-changer">
+              <div class="d-flex align-center justify-center">
+                <button v-for="(z, j) in zones" :key="`zone-btn-${j}`" :class="zone === j ? 'active' : ''" @click="changeZone(j)">{{ z }}</button>
+              </div>
+              <div class="sliding-bg" :style="`width:${slidingBgWidth}px;transform: translateX(${slidingBgX}px);`"></div>
+            </div>
+          </v-col> -->
+          <!-- <v-row class="overflow-hidden" dense>
             <v-col
               v-for="(cat, i) in cats"
               :key="i"
@@ -58,7 +75,7 @@
                 </v-card>
               </nuxt-link>
             </v-col>
-          </v-row>
+          </v-row> -->
           <!-- <v-col cols="12">
             <p class="fardaGreenish font-weight-bold text-body-1 mb-4 mt-3">
               پیشنهاد ویژه🔥
@@ -96,11 +113,19 @@
   </v-row>
 </template>
 <script>
+import CategoryBox from '~/components/categoryBox.vue'
+
 export default {
+  // eslint-disable-next-line vue/no-unused-components
+  components: { CategoryBox },
   data() {
     return {
       title: 'منو',
       active: false,
+      slidingBgWidth: 0,
+      slidingBgX: -8,
+      zones: ['Regular Zone', 'Cafein Zone'],
+      zone: 0,
       cats: [
         {
           name: 'نوشیدنی گرم',
@@ -119,14 +144,40 @@ export default {
           url: 'breakfast',
         },
       ],
+      toShowCategories: ['hot', 'cold']
     }
   },
-  head(){
+  head() {
     return {
       title: this.title,
     }
   },
   computed: {
+    menuData() {
+      return this.$store.state.products
+    },
+    categories () {
+      const categories = {}
+      const keys = Object.keys(this.menuData)
+      if (keys.length === 0) {
+        return []
+      }
+      keys.forEach((key) => {
+        if(this.toShowCategories.includes(key)){
+          categories[key] = this.menuData[key]
+        }
+      })
+      return categories
+    },
+
+    // products() {
+    //   if (Object.keys(this.menuData).length === 0) {
+    //     return []
+    //   }
+    //   const 
+    //   const keys = Object.keys(this.menuData[this.$route.params.slug])
+    //   return this.menuData[this.$route.params.slug][keys[this.selectedChip]]
+    // },
     user() {
       return this.$store.state.user
         ? this.$store.state.user
@@ -145,9 +196,53 @@ export default {
     },
   },
   mounted() {
+    // const zoneChangerWidth = this.$refs.zoneChanger.clientWidth
+    // this.slidingBgWidth = (zoneChangerWidth / this.zones.length) - 8
     setTimeout(() => {
       this.active = true
     }, 600)
   },
+  methods: {
+    changeZone(index) {
+      this.zone = index
+      this.slidingBgX = index * this.slidingBgWidth * -1 - 8
+    },
+  },
 }
 </script>
+<style>
+.zone-changer {
+  background: #f7f6f2;
+  border-radius: 36px;
+  padding: 30px 0;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.zone-changer div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.zone-changer div button {
+  flex: 1 1 0px;
+  transition: all 0.3s ease-in-out;
+}
+.zone-changer div button.active {
+  color: #fff;
+  font-weight: bold;
+}
+.zone-changer .sliding-bg {
+  background: #386864;
+  position: absolute;
+  height: 84%;
+  top: 8%;
+  opacity: 1;
+  z-index: 0;
+  border-radius: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+</style>

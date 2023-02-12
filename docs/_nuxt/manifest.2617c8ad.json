@@ -1,9 +1,0 @@
-{
-  "name": "cafefarda",
-  "short_name": "cafefarda",
-  "icons": [],
-  "start_url": "/?standalone=true",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "lang": "fa"
-}

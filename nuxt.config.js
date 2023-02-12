@@ -6,7 +6,7 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  pageTransition: 'page-transition',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - کافه فردا',
@@ -21,7 +21,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/main.css'],
+  css: ['~/assets/main.css', '~/assets/farda-cafe-fonticon.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -124,7 +124,8 @@ export default {
       themes: {
         light: {
           cGreen: '#00522e',
-          fardaGreen: '#386864'
+          fardaGreen: '#386864',
+          spanishGrey: '#949291'
         },
         dark: {
           primary: colors.blue.darken2,

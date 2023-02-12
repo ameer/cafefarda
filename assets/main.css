@@ -16,7 +16,15 @@
   font-family: VazirFarsiDigits;
   font-weight: 700;
   font-display: swap;
-  src: url("~assets/fonts/Vazirmatn-UI-FD-Regular.woff2") format("woff2");
+  src: url("~assets/fonts/Vazirmatn-FD-SemiBold.woff2") format("woff2");
+}
+.page-transition-enter-active,
+.page-transition-leave-active {
+  transition: opacity 0.5s;
+}
+.page-transition-enter,
+.page-transition-leave-to {
+  opacity: 0;
 }
 .theme--light.v-application {
   background-color: #e7e6e1 !important;
@@ -55,6 +63,9 @@ body {
 }
 .relative {
   position: relative;
+}
+.position-absolute {
+  position: absolute;
 }
 .v-input__append-inner {
   margin: auto 0 !important;
@@ -125,6 +136,9 @@ label[for="username"] {
   font-weight: bold;
   text-align: center;
 }
+.price.faNum {
+  margin-top: 2px;
+}
 .price-unit {
   display: inline-block;
   width: 28px;
@@ -167,9 +181,9 @@ label[for="username"] {
   left: auto !important;
   right: 0 !important;
 }
-.v-main {
+/* .v-main {
   padding-bottom: 75px !important;
-}
+} */
 .banded-table tbody tr:nth-child(odd) {
   background-color: #ffffff;
 }
@@ -179,4 +193,7 @@ label[for="username"] {
 }
 .vr-middle {
   vertical-align: middle;
+}
+.no-arrows-slide-group .v-slide-group__next, .v-slide-group__prev {
+  display: none !important;
 }

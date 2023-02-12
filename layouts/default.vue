@@ -67,26 +67,34 @@
         ></v-img>
       </v-btn>
     </v-speed-dial> -->
-    <v-footer fixed color="transparent">
-      <v-sheet color="fardaGreen darken-2" width="100%" class="d-flex align-center justify-space-between rounded-xl px-2 py-4">
-        <v-btn
-        v-for="(item, i) in cats"
-        :key="i"
-        plain
-        width="32px"
-        height="32px"
-        color="fardaGreen darken-2"
-        @click="$router.push(`/category/${item.url}`)"
-      >
-        <v-img
-          :src="`/icons/${item.url}.png`"
-          contain
-          max-width="32px"
-          max-height="32px"
-          eager
-        ></v-img>
-      </v-btn>
-      </v-sheet>
+    <v-footer fixed color="transparent" class="px-3" app>
+      <v-container class="relative pa-0">
+        <div class="golden-idea position-absolute"></div>
+        <v-row justify-md="center" no-gutters>
+          <v-col cols="12" md="9" lg="6">
+            <v-sheet
+              color="#f5f4f0"
+              width="100%"
+              class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3"
+            >
+              
+              <nuxt-link
+                v-for="(item, i) in cats"
+                :key="i"
+                class="bottom-nav__btn"
+                :to="`/category/${item.url}`"
+              >
+                <v-icon color="" class="text-h4 text-md-h3">{{
+                  `icon-${item.icon}`
+                }}</v-icon>
+                <span class="text-body-2 text-md-body-1">{{
+                  item.name
+                }}</span>
+              </nuxt-link>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-footer>
   </v-app>
 </template>
@@ -101,18 +109,22 @@ export default {
         {
           name: 'نوشیدنی گرم',
           url: 'hot',
+          icon: 'hot',
         },
         {
           name: 'نوشیدنی سرد',
           url: 'cold',
+          icon: 'ice',
         },
         {
           name: 'کیک',
           url: 'cake',
+          icon: 'cake',
         },
         {
           name: 'ساندویچ',
           url: 'breakfast',
+          icon: 'burger',
         },
       ],
     }
@@ -132,3 +144,43 @@ export default {
   },
 }
 </script>
+<style>
+.bottom-nav__btn {
+  text-decoration: none !important;
+  align-items: center;
+  display: flex;
+  flex-direction: column !important;
+  flex: 1 1 0px;
+  transform: scale(.9);
+  transition: all .34s ease-in-out;
+}
+.bottom-nav__btn.nuxt-link-active {
+  transform: scale(1);
+}
+.golden-idea.position-absolute {
+    height: 4px;
+    top: 0;
+    left: 50%;
+    margin-left: -18px;
+}
+.bottom-nav__btn span {
+  color: #787878;
+}
+.bottom-nav__btn.nuxt-link-active .v-icon {
+ color: #324843;
+
+}
+.bottom-nav__btn.bottom-nav__btn.nuxt-link-active span {
+  color: #386864;
+  font-weight: bold;
+
+}
+
+@media (min-width: 960px) {
+  .golden-idea.position-absolute {
+    width: 64px;
+    height: 6px;
+    margin-left: -32px;
+  }
+}
+</style>
