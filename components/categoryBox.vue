@@ -13,7 +13,7 @@
       </v-col>
       <v-col cols="12" class="pa-0">
         <v-slide-group class="no-arrows-slide-group" :show-arrows="false">
-            <v-slide-item v-for="(products, subCategory, i) in subCategories" :key="`sub-category-${i}`">
+            <v-slide-item v-for="(subCategory, i) in subCategories" :key="`sub-category-${i}`">
                 <CategoryCard :title="subCategory" :product="products[0]" :index="i" :category="category" />
             </v-slide-item>
             <!-- <v-row>
@@ -34,16 +34,22 @@
 import CategoryCard from './categoryCard.vue'
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: { CategoryCard },
   props: {
     category: {
       type: String,
       default: ''
     },
-    subCategories: {
-      type: Object,
-      default: () => {},
+    products: {
+      type: Array,
+      default: () => [],
     },
+  },
+  computed: {
+    subCategories(){
+      return [...new Set(this.products.map(p => p.subCategory))]
+    }
   },
 }
 </script>

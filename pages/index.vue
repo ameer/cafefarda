@@ -4,35 +4,17 @@
       <v-container>
         <v-row>
           <v-col cols="12" class="pa-0">
-            <p class="fardaGreenish text-h6">
+            <!-- <p class="fardaGreenish text-h6">
               سلام {{ user.username }}، {{ greetingsBasedOnTime }}!
-            </p>
-            <!-- <div id="search-field-container">
-              <v-text-field
-                background-color="#f4f4f4"
-                clearable
-                label="جستجو در منو"
-                filled
-                rounded
-                single-line
-                prepend-inner-icon="mdi-magnify"
-                hide-details="auto"
-              >
-                <template #append>
-                  <v-btn elevation="0" dark rounded fab small color="#cca069">
-                    <v-icon>mdi-tune</v-icon>
-                  </v-btn>
-                </template>
-              </v-text-field>
-            </div> -->
+            </p> -->
           </v-col>
           <v-col
-            v-for="(subCategory, category, i) in categories"
+            v-for="(category, i) in toShowCategories"
             :key="`category-box-${i}`"
             cols="12"
             class="pa-0"
           >
-            <CategoryBox :category="category" :sub-categories="subCategory" />
+            <CategoryBox :category="category" :products="featuredProducts.filter((p) => p.category === category)" />
             <v-divider class="mb-6 mt-4"></v-divider>
           </v-col>
           <!-- <v-col cols="12" class="pb-6">
@@ -114,7 +96,6 @@
 </template>
 <script>
 import CategoryBox from '~/components/categoryBox.vue'
-
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: { CategoryBox },
@@ -144,7 +125,7 @@ export default {
           url: 'breakfast',
         },
       ],
-      toShowCategories: ['hot', 'cold']
+      toShowCategories: ['hot', 'cold'],
     }
   },
   head() {
@@ -153,21 +134,17 @@ export default {
     }
   },
   computed: {
-    menuData() {
+    products() {
       return this.$store.state.products
     },
-    categories () {
-      const categories = {}
-      const keys = Object.keys(this.menuData)
-      if (keys.length === 0) {
-        return []
-      }
-      keys.forEach((key) => {
-        if(this.toShowCategories.includes(key)){
-          categories[key] = this.menuData[key]
-        }
+    featuredProducts () {
+     let featuredProducts = []
+      if(this.products.length > 0){
+        featuredProducts = this.products.filter((item) => {
+        return this.toShowCategories.includes(item.category)
       })
-      return categories
+      }
+      return featuredProducts
     },
 
     // products() {
@@ -198,6 +175,7 @@ export default {
   mounted() {
     // const zoneChangerWidth = this.$refs.zoneChanger.clientWidth
     // this.slidingBgWidth = (zoneChangerWidth / this.zones.length) - 8
+
     setTimeout(() => {
       this.active = true
     }, 600)

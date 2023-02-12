@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-app-bar fixed app elevate-on-scroll color="#f7f6f2">
+      <SearchDialog :open="searchDialog.open" :results="searchResults" @closeDialog="closeSearchDialog" @search="search" />
       <v-container class="px-0">
         <v-row align="center" justify="center">
           <v-col cols="12" lg="9" class="d-flex align-center justify-center">
@@ -32,6 +33,21 @@
     </v-app-bar>
     <v-main>
       <v-container>
+        <div id="search-field-container" class="mb-4">
+          <v-text-field
+            background-color="#f7f6f2"
+            clearable
+            label="جستجو در منو"
+            filled
+            dense
+            rounded
+            single-line
+            prepend-inner-icon="mdi-magnify"
+            hide-details="auto"
+            @click="openSearchDialog"
+          >
+          </v-text-field>
+        </div>
         <Nuxt />
       </v-container>
     </v-main>
@@ -77,7 +93,6 @@
               width="100%"
               class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3"
             >
-              
               <nuxt-link
                 v-for="(item, i) in cats"
                 :key="i"
@@ -87,9 +102,7 @@
                 <v-icon color="" class="text-h4 text-md-h3">{{
                   `icon-${item.icon}`
                 }}</v-icon>
-                <span class="text-body-2 text-md-body-1">{{
-                  item.name
-                }}</span>
+                <span class="text-body-2 text-md-body-1">{{ item.name }}</span>
               </nuxt-link>
             </v-sheet>
           </v-col>
@@ -100,11 +113,18 @@
 </template>
 
 <script>
+import SearchDialog from '~/components/searchDialog.vue'
+
 export default {
+  components: { SearchDialog },
   data() {
     return {
       value: null,
       fab: false,
+      searchDialog: {
+        open: false
+      },
+      searchResults: [],
       cats: [
         {
           name: 'نوشیدنی گرم',
@@ -135,12 +155,26 @@ export default {
         ? this.$store.state.user
         : { username: 'کافه فردایی', avatar: false }
     },
+    products() {
+      return this.$store.state.products
+    },
   },
   beforeMount() {
-    this.$axios.get('/storage/menuData.json').then((response) => {
+    this.$axios.get('http://localhost:3000/menu.json').then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })
+  },
+  methods: {
+    openSearchDialog(){
+      this.searchDialog.open = true
+    },
+    closeSearchDialog(){
+      this.searchDialog.open = false
+    },
+    search(query){
+      this.searchResults =  this.products.filter((p) => {return p.name.includes(query)})
+    }
   },
 }
 </script>
@@ -151,29 +185,27 @@ export default {
   display: flex;
   flex-direction: column !important;
   flex: 1 1 0px;
-  transform: scale(.9);
-  transition: all .34s ease-in-out;
+  transform: scale(0.9);
+  transition: all 0.34s ease-in-out;
 }
 .bottom-nav__btn.nuxt-link-active {
   transform: scale(1);
 }
 .golden-idea.position-absolute {
-    height: 4px;
-    top: 0;
-    left: 50%;
-    margin-left: -18px;
+  height: 4px;
+  top: 0;
+  left: 50%;
+  margin-left: -18px;
 }
 .bottom-nav__btn span {
   color: #787878;
 }
 .bottom-nav__btn.nuxt-link-active .v-icon {
- color: #324843;
-
+  color: #324843;
 }
 .bottom-nav__btn.bottom-nav__btn.nuxt-link-active span {
   color: #386864;
   font-weight: bold;
-
 }
 
 @media (min-width: 960px) {
