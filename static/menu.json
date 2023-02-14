@@ -21,7 +21,8 @@
             "روبوستا ۳۰٪"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "اسپرسو کامرشیال,عربیکا ۷۰٪,روبوستا ۳۰٪"
     },
     {
         "id": "9p7to2",
@@ -42,7 +43,8 @@
             "عربیکا ۱۰۰٪"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "اسپرسو پریمیوم,عربیکا ۱۰۰٪"
     },
     {
         "id": "3dcogl",
@@ -63,7 +65,8 @@
             "عربیکا ۱۰۰٪"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "اسپرسو اسپشیالتی,عربیکا ۱۰۰٪"
     },
     {
         "id": "fl5pt7",
@@ -87,7 +90,8 @@
             "آب جوش"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "آمریکانو کامرشیال,اسپرسو کامرشیال,آب جوش"
     },
     {
         "id": "mrwvi8",
@@ -109,7 +113,8 @@
             "آب جوش"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "آمریکانو پریمیوم,اسپرسو پریمیوم,آب جوش"
     },
     {
         "id": "ywo44q",
@@ -132,7 +137,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "کاپوچینو,اسپرسو کامرشیال,شیر,فوم شیر"
     },
     {
         "id": "densqd",
@@ -155,7 +161,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "لاته,اسپرسو کامرشیال,شیر,فوم شیر"
     },
     {
         "id": "mlvev2",
@@ -181,7 +188,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "موکا,اسپرسو کامرشیال,شکلات,شیر,فوم شیر"
     },
     {
         "id": "ahq7h8",
@@ -205,7 +213,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "كارامل ماکیاتو,اسپرسو کامرشیال,سیروپ کارامل,شیر,فوم شیر"
     },
     {
         "id": "ddkbal",
@@ -224,7 +233,8 @@
             "اسپرسو کامرشیال"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "رد آی,فرنچ‌پرس,اسپرسو کامرشیال"
     },
     {
         "id": "9kf065",
@@ -244,7 +254,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "کافه اوله,نسکافه گلد,شیر,فوم شیر"
     },
     {
         "id": "gwefsg",
@@ -260,7 +271,8 @@
             "بستنی وانیلی"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "آفوگاتو,اسپرسو کامرشیال,بستنی وانیلی"
     },
     {
         "id": "1hn0wm",
@@ -278,7 +290,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "پامکین لاته,اسپرسو کامرشیال,سیروپ کدو تنبل,شیر,فوم شیر"
     },
     {
         "id": "ngsjy6",
@@ -296,7 +309,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "اسپنیش لاته,اسپرسو کامرشیال,شیر عسلی,شیر,فوم شیر"
     },
     {
         "id": "pf95e2",
@@ -314,7 +328,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "منگو لاته,اسپرسو کامرشیال,آب انبه,شیر,فوم شیر"
     },
     {
         "id": "n7simh",
@@ -332,7 +347,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "کوکی لاته,اسپرسو کامرشیال,کوکی,شیر,فوم شیر"
     },
     {
         "id": "etkrju",
@@ -350,7 +366,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "espresso"
+        "subCategory": "espresso",
+        "precache": "وایت موکا لاته,اسپرسو کامرشیال,وایت چاکلت,شیر,فوم شیر"
     },
     {
         "id": "xl2222",
@@ -443,7 +460,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "V60,"
     },
     {
         "id": "yd0sii",
@@ -536,7 +554,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "کمکس,"
     },
     {
         "id": "nqa5bk",
@@ -629,7 +648,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "Gem,"
     },
     {
         "id": "nvlvf4",
@@ -722,7 +742,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "کالیتا,"
     },
     {
         "id": "9jd3sa",
@@ -815,7 +836,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "کلور,"
     },
     {
         "id": "rn0fs7",
@@ -908,7 +930,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "فرنچ پرس,"
     },
     {
         "id": "09pag1",
@@ -1001,7 +1024,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "سایفون,"
     },
     {
         "id": "hgctg6",
@@ -1094,7 +1118,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "ائروپرس,"
     },
     {
         "id": "akzwh3",
@@ -1187,7 +1212,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "فیلترکافی,"
     },
     {
         "id": "v4sbwq",
@@ -1203,7 +1229,8 @@
             "آب"
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "قهوه ترک,پودر قهوه ترک,آب"
     },
     {
         "id": "pekp58",
@@ -1220,7 +1247,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "قهوه یونانی,قهوه ترک,شیر,فوم شیر"
     },
     {
         "id": "qmnghj",
@@ -1235,7 +1263,8 @@
             "قهوه ی سرد دم"
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "کلدبرو,قهوه ی سرد دم"
     },
     {
         "id": "ysuocv",
@@ -1250,7 +1279,8 @@
             "دمنوش گیلاس قهوه"
         ],
         "category": "hot",
-        "subCategory": "browing"
+        "subCategory": "browing",
+        "precache": "کاسکارا,دمنوش گیلاس قهوه"
     },
     {
         "id": "4k5d9f",
@@ -1268,7 +1298,8 @@
             "بستنی شکالتی"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "پریمیوم چاکلت,هات چاکلت,گردو,کیت کت,بستنی شکالتی"
     },
     {
         "id": "3hecaq",
@@ -1284,7 +1315,8 @@
             "موز"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "فروت چاکلت,هات چاکلت,موز"
     },
     {
         "id": "in3isp",
@@ -1301,7 +1333,8 @@
             "خامه"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "آمریکن استایل,هات چاکلت,بادام زمینی,خامه"
     },
     {
         "id": "s09ikc",
@@ -1318,7 +1351,8 @@
             "موز"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "ویسکوزی چاکلت,وایت چاکلت,بیسکوئیت,موز"
     },
     {
         "id": "nllywt",
@@ -1335,7 +1369,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "شیر نوتلا,نوتلا,شیر,فوم شیر"
     },
     {
         "id": "makfcb",
@@ -1354,7 +1389,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "هات چاکلت,پودر کاکائو,شکر,قوام دهنده,شیر,فوم شیر"
     },
     {
         "id": "htxwry",
@@ -1374,7 +1410,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "وایت چاکلت,پودر شکلات سفید,شکر,وانیل,قوام دهنده,شیر,فوم شیر"
     },
     {
         "id": "p04y91",
@@ -1389,7 +1426,8 @@
             "هات چاکلت غلیظ"
         ],
         "category": "hot",
-        "subCategory": "chocolate"
+        "subCategory": "chocolate",
+        "precache": "دارک چاکلت,هات چاکلت غلیظ"
     },
     {
         "id": "tro2yo",
@@ -1409,7 +1447,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "hotbar"
+        "subCategory": "hotbar",
+        "precache": "سلپ,پودر سلپ ترکی,دارچین,وانیل,گوارگام,شیر,فوم شیر"
     },
     {
         "id": "umlucc",
@@ -1431,7 +1470,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "hotbar"
+        "subCategory": "hotbar",
+        "precache": "ماسالا,میخک,جوزهندی,دارچین,هل,رازیانه,بادیان,شیر,فوم شیر"
     },
     {
         "id": "1jv5b4",
@@ -1449,7 +1489,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "hotbar"
+        "subCategory": "hotbar",
+        "precache": "چای لاته,چای سیاه دمی,سیروپ دارچین,شیر,فوم شیر"
     },
     {
         "id": "5f9b0o",
@@ -1468,7 +1509,8 @@
             "فوم شیر"
         ],
         "category": "hot",
-        "subCategory": "hotbar"
+        "subCategory": "hotbar",
+        "precache": "شیر عسل دارچین,عسل,پودر دارچین,سیروپ دارچین,شیر,فوم شیر"
     },
     {
         "id": "80ug8q",
@@ -1487,7 +1529,8 @@
             "زرشک"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "کویین بری,چای ترش,توت فرنگی,گل سرخ,کرن بری,زرشک"
     },
     {
         "id": "kfs6l8",
@@ -1507,7 +1550,8 @@
             "زردچوبه"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "ویکتوریا سان ست,شیرین بیان,رازیانه,زنجبیل,دارچین,فلفل,زردچوبه"
     },
     {
         "id": "xpkat7",
@@ -1525,7 +1569,8 @@
             "شیرین بیان"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "گلدن وانیلا,سیب,میخک,وانیل,شیرین بیان"
     },
     {
         "id": "ucob6b",
@@ -1542,7 +1587,8 @@
             "چای ترش"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "مولن رژ,لبو,به,چای ترش"
     },
     {
         "id": "3h8f0o",
@@ -1559,7 +1605,8 @@
             "چوب دارچین"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "سیب دارچین,سیب,سیروپ دارچین,چوب دارچین"
     },
     {
         "id": "lpo7vs",
@@ -1576,7 +1623,8 @@
             "گل محمدی"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "سیب زعفران,سیب,زعفران,گل محمدی"
     },
     {
         "id": "9ussdk",
@@ -1593,7 +1641,8 @@
             "دارچین دودی"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "کهربا,چای ترش,آب آلبالو,دارچین دودی"
     },
     {
         "id": "9d9wtb",
@@ -1608,7 +1657,8 @@
             "محتواش رو خودت بگو(محتویاتش رو خودت بگو)"
         ],
         "category": "hot",
-        "subCategory": "dami"
+        "subCategory": "dami",
+        "precache": "دمنوش فردا,محتواش رو خودت بگو(محتویاتش رو خودت بگو)"
     },
     {
         "id": "1hkwdb",
@@ -1627,7 +1677,8 @@
             "نبات"
         ],
         "category": "hot",
-        "subCategory": "tea"
+        "subCategory": "tea",
+        "precache": "چای سیاه معطر,چای سیاه دمی,چوب دارچین,گل محمدی,قند,نبات"
     },
     {
         "id": "felwuc",
@@ -1643,7 +1694,8 @@
             "سرو به همراه مربا بالنگ"
         ],
         "category": "hot",
-        "subCategory": "tea"
+        "subCategory": "tea",
+        "precache": "چای دشتی,چای بهاره دستچین لاهیجان,سرو به همراه مربا بالنگ"
     },
     {
         "id": "y9mj7u",
@@ -1670,7 +1722,8 @@
             }
         ],
         "category": "hot",
-        "subCategory": "tea"
+        "subCategory": "tea",
+        "precache": "چای راگا,"
     },
     {
         "id": "ag1g16",
@@ -1687,7 +1740,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "آیس آمریکانو,اسپرسو کامرشیال,آب,یخ"
     },
     {
         "id": "l808c3",
@@ -1704,7 +1758,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "آیس لاته,اسپرسو کامرشیال,شیر,یخ"
     },
     {
         "id": "z98r8r",
@@ -1722,7 +1777,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "آیس کافی,اسپرسو کامرشیال,شیر,سیروپ کارامل,یخ"
     },
     {
         "id": "eec5ve",
@@ -1741,7 +1797,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "ساور چری تونیک,اسپرسو کامرشیال,اسپرسو کامرشیال,سودا,سیروپ بادام تلخ,یخ"
     },
     {
         "id": "q4e85t",
@@ -1758,7 +1815,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "منگو تونیک,اسپرسو کامرشیال,آب انبه,یخ"
     },
     {
         "id": "xmj3uc",
@@ -1775,7 +1833,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "هایپرسو,اسپرسو کامرشیال,هایپ,یخ"
     },
     {
         "id": "uuvn7l",
@@ -1792,7 +1851,8 @@
             "یخ"
         ],
         "category": "cold",
-        "subCategory": "ice"
+        "subCategory": "ice",
+        "precache": "بلک آیس,اسپرسو کامرشیال,کوکاکولا,یخ"
     },
     {
         "id": "1auxf7",
@@ -1809,7 +1869,8 @@
             "عصاره رز"
         ],
         "category": "cold",
-        "subCategory": "nectar"
+        "subCategory": "nectar",
+        "precache": "زعفران,زعفران,لیمو,عصاره رز"
     },
     {
         "id": "ffyfum",
@@ -1829,7 +1890,8 @@
             "پودر نارگیل"
         ],
         "category": "cold",
-        "subCategory": "nectar"
+        "subCategory": "nectar",
+        "precache": "نشاط,زعفران,عسل,لیمو,عرق بیدمشک,عرق کاسنی,پودر نارگیل"
     },
     {
         "id": "w2xr2g",
@@ -1847,7 +1909,8 @@
             "شربت رز"
         ],
         "category": "cold",
-        "subCategory": "nectar"
+        "subCategory": "nectar",
+        "precache": "خاک شیر,عرق بیدمشک,گلاب,خاکشیر,شربت رز"
     },
     {
         "id": "2dc0wv",
@@ -1863,7 +1926,8 @@
             "شربت سکنجبین"
         ],
         "category": "cold",
-        "subCategory": "nectar"
+        "subCategory": "nectar",
+        "precache": "خیار سکنجبین,خیار,شربت سکنجبین"
     },
     {
         "id": "piq9mt",
@@ -1880,7 +1944,8 @@
             "انبه"
         ],
         "category": "cold",
-        "subCategory": "smoothie"
+        "subCategory": "smoothie",
+        "precache": "تروپیکال اسموتی,موز,آناناس,انبه"
     },
     {
         "id": "q0w4tw",
@@ -1898,7 +1963,8 @@
             "آلبالو"
         ],
         "category": "cold",
-        "subCategory": "smoothie"
+        "subCategory": "smoothie",
+        "precache": "رد اسموتی,موز,توت فرنگی,شاتوت,آلبالو"
     },
     {
         "id": "vj64vh",
@@ -1916,7 +1982,8 @@
             "سیب"
         ],
         "category": "cold",
-        "subCategory": "smoothie"
+        "subCategory": "smoothie",
+        "precache": "سوییت اسموتی,موز,هلو,آلوئه ورا,سیب"
     },
     {
         "id": "01rb4x",
@@ -1933,7 +2000,8 @@
             "سودا"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "لیموناد,لیمو ترش,سیروپ لیمو,سودا"
     },
     {
         "id": "7duxzq",
@@ -1951,7 +2019,8 @@
             "سودا"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "موهیتو,نعنا,لیمو ترش,سیروپ موهیتو,سودا"
     },
     {
         "id": "8fc9zr",
@@ -1968,7 +2037,8 @@
             "سودا"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "بلواسکای,سیروپ بلو کارسائو,لیمو ترش,سودا"
     },
     {
         "id": "3i2syj",
@@ -1985,7 +2055,8 @@
             "توت فرنگی"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "مارون,هلو,آلوئه ورا,توت فرنگی"
     },
     {
         "id": "n3rxs3",
@@ -2002,7 +2073,8 @@
             "نعنا"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "رابی,هندوانه,شاتوت,نعنا"
     },
     {
         "id": "1zmm5t",
@@ -2019,7 +2091,8 @@
             "پرتقال"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "هاوایی,آناناس,انبه,پرتقال"
     },
     {
         "id": "ktyvef",
@@ -2037,7 +2110,8 @@
             "آلوئه ورا"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "پینک,موز,شاتوت,انبه,آلوئه ورا"
     },
     {
         "id": "80mkap",
@@ -2058,7 +2132,8 @@
             "نمک"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "فراستی,خیار,لیمو,زنجبیل,نعنا,سیروپ لیمو,سودا,نمک"
     },
     {
         "id": "lweo3a",
@@ -2074,7 +2149,8 @@
             "بستنی"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "ردلایت,هندوانه,بستنی"
     },
     {
         "id": "ay6r57",
@@ -2089,7 +2165,8 @@
             "آبمیوه طبیعی"
         ],
         "category": "cold",
-        "subCategory": "mocktail"
+        "subCategory": "mocktail",
+        "precache": "آبمیوه طبیعی,آبمیوه طبیعی"
     },
     {
         "id": "xss7gx",
@@ -2105,7 +2182,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "کلاسیک (وانیل / شکلات),بستنی شکلاتی یا وانیلی,شیر"
     },
     {
         "id": "nm14fr",
@@ -2122,7 +2200,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "نوتلا,بستنی وانیلی,نوتلا,شیر"
     },
     {
         "id": "3dugwc",
@@ -2139,7 +2218,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "کیت کت,بستنی وانیلی,کیت کت,شیر"
     },
     {
         "id": "ddr3pe",
@@ -2156,7 +2236,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "اسپرسو,بستنی وانیلی,اسپرسو,شیر"
     },
     {
         "id": "5w3ghj",
@@ -2174,7 +2255,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "بادام زمینی,بستنی وانیلی,کره بادام زمینی,بادام زمینی,شیر"
     },
     {
         "id": "deanfb",
@@ -2192,7 +2274,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "موز گردو,بستنی وانیلی,موز,گردو,شیر"
     },
     {
         "id": "0264iu",
@@ -2210,7 +2293,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "اورئو توت فرنگی,بستنی وانیلی,بیسکوییت اورئو,توت فرنگی,شیر"
     },
     {
         "id": "bqbo1r",
@@ -2227,7 +2311,8 @@
             "سیروپ کارامل"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "کارامل نسکافه,بستنی وانیلی,نسکافه,سیروپ کارامل"
     },
     {
         "id": "7ycyjc",
@@ -2244,7 +2329,8 @@
             "شیر"
         ],
         "category": "cold",
-        "subCategory": "shake"
+        "subCategory": "shake",
+        "precache": "کوکی,بستنی وانیلی,کوکی,شیر"
     },
     {
         "id": "e3cj8k",
@@ -2252,7 +2338,8 @@
         "image": "cake-1",
         "price": "از 45",
         "category": "cake",
-        "subCategory": "cakes"
+        "subCategory": "cakes",
+        "precache": "کافه فردا یه بیکری هم داره!\nبنابراین هر روز اینجا کیک‌های تازه،جذاب و متنوعی پخته و سرو می‌شه.\n پس حتماً به ویترین کیک کافه سر بزنید یا از ما سوال بپرسید.\nدر ضمن یک لیوان چای سیاه هم کنار کیک‌تون مهمون ما هستید!\n(البته اگر در زمان سفارش بهمون بگید),"
     },
     {
         "id": "zyy88g",
@@ -2270,7 +2357,8 @@
             "توت فرنگی"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب سوییت میل,نان تست,شکلات فندقی,موز,توت فرنگی"
     },
     {
         "id": "goiwez",
@@ -2290,7 +2378,8 @@
             "کره بادام زمینی نمکی"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب پارادوکس,نان تست,مربای انجیر,مغز تخمه,پنیرلبنه,زیتون,کره بادام زمینی نمکی"
     },
     {
         "id": "34vxjd",
@@ -2310,7 +2399,8 @@
             "گردو"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب فرش تست,نان تست,پنیر لبنه,سبزی معطر,خیار,کنجد,گردو"
     },
     {
         "id": "y2h1hi",
@@ -2328,7 +2418,8 @@
             "گرانول غلات"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب رزبری و گرانول,نان تست,خامه صبحانه,مارمالاد رزبری,گرانول غلات"
     },
     {
         "id": "m4xo3o",
@@ -2346,7 +2437,8 @@
             "سس خردل ملایم"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب سوپر لیونر,نان تست,ژامبون لیونر,پنیر گودا,سس خردل ملایم"
     },
     {
         "id": "lgjp0b",
@@ -2364,7 +2456,8 @@
             "سس"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب بوقلمون و سس,نان تست,بیکن بوقلمون,پرک بادام,سس"
     },
     {
         "id": "d62snx",
@@ -2382,7 +2475,8 @@
             "بادام زمینی"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب استیک مرغ و سس,نان تست,استیک مرغ,سس,بادام زمینی"
     },
     {
         "id": "n9ylib",
@@ -2401,7 +2495,8 @@
             "گودا"
         ],
         "category": "breakfast",
-        "subCategory": "club"
+        "subCategory": "club",
+        "precache": "کلاب پپرونی و سس,نان تست,پپرونی,سس,ذرت,گودا"
     },
     {
         "id": "h2ez8w",
@@ -2420,7 +2515,8 @@
             "سس"
         ],
         "category": "breakfast",
-        "subCategory": "sandwiches"
+        "subCategory": "sandwiches",
+        "precache": "ساندویچ پپرونی,نان کره‌ای,پپرونی,ذرت,پنیر لبنه,سس"
     },
     {
         "id": "2avp7n",
@@ -2439,7 +2535,8 @@
             "سس بادام زمینی"
         ],
         "category": "breakfast",
-        "subCategory": "sandwiches"
+        "subCategory": "sandwiches",
+        "precache": "ساندویچ استیک مرغ,نان کره‌ای,گوشت فراوری شده سینه مرغ,ذرت,زیتون اسلایس,سس بادام زمینی"
     },
     {
         "id": "vuaouq",
@@ -2458,7 +2555,8 @@
             "سس بادام زمینی"
         ],
         "category": "breakfast",
-        "subCategory": "sandwiches"
+        "subCategory": "sandwiches",
+        "precache": "ساندویچ استیک بوقلمون,نان کره‌ای,گوشت فراوری شده  سینه بوقلمون,ذرت,زیتون اسلایس,سس بادام زمینی"
     },
     {
         "id": "xhfsi3",
@@ -2476,7 +2574,8 @@
             "سس"
         ],
         "category": "breakfast",
-        "subCategory": "sandwiches"
+        "subCategory": "sandwiches",
+        "precache": "ساندویچ ژامبون مرغ و قارچ,نان کره‌ای,ژامبون مرغ و قارچ,ذرت,سس"
     },
     {
         "id": "g7owyf",
@@ -2494,6 +2593,7 @@
             "سس"
         ],
         "category": "breakfast",
-        "subCategory": "sandwiches"
+        "subCategory": "sandwiches",
+        "precache": "ساندویچ لیونر,نان کره‌ای, لیونر,پنیر گودا,سس"
     }
 ]

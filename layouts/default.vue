@@ -173,7 +173,7 @@ export default {
       this.searchDialog.open = false
     },
     search(query){
-      this.searchResults =  this.products.filter((p) => {return p.name.includes(query)})
+      this.searchResults =  this.products.filter((p) => {return p.precache.includes(query)})
     }
   },
 }
