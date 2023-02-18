@@ -1,53 +1,31 @@
 <template>
   <v-app>
     <v-app-bar fixed app elevate-on-scroll color="#f7f6f2">
-      <SearchDialog :open="searchDialog.open" :results="searchResults" @closeDialog="closeSearchDialog" @search="search" />
+      <SearchDialog :open="searchDialog.open" @closeDialog="closeSearchDialog"
+        />
       <v-container class="px-0">
         <v-row align="center" justify="center">
           <v-col cols="12" lg="9" class="d-flex align-center justify-center">
             <div>
-              <v-img
-                src="/cafe-farda-logo.svg"
-                contain
-                max-height="42px"
-                max-width="128px"
-                class="flex-1 pointer"
-                @click="$router.push('/')"
-              ></v-img>
+              <v-img src="/cafe-farda-logo.svg" contain max-height="42px" max-width="128px" class="flex-1 pointer"
+                @click="$router.push('/')"></v-img>
             </div>
-            <!-- <v-spacer></v-spacer>
-            <v-avatar
-              color="fardaGreen"
-              size="32"
-              @click="$router.push('/startup/profileBuilder')"
-            >
-              <v-img v-if="user.avatar" :src="user.avatar"></v-img>
-              <v-icon v-else dark size="28"> mdi-account-circle </v-icon>
-            </v-avatar> -->
-            <!-- <v-badge color="#00522e" dot overlap>
-        <v-icon>mdi-bell</v-icon>
-      </v-badge> -->
           </v-col>
         </v-row>
       </v-container>
     </v-app-bar>
     <v-main>
       <v-container>
-        <div id="search-field-container" class="mb-4">
-          <v-text-field
-            background-color="#f7f6f2"
-            clearable
-            label="جستجو در منو"
-            filled
-            dense
-            rounded
-            single-line
-            prepend-inner-icon="mdi-magnify"
-            hide-details="auto"
-            @click="openSearchDialog"
-          >
-          </v-text-field>
-        </div>
+        <v-row justify-md="center">
+          <v-col cols="12" md="9">
+            <div id="search-field-container">
+              <v-text-field background-color="#f7f6f2" clearable label="جستجو در منو" filled dense rounded single-line
+                prepend-inner-icon="mdi-magnify" hide-details="auto" @click="openSearchDialog">
+              </v-text-field>
+            </div>
+          </v-col>
+
+        </v-row>
         <Nuxt />
       </v-container>
     </v-main>
@@ -88,19 +66,11 @@
         <div class="golden-idea position-absolute"></div>
         <v-row justify-md="center" no-gutters>
           <v-col cols="12" md="9" lg="6">
-            <v-sheet
-              color="#f5f4f0"
-              width="100%"
-              class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3"
-            >
-              <nuxt-link
-                v-for="(item, i) in cats"
-                :key="i"
-                class="bottom-nav__btn"
-                :to="`/category/${item.url}`"
-              >
+            <v-sheet color="#f5f4f0" width="100%"
+              class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3">
+              <nuxt-link v-for="(item, i) in cats" :key="i" class="bottom-nav__btn" :to="`/category/${item.url}`">
                 <v-icon color="" class="text-h4 text-md-h3">{{
-                  `icon-${item.icon}`
+                `icon-${item.icon}`
                 }}</v-icon>
                 <span class="text-body-2 text-md-body-1">{{ item.name }}</span>
               </nuxt-link>
@@ -124,6 +94,7 @@ export default {
       searchDialog: {
         open: false
       },
+      debounceTimeout: null,
       searchResults: [],
       cats: [
         {
@@ -166,14 +137,17 @@ export default {
     })
   },
   methods: {
-    openSearchDialog(){
+    openSearchDialog() {
       this.searchDialog.open = true
     },
-    closeSearchDialog(){
+    closeSearchDialog() {
       this.searchDialog.open = false
     },
-    search(query){
-      this.searchResults =  this.products.filter((p) => {return p.precache.includes(query)})
+    
+    search(query) {
+      if(query === '') this.searchResults.splice(0)
+      console.log(query);
+      this.searchResults = this.products.filter((p) => { return p.precache.includes(query) })
     }
   },
 }
@@ -188,21 +162,26 @@ export default {
   transform: scale(0.9);
   transition: all 0.34s ease-in-out;
 }
+
 .bottom-nav__btn.nuxt-link-active {
   transform: scale(1);
 }
+
 .golden-idea.position-absolute {
   height: 4px;
   top: 0;
   left: 50%;
   margin-left: -18px;
 }
+
 .bottom-nav__btn span {
   color: #787878;
 }
+
 .bottom-nav__btn.nuxt-link-active .v-icon {
   color: #324843;
 }
+
 .bottom-nav__btn.bottom-nav__btn.nuxt-link-active span {
   color: #386864;
   font-weight: bold;

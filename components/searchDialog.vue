@@ -13,9 +13,10 @@
             <v-card-text class="px-1">
                 <v-container fluid>
                     <v-row>
-                        <v-col v-for="(result, i) in results" :key="`result-${i}`" cols="12" md="6" xl="4">
-                            <SearchResultCard  :product="result"></SearchResultCard>
-                        </v-col>
+                        <transition-group  name="scroll-y-transition" tag="div"
+                            class="col col-12 col-md-6 col-xl-4">
+                            <SearchResultCard v-for="(result, i) in results" :key="`result-${i}`" :product="result" :query="query"></SearchResultCard>
+                        </transition-group>
                     </v-row>
                 </v-container>
             </v-card-text>
@@ -23,7 +24,7 @@
     </v-dialog>
 </template>
 <script>
-import SearchResultCard from './searchResultCard.vue';
+import SearchResultCard from './searchResultCard.vue'
 
 export default {
     components: { SearchResultCard },
@@ -32,27 +33,51 @@ export default {
             type: Boolean,
             default: false,
         },
-        results: {
-            type: Array,
-            default: () => []
-        }
+        // results: {
+        //     type: Array,
+        //     default: () => []
+        // }
     },
     data() {
         return {
             loading: false,
-            query: ""
-        };
+            timeout: null,
+            debouncedInput: ''
+        }
     },
-    watch: {
-        query(newValue) {
-            this.$emit("search", this.query);
+    computed: {
+        products() {
+            return this.$store.state.products
+        },
+        query: {
+            get() {
+                return this.debouncedInput
+            },
+            set(val) {
+                if (this.timeout) clearTimeout(this.timeout)
+                this.timeout = setTimeout(() => {
+                    this.debouncedInput = val
+                }, 750)
+            }
+        },
+        results() {
+            if (typeof this.products.filter !== 'function' || this.debouncedInput === '') {
+                return []
+            } else {
+                return this.products.filter((p) => {
+                    return p.precache.includes(this.debouncedInput)
+                })
+            }
+        },
+        resultCategories() {
+            return [...new Set(this.results.map(item => item.category))];
         }
     },
     methods: {
         closeDialog() {
-            this.$emit("closeDialog");
-        }
-    }
+            this.$emit('closeDialog')
+        },
+    },
 }
 </script>
 <style>
