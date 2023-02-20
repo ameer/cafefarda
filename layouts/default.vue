@@ -63,7 +63,6 @@
     </v-speed-dial> -->
     <v-footer fixed color="transparent" class="px-3" app>
       <v-container class="relative pa-0">
-        <div class="golden-idea position-absolute"></div>
         <v-row justify-md="center" no-gutters>
           <v-col cols="12" md="9" lg="6">
             <v-sheet color="#f5f4f0" width="100%"
