@@ -38,7 +38,7 @@
           v-intersect="{
             handler: onIntersect,
             options: {
-              rootMargin: '-64px 0px 0px 32px', threshold: [0.25]
+              rootMargin: '-64px 0px 0px 32px', threshold: subCat.length < 7 ? [0.25] : 0
             }
           }"
           :data-index="i"
@@ -201,7 +201,8 @@ export default {
       selectedProduct: {},
       webpSupport: false,
       hashUpdateTimeout: null,
-      isScrolling: false
+      isScrolling: false,
+      shouldScrollToHash: true
     }
   },
   head () {
@@ -251,21 +252,43 @@ export default {
     }
   },
   mounted () {
-    // if(this.$route.hash !== ''){
-    //   this.$nextTick(() => {
-    //     this.goToHash(this.$route.hash)
-    //   })
-    // }
+    if (this.$route.hash !== '' && this.shouldScrollToHash) {
+      this.$nextTick(() => {
+        this.waitForElm(this.$route.hash).then((elm) => {
+          this.goToHash(this.$route.hash)
+        })
+      })
+    }
     document.addEventListener('scroll', this.onScroll)
-    this.testWebP(document.body)
   },
   beforeDestroy () {
     document.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    waitForElm (selector) {
+      return new Promise((resolve) => {
+        if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector))
+        }
+
+        const observer = new MutationObserver((mutations) => {
+          if (document.querySelector(selector)) {
+            resolve(document.querySelector(selector))
+            observer.disconnect()
+          }
+        })
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        })
+      })
+    },
     onScroll () {
       const t = window.pageYOffset || document.documentElement.offsetTop || 0
-      this.fixedSlideGroup = t > 70
+      if (!this.isScrolling) {
+        this.fixedSlideGroup = t > 70
+      }
     },
     handleScrollOnClick (toggle) {
       toggle()
@@ -275,11 +298,16 @@ export default {
       }, 1000)
     },
     goToHash (hash) {
-      // const elem = document.getElementById(hash.replace('#', ''))
-      // this.selectedChip = parseInt(elem.dataset.index) || 0
-      this.$vuetify.goTo(hash)
+      this.isScrolling = true
+      const elem = document.getElementById(hash.replace('#', ''))
+      this.selectedChip = parseInt(elem.dataset.index) || 0
+      setTimeout(() => {
+        this.$vuetify.goTo(hash, { duration: 500, offset: 56 })
+        this.isScrolling = false
+      }, 500)
     },
     onIntersect (entries, observer) {
+      console.log(entries[0])
       if (this.isScrolling === true) { return false }
       clearTimeout(this.hashUpdateTimeout)
       const elem = entries[0]
