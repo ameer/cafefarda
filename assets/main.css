@@ -18,6 +18,9 @@
   font-display: swap;
   src: url("~assets/fonts/Vazirmatn-FD-SemiBold.woff2") format("woff2");
 }
+html {
+  scroll-behavior: smooth;
+}
 .page-transition-enter-active,
 .page-transition-leave-active {
   transition: opacity 0.5s;
@@ -196,4 +199,7 @@ label[for="username"] {
 }
 .no-arrows-slide-group .v-slide-group__next, .v-slide-group__prev {
   display: none !important;
+}
+.theme--light.v-btn:hover::before {
+  display: none;
 }

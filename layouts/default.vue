@@ -1,14 +1,29 @@
 <template>
   <v-app>
     <v-app-bar fixed app elevate-on-scroll color="#f7f6f2">
-      <SearchDialog :open="searchDialog.open" @closeDialog="closeSearchDialog"
-        />
+      <SearchDialog
+        :open="searchDialog.open"
+        @closeDialog="closeSearchDialog"
+      />
+      <product-details-dialog
+        :open="pdDialog.open"
+        :product="selectedProduct"
+        :image="dialogImageURL"
+        :image-ext="imageExt"
+        @close="pdDialog.open = false"
+      />
       <v-container class="px-0">
         <v-row align="center" justify="center">
           <v-col cols="12" lg="9" class="d-flex align-center justify-center">
             <div>
-              <v-img src="/cafe-farda-logo.svg" contain max-height="42px" max-width="128px" class="flex-1 pointer"
-                @click="$router.push('/')"></v-img>
+              <v-img
+                src="/cafe-farda-logo.svg"
+                contain
+                max-height="42px"
+                max-width="128px"
+                class="flex-1 pointer"
+                @click="$router.push('/')"
+              />
             </div>
           </v-col>
         </v-row>
@@ -19,12 +34,20 @@
         <v-row justify-md="center">
           <v-col cols="12" md="9">
             <div id="search-field-container">
-              <v-text-field background-color="#f7f6f2" clearable label="جستجو در منو" filled dense rounded single-line
-                prepend-inner-icon="mdi-magnify" hide-details="auto" @click="openSearchDialog">
-              </v-text-field>
+              <v-text-field
+                background-color="#f7f6f2"
+                clearable
+                label="جستجو در منو"
+                filled
+                dense
+                rounded
+                single-line
+                prepend-inner-icon="mdi-magnify"
+                hide-details="auto"
+                @click="openSearchDialog"
+              />
             </div>
           </v-col>
-
         </v-row>
         <Nuxt />
       </v-container>
@@ -65,12 +88,17 @@
       <v-container class="relative pa-0">
         <v-row justify-md="center" no-gutters>
           <v-col cols="12" md="9" lg="6">
-            <v-sheet color="#f5f4f0" width="100%"
-              class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3">
+            <v-sheet
+              color="#f5f4f0"
+              width="100%"
+              class="d-flex align-center justify-space-between justify-md-space-around rounded-xl px-5 py-3 pa-md-3"
+            >
               <nuxt-link v-for="(item, i) in cats" :key="i" class="bottom-nav__btn" :to="`/category/${item.url}`">
-                <v-icon color="" class="text-h4 text-md-h3">{{
-                `icon-${item.icon}`
-                }}</v-icon>
+                <v-icon color="" class="text-h4 text-md-h3">
+                  {{
+                    `icon-${item.icon}`
+                  }}
+                </v-icon>
                 <span class="text-body-2 text-md-body-1">{{ item.name }}</span>
               </nuxt-link>
             </v-sheet>
@@ -83,72 +111,99 @@
 
 <script>
 import SearchDialog from '~/components/searchDialog.vue'
-
+import productDetailsDialog from '~/components/productDetailsDialog.vue'
 export default {
-  components: { SearchDialog },
-  data() {
+  components: { SearchDialog, productDetailsDialog },
+  data () {
     return {
       value: null,
       fab: false,
       searchDialog: {
         open: false
       },
+      pdDialog: {
+        open: false
+      },
+      selectedProduct: {},
       debounceTimeout: null,
       searchResults: [],
       cats: [
         {
           name: 'نوشیدنی گرم',
           url: 'hot',
-          icon: 'hot',
+          icon: 'hot'
         },
         {
           name: 'نوشیدنی سرد',
           url: 'cold',
-          icon: 'ice',
+          icon: 'ice'
         },
         {
           name: 'کیک',
           url: 'cake',
-          icon: 'cake',
+          icon: 'cake'
         },
         {
           name: 'ساندویچ',
           url: 'breakfast',
-          icon: 'burger',
-        },
-      ],
+          icon: 'burger'
+        }
+      ]
     }
   },
   computed: {
-    user() {
+    dialogImageURL () {
+      if (this.selectedProduct.image) {
+        return `${this.apiURL}/images/${this.imageExt}/${this.selectedProduct.image}.${this.imageExt}`
+      }
+      return `${this.apiURL}/images/${this.imageExt}/cafe-farda-logo.${this.imageExt}`
+    },
+    apiURL () {
+      return this.$axios.defaults.baseURL + '/storage'
+    },
+    imageExt () {
+      return this.$store.getters.imageExt
+    },
+    user () {
       return this.$store.state.user
         ? this.$store.state.user
         : { username: 'کافه فردایی', avatar: false }
     },
-    products() {
+    products () {
       return this.$store.state.products
-    },
+    }
   },
-  beforeMount() {
+  created () {
+    this.$nuxt.$on('setSelectedProduct', this.setSelectedProduct)
+  },
+  beforeDestroy () {
+    this.$nuxt.$off('setSelectedProduct', this.setSelectedProduct)
+  },
+  beforeMount () {
     this.$axios.get('http://localhost:3000/menu.json').then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })
   },
   methods: {
-    openSearchDialog() {
+    setSelectedProduct (product) {
+      this.selectedProduct = product
+      this.openProductDetailsDialog()
+    },
+    openSearchDialog () {
       this.searchDialog.open = true
     },
-    closeSearchDialog() {
+    closeSearchDialog () {
       this.searchDialog.open = false
     },
-    
-    search(query) {
-      if(query === '') this.searchResults.splice(0)
-      console.log(query);
+    openProductDetailsDialog () {
+      this.pdDialog.open = true
+    },
+    search (query) {
+      if (query === '') { this.searchResults.splice(0) }
       this.searchResults = this.products.filter((p) => { return p.precache.includes(query) })
     }
-  },
+  }
 }
 </script>
 <style>

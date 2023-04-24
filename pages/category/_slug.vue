@@ -1,7 +1,5 @@
 <template>
-  <v-row justify-md="center">
-    <product-details-dialog :open="dialogOpen" :product="selectedProduct" :image="dialogImageURL" :image-ext="imageExt"
-      @close="dialogOpen = false" />
+  <v-row v-scroll="onScroll" justify-md="center">
     <v-col cols="12" lg="9" class="px-0">
       <!-- <v-slide-group v-if="products && $route.params.slug !== 'cake'" v-model="selectedChip" center-active mandatory>
         <v-slide-item v-for="(value, key, n) in menuData[$route.params.slug]" :key="n" v-slot="{ active, toggle }">
@@ -10,21 +8,73 @@
           </v-btn>
         </v-slide-item>
       </v-slide-group> -->
-      <v-slide-group v-if="$route.params.slug !== 'cake'" v-model="selectedChip" center-active mandatory>
+      <div class="sticky-positioner" :class="{ 'd-none': !fixedSlideGroup }" />
+      <v-slide-group
+        v-if="$route.params.slug !== 'cake'"
+        v-model="selectedChip"
+        center-active
+        :class="{ 'fixed-slide-group': fixedSlideGroup }"
+      >
         <v-slide-item v-for="(subcat, n) in subCategories" :key="n" v-slot="{ active, toggle }">
-          <v-btn class="mx-2" :input-value="active" active-class="cGreen white--text" depressed rounded @click="toggle">
-            {{ $t(`${$route.params.slug }.${ subcat }`) }}
+          <v-btn
+            class="mx-2"
+            :input-value="active"
+            active-class="cGreen white--text"
+            depressed
+            rounded
+            :to="`#${subcat}`"
+            link
+            @click="handleScrollOnClick(toggle)"
+          >
+            {{ $t(`${$route.params.slug}.${subcat}`) }}
           </v-btn>
         </v-slide-item>
       </v-slide-group>
-      <v-container fluid class="mt-n4">
-        <v-row v-for="(subCat, key, i) in productsBySubCategory" :id="`${key}`" :key="`subcat-products-${i}`" class="mt-4" align="stretch">
-          <v-col v-for="(item, j) in subCat" :key="`product-col-${j}`" cols="6" sm="4" md="3" xl="2">
-            <v-card elevation="1" min-height="160" style="border-radius: 24px" class="product-card mx-auto pt-0 h-100"
-              color="#e1ddd4" @click="openDetailDialog(item)">
+      <v-container v-if="$route.params.slug !== 'cake'" fluid class="mt-n4">
+        <v-row
+          v-for="(subCat, key, i) in productsBySubCategory"
+          :id="`${key}`"
+          :key="`subcat-products-${i}`"
+          v-intersect="{
+            handler: onIntersect,
+            options: {
+              rootMargin: '-64px 0px 0px 32px', threshold: [0.25]
+            }
+          }"
+          :data-index="i"
+          class="mt-4"
+          align="stretch"
+        >
+          <v-col cols="12" class="d-flex align-center">
+            <h2 class="spanishGrey--text text--darken-1">
+              {{ $t(`${$route.params.slug}.${key}`) }}
+            </h2>
+            <v-divider class="ms-4" />
+          </v-col>
+          <v-col
+            v-for="(item, j) in subCat"
+            :key="`product-col-${j}`"
+            cols="6"
+            sm="4"
+            md="3"
+            xl="2"
+          >
+            <v-card
+              elevation="1"
+              min-height="160"
+              style="border-radius: 24px"
+              class="product-card mx-auto pt-0 h-100"
+              color="#e1ddd4"
+              @click="openDetailDialog(item)"
+            >
               <div class="pa-2">
-                <v-img :src="`${ apiURL }/images/${ imageExt }/${item.image}.${imageExt}`" style="border-radius: 24px"
-                  class="mx-auto" aspect-ratio="1" lazy-src="/images/cafe-farda-logo.webp" />
+                <v-img
+                  :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`"
+                  style="border-radius: 24px"
+                  class="mx-auto"
+                  aspect-ratio="1"
+                  lazy-src="/images/cafe-farda-logo.webp"
+                />
               </div>
               <!-- <v-btn
                 icon
@@ -34,16 +84,22 @@
                 @click.stop="toggleFavs(item.name)"
                 ><v-icon>mdi-heart</v-icon></v-btn
               > -->
-              <div class="golden-idea thin mb-2 mx-auto"></div>
+              <div class="golden-idea thin mb-2 mx-auto" />
               <v-card-title class="justify-center py-0">
                 <div class="font-weight-bold text-body-1 fardaGreen--text">
                   {{ item.name }}
                 </div>
               </v-card-title>
               <v-card-actions class="justify-center">
-                <v-btn v-if="item.isVariable" class="font-weight-bold text-body-2 rounded-xl" dark outlined
-                  color="fardaGreen" block>
-                  <span class="font-weight-regular">مشاهده لاین‌های قهوه</span>
+                <v-btn
+                  v-if="item.isVariable"
+                  class="text-body-2 rounded-xl"
+                  dark
+                  outlined
+                  color="fardaGreen"
+                  small
+                >
+                  <span class="font-weight-regular">لاین‌های قهوه</span>
                 </v-btn>
                 <p v-else class="text-body-1 mb-0 d-flex">
                   <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span>
@@ -77,61 +133,110 @@
           </v-col>
         </v-row> -->
       </v-container>
+      <v-container v-else fluid class="mt-n4">
+        <v-row
+          v-for="(subCat, key, i) in productsBySubCategory"
+          :id="`${key}`"
+          :key="`subcat-products-${i}`"
+          class="mt-4"
+          align="stretch"
+          justify="center"
+        >
+          <v-col v-for="(item, j) in subCat" :key="`product-col-${j}`" cols="12" sm="6" md="4">
+            <v-card
+              elevation="1"
+              min-height="160"
+              style="border-radius: 24px"
+              class="product-card mx-auto pt-0 h-100"
+              color="#e1ddd4"
+              @click="openDetailDialog(item)"
+            >
+              <div class="pa-2">
+                <v-img
+                  :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`"
+                  style="border-radius: 24px"
+                  class="mx-auto"
+                  aspect-ratio="1"
+                  lazy-src="/images/cafe-farda-logo.webp"
+                />
+              </div>
+              <!-- <v-btn
+                icon
+                class="backdrop-filter"
+                left
+                :color="$store.state.favs.includes(item.name) ? 'red' : 'white'"
+                @click.stop="toggleFavs(item.name)"
+                ><v-icon>mdi-heart</v-icon></v-btn
+              > -->
+              <div class="golden-idea thin mb-2 mx-auto" />
+              <v-card-title class="justify-center py-0">
+                <div class="font-weight-bold text-body-1 fardaGreen--text">
+                  {{ item.name }}
+                </div>
+              </v-card-title>
+              <v-card-actions class="justify-center">
+                <p class="text-body-1 mb-0 d-flex">
+                  <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span>
+                  <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>
+                </p>
+                <!-- <v-btn fab icon small color="cGreen"
+                ><v-icon>mdi-plus-circle</v-icon></v-btn
+              > -->
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-col>
   </v-row>
 </template>
 <script>
-import productDetailsDialog from '~/components/productDetailsDialog.vue'
 export default {
-  components: { productDetailsDialog },
   layout: 'default',
-  data() {
+  data () {
     return {
+      fixedSlideGroup: false,
       dialogOpen: false,
       selectedChip: 0,
       selectedProduct: {},
       webpSupport: false,
+      hashUpdateTimeout: null,
+      isScrolling: false
     }
   },
-  head() {
+  head () {
     return {
-      title: this.$t(this.$route.params.slug).name,
+      title: this.$t(this.$route.params.slug).name
     }
   },
   computed: {
-    menuData() {
+    menuData () {
       return this.$store.state.products
     },
-    dialogImageURL() {
-      if (this.selectedProduct.image) {
-        return `${this.apiURL}/images/${this.imageExt}/${this.selectedProduct.image}.${this.imageExt}`
-      }
-      return `${this.apiURL}/images/${this.imageExt}/cafe-farda-logo.${this.imageExt}`
-    },
-    apiURL() {
+    apiURL () {
       return this.$axios.defaults.baseURL + '/storage'
     },
-    imageExt() {
+    imageExt () {
       return this.$store.getters.imageExt
     },
-    products() {
+    products () {
       if (Object.keys(this.menuData).length === 0) {
         return []
       }
       // const keys = Object.keys(this.menuData[this.$route.params.slug])
       return this.menuData.filter(p => p.category === this.$route.params.slug)
     },
-    subCategories() {
-      return [...new Set(this.products.map(item => item.subCategory))];
+    subCategories () {
+      return [...new Set(this.products.map(item => item.subCategory))]
     },
-    productsBySubCategory(){
+    productsBySubCategory () {
       const _products = {}
-      this.subCategories.forEach(subCat => {
+      this.subCategories.forEach((subCat) => {
         _products[subCat] = this.products.filter(p => p.subCategory === subCat)
-      });
+      })
       return _products
     },
-    image() {
+    image () {
       if (this.$route.params.slug === 'hot') {
         return `/new (${Math.floor(Math.random() * 23)}).jpeg`
       } else if (this.$route.params.slug === 'cold') {
@@ -143,32 +248,70 @@ export default {
       } else {
         return '/coffee-1.jpg'
       }
-    },
-  },
-  mounted() {
-    if (this.$route.query.subcat !== undefined) {
-      this.selectedChip = Number(this.$route.query.subcat)
-      this.$forceUpdate()
     }
+  },
+  mounted () {
+    // if(this.$route.hash !== ''){
+    //   this.$nextTick(() => {
+    //     this.goToHash(this.$route.hash)
+    //   })
+    // }
+    document.addEventListener('scroll', this.onScroll)
     this.testWebP(document.body)
   },
+  beforeDestroy () {
+    document.removeEventListener('scroll', this.onScroll)
+  },
   methods: {
-    testWebP(elem) {
+    onScroll () {
+      const t = window.pageYOffset || document.documentElement.offsetTop || 0
+      this.fixedSlideGroup = t > 70
+    },
+    handleScrollOnClick (toggle) {
+      toggle()
+      this.isScrolling = true
+      setTimeout(() => {
+        this.isScrolling = false // Let the browser to scroll smoothly and then start the instersection observer
+      }, 1000)
+    },
+    goToHash (hash) {
+      // const elem = document.getElementById(hash.replace('#', ''))
+      // this.selectedChip = parseInt(elem.dataset.index) || 0
+      this.$vuetify.goTo(hash)
+    },
+    onIntersect (entries, observer) {
+      if (this.isScrolling === true) { return false }
+      clearTimeout(this.hashUpdateTimeout)
+      const elem = entries[0]
+      const hash = `#${elem.target.id}`
+      if (elem.isIntersecting && this.$route.hash !== hash) {
+        this.selectedChip = parseInt(elem.target.dataset.index)
+        this.hashUpdateTimeout = setTimeout(this.setHash(hash), 500)
+      }
+    },
+    setHash (hash) {
+      this.$router.replace({
+        hash,
+        params: {
+          preventScroll: true
+        }
+      })
+    },
+    testWebP (elem) {
       const self = this
-      const webP = new Image();
-      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      const webP = new Image()
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
       webP.onload = webP.onerror = function () {
         self.webpSupport = webP.height === 2
       }
     },
-    openDetailDialog(item) {
-      this.selectedProduct = item
-      this.dialogOpen = true
+    openDetailDialog (item) {
+      this.$nuxt.$emit('setSelectedProduct', item)
     },
-    toggleFavs(name) {
+    toggleFavs (name) {
       this.$store.commit('toggleFavs', name)
-    },
-  },
+    }
+  }
 }
 </script>
 <style>
@@ -182,5 +325,22 @@ export default {
 .golden-idea.thin {
   height: 3px;
   width: 28px;
+}
+
+.sticky-positioner {
+  height: 36px;
+  visibility: hidden;
+}
+
+.fixed-slide-group {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: #e7e6e1;
+  padding: 8px 0px;
+  border-bottom: thin solid rgb(0 0 0 / 7%);
+  box-shadow: 0 7px 11px -5px rgba(0, 0, 0, 0.2);
 }
 </style>

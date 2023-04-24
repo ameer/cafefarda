@@ -7,7 +7,7 @@
     class="category-card d-block ma-3 pb-3"
     :class="index > 3 ? 'd-md-none' : ''"
     color="#e1ddd4"
-    @click="$router.push(`/category/${category}/?subcat=${index}`)"
+    @click="$router.push(`/category/${category}#${title}`)"
   >
     <div class="pa-2">
       <v-img
@@ -19,7 +19,7 @@
         lazy-src="/images/cafe-farda-logo.webp"
       />
     </div>
-    <div class="golden-idea thin mb-2 mx-auto"></div>
+    <div class="golden-idea thin mb-2 mx-auto" />
     <v-card-title class="justify-center py-0">
       <div class="font-weight-bold text-body-1 fardaGreen--text">
         {{ $t(`${category}.${title}`) }}
@@ -36,7 +36,7 @@ export default {
     },
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     product: {
       type: Object,
@@ -48,13 +48,13 @@ export default {
     }
   },
   computed: {
-    apiURL() {
+    apiURL () {
       return this.$axios.defaults.baseURL + '/storage'
     },
-    imageExt() {
+    imageExt () {
       return this.$store.getters.imageExt
-    },
-  },
+    }
+  }
 }
 </script>
 <style>

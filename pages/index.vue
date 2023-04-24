@@ -15,7 +15,7 @@
             class="pa-0"
           >
             <CategoryBox :category="category" :products="featuredProducts.filter((p) => p.category === category)" />
-            <v-divider class="mb-6 mt-4"></v-divider>
+            <v-divider class="mb-6 mt-4" />
           </v-col>
           <!-- <v-col cols="12" class="pb-6">
             <p class="fardaGreenish font-weight-bold text-body-1 mb-0 mt-3">
@@ -99,7 +99,7 @@ import CategoryBox from '~/components/categoryBox.vue'
 export default {
   // eslint-disable-next-line vue/no-unused-components
   components: { CategoryBox },
-  data() {
+  data () {
     return {
       title: 'منو',
       active: false,
@@ -110,39 +110,39 @@ export default {
       cats: [
         {
           name: 'نوشیدنی گرم',
-          url: 'hot',
+          url: 'hot'
         },
         {
           name: 'نوشیدنی سرد',
-          url: 'cold',
+          url: 'cold'
         },
         {
           name: 'کیک',
-          url: 'cake',
+          url: 'cake'
         },
         {
           name: 'کلاب و ساندویچ',
-          url: 'breakfast',
-        },
+          url: 'breakfast'
+        }
       ],
-      toShowCategories: ['hot', 'cold'],
+      toShowCategories: ['hot', 'cold']
     }
   },
-  head() {
+  head () {
     return {
-      title: this.title,
+      title: this.title
     }
   },
   computed: {
-    products() {
+    products () {
       return this.$store.state.products
     },
     featuredProducts () {
-     let featuredProducts = []
-      if(this.products.length > 0){
+      let featuredProducts = []
+      if (this.products.length > 0) {
         featuredProducts = this.products.filter((item) => {
-        return this.toShowCategories.includes(item.category)
-      })
+          return this.toShowCategories.includes(item.category)
+        })
       }
       return featuredProducts
     },
@@ -151,16 +151,16 @@ export default {
     //   if (Object.keys(this.menuData).length === 0) {
     //     return []
     //   }
-    //   const 
+    //   const
     //   const keys = Object.keys(this.menuData[this.$route.params.slug])
     //   return this.menuData[this.$route.params.slug][keys[this.selectedChip]]
     // },
-    user() {
+    user () {
       return this.$store.state.user
         ? this.$store.state.user
         : { username: 'کافه فردایی', avatar: false }
     },
-    greetingsBasedOnTime() {
+    greetingsBasedOnTime () {
       const date = new Date()
       const hour = date.getHours()
       if (hour < 12) {
@@ -170,9 +170,9 @@ export default {
       } else {
         return 'شب بخیر'
       }
-    },
+    }
   },
-  mounted() {
+  mounted () {
     // const zoneChangerWidth = this.$refs.zoneChanger.clientWidth
     // this.slidingBgWidth = (zoneChangerWidth / this.zones.length) - 8
 
@@ -181,11 +181,11 @@ export default {
     }, 600)
   },
   methods: {
-    changeZone(index) {
+    changeZone (index) {
       this.zone = index
       this.slidingBgX = index * this.slidingBgWidth * -1 - 8
-    },
-  },
+    }
+  }
 }
 </script>
 <style>
