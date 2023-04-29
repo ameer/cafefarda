@@ -180,7 +180,7 @@ export default {
     this.$nuxt.$off('setSelectedProduct', this.setSelectedProduct)
   },
   beforeMount () {
-    this.$axios.get('http://localhost:3000/menu.json').then((response) => {
+    this.$axios.get('http://192.168.1.94:3000/menu.json').then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })

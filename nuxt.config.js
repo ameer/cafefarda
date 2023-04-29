@@ -15,9 +15,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -38,7 +38,7 @@ export default {
     '@nuxtjs/google-analytics'
   ],
   googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
+    id: process.env.GOOGLE_ANALYTICS_ID // Use as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
     googleAnalytics: {
@@ -57,17 +57,17 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/i18n',
-    '@nuxtjs/gtm',
+    '@nuxtjs/gtm'
   ],
   gtm: {
-    id: 'GTM-KN2BKP3', // Used as fallback if no runtime config is provided
+    id: 'GTM-KN2BKP3' // Used as fallback if no runtime config is provided
   },
   auth: {
     strategies: {
       laravelSanctum: {
         provider: 'laravel/sanctum',
-        url: process.env.baseUrl || '//api.fardacafe.ir',
-      },
+        url: process.env.baseUrl || '//api.fardacafe.ir'
+      }
     },
     redirect: {
       login: '/auth/login',
@@ -83,35 +83,35 @@ export default {
         lang: 'fa-IR',
         code: 'fa',
         name: 'فا',
-        file: 'fa-IR.js',
+        file: 'fa-IR.js'
       },
       {
         dir: 'ltr',
         lang: 'en-US',
         code: 'en',
         name: 'EN',
-        file: 'en-US.js',
-      },
+        file: 'en-US.js'
+      }
     ],
     defaultLocale: 'fa',
     lazy: true,
     detectBrowserLanguage: false,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: 'fa',
-    },
+      fallbackLocale: 'fa'
+    }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: process.env.baseUrl || '//api.fardacafe.ir',
-    withCredentials: true,
+    withCredentials: true
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'fa',
-    },
+      lang: 'fa'
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -134,14 +134,14 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
-    },
+          success: colors.green.accent3
+        }
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['@nuxtjs/auth-next', 'vuetify'],
-  },
+    transpile: ['@nuxtjs/auth-next', 'vuetify']
+  }
 }
