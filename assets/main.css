@@ -197,9 +197,13 @@ label[for="username"] {
 .vr-middle {
   vertical-align: middle;
 }
-.no-arrows-slide-group .v-slide-group__next, .v-slide-group__prev {
+.no-arrows-slide-group .v-slide-group__next,
+.v-slide-group__prev {
   display: none !important;
 }
 .theme--light.v-btn:hover::before {
   display: none;
+}
+.v-image__image--preload {
+  filter: blur(0px) !important;
 }

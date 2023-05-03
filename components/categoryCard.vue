@@ -16,7 +16,7 @@
         style="border-radius: 24px"
         class="mx-auto"
         aspect-ratio="1"
-        lazy-src="/images/cafe-farda-logo.webp"
+        :lazy-src="`${apiURL}/images/jpg/${product.image}.jpg`"
       />
     </div>
     <div class="golden-idea thin mb-2 mx-auto" />
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     apiURL () {
-      return this.$axios.defaults.baseURL + '/storage'
+      return ''
     },
     imageExt () {
       return this.$store.getters.imageExt

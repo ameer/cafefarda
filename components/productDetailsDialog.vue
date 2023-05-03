@@ -7,7 +7,7 @@
     @click:outside="closeDialog"
   >
     <v-card v-if="product.isVariable" color="grey lighten-3" class="product-detail-card" rounded="0">
-      <v-img :src="image">
+      <v-img :src="image" :lazy-src="image.replaceAll('png', 'jpg')">
         <v-btn
           icon
           text
@@ -166,6 +166,10 @@ export default {
     imageExt: {
       type: String,
       default: 'jpg'
+    },
+    hash: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -204,7 +208,6 @@ export default {
   },
   watch: {
     open (newValue, oldValue) {
-      console.log(newValue)
       if (newValue === true) {
         window.addEventListener('popstate', (event) => {
           event.preventDefault()
@@ -217,6 +220,12 @@ export default {
   },
   methods: {
     popstateEventAction () {
+      if (this.hash !== '') {
+        console.log(this.$route.fullPath)
+        this.$router.push({ path: this.$route.fullPath, hash: this.hash, params: { preventScroll: true } })
+      } else {
+        this.$router.push({ path: this.$route.fullPath, params: { preventScroll: true } })
+      }
       this.closeDialog()
       this.removePopstateEventAction()
     },

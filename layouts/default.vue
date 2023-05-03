@@ -10,6 +10,7 @@
         :product="selectedProduct"
         :image="dialogImageURL"
         :image-ext="imageExt"
+        :hash="pdDialog.hash"
         @close="pdDialog.open = false"
       />
       <v-container class="px-0">
@@ -32,6 +33,11 @@
     <v-main>
       <v-container>
         <v-row justify-md="center">
+          <v-col v-if="$route.path !== '/classic'" cols="12" md="4" class="text-center">
+            <v-btn :to="'/classic'" link outlined rounded>
+              مشاهده منو کلاسیک
+            </v-btn>
+          </v-col>
           <v-col cols="12" md="9">
             <div id="search-field-container">
               <v-text-field
@@ -122,7 +128,8 @@ export default {
         open: false
       },
       pdDialog: {
-        open: false
+        open: false,
+        hash: ''
       },
       selectedProduct: {},
       debounceTimeout: null,
@@ -159,7 +166,7 @@ export default {
       return `${this.apiURL}/images/${this.imageExt}/cafe-farda-logo.${this.imageExt}`
     },
     apiURL () {
-      return this.$axios.defaults.baseURL + '/storage'
+      return ''
     },
     imageExt () {
       return this.$store.getters.imageExt
@@ -173,21 +180,22 @@ export default {
       return this.$store.state.products
     }
   },
+  mounted () {
+    this.$axios.get('/menu.json').then((response) => {
+      this.$store.commit('setProducts', response.data)
+      this.$nuxt.$emit('dataLoaded')
+    })
+  },
   created () {
     this.$nuxt.$on('setSelectedProduct', this.setSelectedProduct)
   },
   beforeDestroy () {
     this.$nuxt.$off('setSelectedProduct', this.setSelectedProduct)
   },
-  beforeMount () {
-    this.$axios.get('http://192.168.1.94:3000/menu.json').then((response) => {
-      this.$store.commit('setProducts', response.data)
-      this.$nuxt.$emit('dataLoaded')
-    })
-  },
   methods: {
-    setSelectedProduct (product) {
+    setSelectedProduct (product, hash = '') {
       this.selectedProduct = product
+      this.pdDialog.hash = hash
       this.openProductDetailsDialog()
     },
     openSearchDialog () {

@@ -70,10 +70,10 @@
               <div class="pa-2">
                 <v-img
                   :src="`${apiURL}/images/${imageExt}/${item.image}.${imageExt}`"
-                  style="border-radius: 24px"
+                  style="border-radius: 24px;background-color: #386864;"
                   class="mx-auto"
                   aspect-ratio="1"
-                  lazy-src="/images/cafe-farda-logo.webp"
+                  :lazy-src="`${apiURL}/images/jpg/${item.image}.jpg`"
                 />
               </div>
               <!-- <v-btn
@@ -215,17 +215,18 @@ export default {
       return this.$store.state.products
     },
     apiURL () {
-      return this.$axios.defaults.baseURL + '/storage'
+      return ''
     },
     imageExt () {
       return this.$store.getters.imageExt
     },
     products () {
-      if (Object.keys(this.menuData).length === 0) {
+      try {
+        // const keys = Object.keys(this.menuData[this.$route.params.slug])
+        return this.menuData.filter(p => p.category === this.$route.params.slug)
+      } catch (error) {
         return []
       }
-      // const keys = Object.keys(this.menuData[this.$route.params.slug])
-      return this.menuData.filter(p => p.category === this.$route.params.slug)
     },
     subCategories () {
       return [...new Set(this.products.map(item => item.subCategory))]
@@ -334,7 +335,7 @@ export default {
       }
     },
     openDetailDialog (item) {
-      this.$nuxt.$emit('setSelectedProduct', item)
+      this.$nuxt.$emit('setSelectedProduct', item, this.$route.hash)
     },
     toggleFavs (name) {
       this.$store.commit('toggleFavs', name)

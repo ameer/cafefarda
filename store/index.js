@@ -2,24 +2,24 @@ export const state = () => ({
   products: {},
   webpSupport: false,
   user: JSON.parse(window.localStorage.getItem('user')),
-  favs: window.localStorage.getItem('favs') === null ? [] : JSON.parse(window.localStorage.getItem('favs')) ,
+  favs: window.localStorage.getItem('favs') === null ? [] : JSON.parse(window.localStorage.getItem('favs'))
 })
 
 export const mutations = {
-  setProducts(state, products) {
+  setProducts (state, products) {
     state.products = products
   },
-  setUser(state, user) {
+  setUser (state, user) {
     window.localStorage.setItem('user', JSON.stringify(user))
     state.user = user
   },
-  setWebpSupport(state, webpSupport) {
+  setWebpSupport (state, webpSupport) {
     state.webpSupport = webpSupport
   },
-  toggleFavs(state, name) {
+  toggleFavs (state, name) {
     const favs = state.favs
-    const id = favs.findIndex((item) => item === name)
-    if(id > -1){
+    const id = favs.findIndex(item => item === name)
+    if (id > -1) {
       favs.splice(id, 1)
     } else {
       favs.push(name)
@@ -29,7 +29,7 @@ export const mutations = {
   }
 }
 export const getters = {
-    imageExt (state) {
-      return state.webpSupport ? 'webp' : 'jpg'
-    }
+  imageExt (state) {
+    return 'png'
+  }
 }

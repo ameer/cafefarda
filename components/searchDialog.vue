@@ -10,6 +10,7 @@
           hide-details="auto"
           color="fardaGreen"
           :loading="loading"
+          autofocus
         >
           <template #prepend-inner>
             <v-icon class="me-2" @click="closeDialog">
