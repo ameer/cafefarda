@@ -13,19 +13,31 @@
         :hash="pdDialog.hash"
         @close="pdDialog.open = false"
       />
-      <v-container class="px-0">
-        <v-row align="center" justify="center">
-          <v-col cols="12" lg="9" class="d-flex align-center justify-center">
-            <div>
-              <v-img
-                src="/cafe-farda-logo.svg"
-                contain
-                max-height="42px"
-                max-width="128px"
-                class="flex-1 pointer"
-                @click="$router.push('/')"
-              />
-            </div>
+      <v-container class="px-0 px-md-3">
+        <v-row align="center" justify-md="center">
+          <v-col cols="12" md="9">
+            <v-container fluid class="px-0 px-md-3">
+              <v-row no-gutters>
+                <v-col cols="6">
+                  <v-img
+                    src="/cafe-farda-logo.svg"
+                    contain
+                    max-height="42px"
+                    max-width="128px"
+                    class="flex-1 pointer"
+                    @click="$router.push('/')"
+                  />
+                </v-col>
+                <v-col cols="6" class="text-left">
+                  <v-btn v-if="$route.path === '/classic'" :to="'/'" link outlined rounded>
+                    مشاهده منو مدرن
+                  </v-btn>
+                  <v-btn v-else :to="'/classic'" link outlined rounded>
+                    مشاهده منو کلاسیک
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-container>
           </v-col>
         </v-row>
       </v-container>
@@ -33,11 +45,6 @@
     <v-main>
       <v-container>
         <v-row justify-md="center">
-          <v-col v-if="$route.path !== '/classic'" cols="12" md="4" class="text-center">
-            <v-btn :to="'/classic'" link outlined rounded>
-              مشاهده منو کلاسیک
-            </v-btn>
-          </v-col>
           <v-col cols="12" md="9">
             <div id="search-field-container">
               <v-text-field
