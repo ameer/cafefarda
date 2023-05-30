@@ -187,6 +187,7 @@
           </v-col>
         </v-row>
       </v-container>
+      <div style="height:128px;" />
     </v-col>
   </v-row>
 </template>
@@ -213,6 +214,11 @@ export default {
   computed: {
     menuData () {
       return this.$store.state.products
+    },
+    categories () {
+      return [
+        'hot', 'cold', 'cake', 'breakfast'
+      ]
     },
     apiURL () {
       return ''
@@ -253,6 +259,11 @@ export default {
     }
   },
   mounted () {
+    window.addEventListener('scroll', () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        this.handleReachingBottom()
+      }
+    })
     if (this.$route.hash !== '' && this.shouldScrollToHash) {
       this.$nextTick(() => {
         this.waitForElm(this.$route.hash).then((elm) => {
@@ -266,6 +277,13 @@ export default {
     document.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    handleReachingBottom () {
+      const slug = this.$route.params.slug
+      const index = this.categories.findIndex(c => c === slug)
+      if (index !== -1 && typeof this.categories[index + 1] !== 'undefined') {
+        this.$router.push({ path: `/category/${this.categories[index + 1]}`, params: { preventScroll: false } })
+      }
+    },
     waitForElm (selector) {
       return new Promise((resolve) => {
         if (document.querySelector(selector)) {
@@ -308,7 +326,6 @@ export default {
       }, 500)
     },
     onIntersect (entries, observer) {
-      console.log(entries[0])
       if (this.isScrolling === true) { return false }
       clearTimeout(this.hashUpdateTimeout)
       const elem = entries[0]
