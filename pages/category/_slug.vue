@@ -26,7 +26,7 @@
             link
             @click="handleScrollOnClick(toggle)"
           >
-            {{ $t(`${$route.params.slug}.${subcat}`) }}
+            {{ $t(`${subcat}`) }}
           </v-btn>
         </v-slide-item>
       </v-slide-group>
@@ -47,14 +47,14 @@
         >
           <v-col cols="12" class="d-flex align-center">
             <h2 class="spanishGrey--text text--darken-1">
-              {{ $t(`${$route.params.slug}.${key}`) }}
+              {{ $t(`${key}`) }}
             </h2>
             <v-divider class="ms-4" />
           </v-col>
           <v-col
             v-for="(item, j) in subCat"
             :key="`product-col-${j}`"
-            cols="6"
+            :cols="key === 'cakes' ? 12 : 6"
             sm="4"
             md="3"
             xl="2"
@@ -227,12 +227,11 @@ export default {
       return this.$store.getters.imageExt
     },
     products () {
-      try {
-        // const keys = Object.keys(this.menuData[this.$route.params.slug])
-        return this.menuData.filter(p => p.category === this.$route.params.slug)
-      } catch (error) {
+      if (Object.keys(this.menuData).length === 0) {
         return []
       }
+      // const keys = Object.keys(this.menuData[this.$route.params.slug])
+      return this.menuData
     },
     subCategories () {
       return [...new Set(this.products.map(item => item.subCategory))]
@@ -244,6 +243,24 @@ export default {
       })
       return _products
     },
+    // products () {
+    //   try {
+    //     // const keys = Object.keys(this.menuData[this.$route.params.slug])
+    //     return this.menuData.filter(p => p.category === this.$route.params.slug)
+    //   } catch (error) {
+    //     return []
+    //   }
+    // },
+    // subCategories () {
+    //   return [...new Set(this.products.map(item => item.subCategory))]
+    // },
+    // productsBySubCategory () {
+    //   const _products = {}
+    //   this.subCategories.forEach((subCat) => {
+    //     _products[subCat] = this.products.filter(p => p.subCategory === subCat)
+    //   })
+    //   return _products
+    // },
     image () {
       if (this.$route.params.slug === 'hot') {
         return `/new (${Math.floor(Math.random() * 23)}).jpeg`
@@ -259,11 +276,11 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        this.handleReachingBottom()
-      }
-    })
+    // window.addEventListener('scroll', () => {
+    //   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    //     this.handleReachingBottom()
+    //   }
+    // })
     if (this.$route.hash !== '' && this.shouldScrollToHash) {
       this.$nextTick(() => {
         this.waitForElm(this.$route.hash).then((elm) => {

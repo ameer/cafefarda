@@ -97,7 +97,7 @@
         ></v-img>
       </v-btn>
     </v-speed-dial> -->
-    <v-footer fixed color="transparent" class="px-3" app>
+    <!-- <v-footer fixed color="transparent" class="px-3" app>
       <v-container class="relative pa-0">
         <v-row justify-md="center" no-gutters>
           <v-col cols="12" md="9" lg="6">
@@ -118,7 +118,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
