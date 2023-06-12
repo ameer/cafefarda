@@ -30,6 +30,6 @@ export const mutations = {
 }
 export const getters = {
   imageExt (state) {
-    return 'png'
+    return 'jpg'
   }
 }

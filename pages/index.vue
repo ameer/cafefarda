@@ -125,7 +125,7 @@ export default {
           url: 'breakfast'
         }
       ],
-      toShowCategories: ['hot', 'cold']
+      toShowCategories: ['hot', 'cold', 'breakfast']
     }
   },
   head () {

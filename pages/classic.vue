@@ -21,7 +21,8 @@
             cols="12"
             class="d-flex align-center"
           >
-            <span class="text-h6">{{ item.name }}</span>
+            <span v-if="key !== 'cakes'" class="text-h6">{{ item.name }}</span>
+            <span v-else class="text-h6">کیک روز</span>
             <v-divider class="mx-2" />
             <v-btn
               v-if="item.isVariable"
@@ -32,8 +33,11 @@
               small
               @click="openDetailDialog(item)"
             >
-              <span class="font-weight-regular">لاین‌های قهوه</span>
+              <span class="font-weight-regular">مشاهده گزینه‌ها</span>
             </v-btn>
+            <p v-else-if="item.hasVariablePrice" class="mb-0">
+              <span class="fardaGreen--text font-weight-bold text-body-2">بسته به لاین قهوه انتخابی</span>
+            </p>
             <p v-else class="text-body-1 mb-0 d-flex">
               <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span>
               <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>

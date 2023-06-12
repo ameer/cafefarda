@@ -3,8 +3,11 @@
     <v-row no-gutters>
       <v-col cols="12">
         <div class="d-flex align-center">
-          <v-chip color="fardaGreen" dark>
+          <v-chip v-if="category !== 'breakfast'" color="fardaGreen" dark>
             {{ $t(`${category}.name`) }}
+          </v-chip>
+          <v-chip v-else color="fardaGreen" dark>
+            ساندویچ‌ها
           </v-chip>
           <v-spacer />
           <v-btn text :to="`/category/${category}`">
@@ -18,7 +21,7 @@
       <v-col cols="12" class="pa-0">
         <v-slide-group class="no-arrows-slide-group" :show-arrows="false">
           <v-slide-item v-for="(subCategory, i) in subCategories" :key="`sub-category-${i}`">
-            <CategoryCard :title="subCategory" :index="i" :category="category" />
+            <CategoryCard v-if="subCategory !== 'club'" :title="subCategory" :index="i" :category="category" />
           </v-slide-item>
           <!-- <v-row>
               <v-col v-for="(products, subCategory, i) in subCategories"

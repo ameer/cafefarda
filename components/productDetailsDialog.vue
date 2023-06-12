@@ -72,6 +72,80 @@
         <v-divider class="flex-100 mt-8" />
       </v-card-text>
     </v-card>
+    <v-card v-else-if="product.hasVariablePrice" color="#f7f6f2" class="product-detail-card">
+      <div />
+      <v-img :src="image">
+        <v-btn
+          icon
+          text
+          color="white"
+          left
+          absolute
+          small
+          class="mt-4 backdrop-filter"
+          @click="closeDialog"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-img>
+      <div class="pt-3 rounded-xl">
+        <div class="golden-idea mx-auto" />
+        <v-card-title class="justify-center pb-2">
+          <div class="font-weight-bold text-h5 fardaGreen--text">
+            {{ product.name }}
+          </div>
+        </v-card-title>
+        <v-card-text>
+          <div class="text-body-2 text-center mb-4 px-4">
+            {{ product.desc }}
+          </div>
+          <div class="mb-0 text-center">
+            <span class="price text-body-1 font-weight-bold">قیمت بسته به لاین قهوه انتخابی</span>
+            <!-- <span class="text-caption price-unit">هــزار تومان</span> -->
+          </div>
+          <v-divider class="my-4" style="border-width:2px !important;border-color:#eae9e5 !important;" />
+          <!-- <div class="mt-2 text-body-2">
+            <span class="text-body-1">محتویات:</span>
+            <v-chip
+              v-for="(ing, j) in product.ingredients"
+              :key="'ing-' + j"
+              color="fardaGreen darken-2"
+              outlined
+              class="mx-1 my-1"
+              dark
+            >
+              {{ ing }}
+              <span v-if="j + 1 < product.ingredients.length">،</span>
+            </v-chip>
+          </div> -->
+          <div v-if="hasFlavor" class="mt-4">
+            <span class="text-body-1"> طعم‌یادها: </span>
+            <v-chip
+              v-for="(flavor, i) in product.etc.mem"
+              :key="'flavor-' + i"
+              color="fardaGreen darken-2"
+              class="mx-1"
+              dark
+            >
+              <span class="text-body-2">{{ flavor }}</span>
+            </v-chip>
+          </div>
+          <div v-if="hasCaffeine" class="mt-4">
+            <span class="text-body-1"> میزان کافئین: </span>
+            <v-chip dark :color="caffeine[0]">
+              {{ caffeine[1] }}
+            </v-chip>
+          </div>
+        </v-card-text>
+      </div>
+      <!-- <v-card-actions>
+        <v-btn tile block x-large min-height="64px" color="cGreen">
+          <span class="white--text text-h6 font-weight-bold"
+            >افزودن به سبد خرید</span
+          >
+        </v-btn>
+      </v-card-actions> -->
+    </v-card>
     <v-card v-else color="#f7f6f2" class="product-detail-card">
       <div />
       <v-img :src="image">

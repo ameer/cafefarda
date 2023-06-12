@@ -207,3 +207,7 @@ label[for="username"] {
 .v-image__image--preload {
   filter: blur(0px) !important;
 }
+.theme--light.v-btn--active:hover::before,
+.theme--light.v-btn--active::before {
+  opacity: 0 !important;
+}

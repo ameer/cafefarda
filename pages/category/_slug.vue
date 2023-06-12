@@ -19,7 +19,7 @@
           <v-btn
             class="mx-2"
             :input-value="active"
-            active-class="cGreen white--text"
+            active-class="fardaGreen white--text"
             depressed
             rounded
             :to="`#${subcat}`"
@@ -86,7 +86,7 @@
               > -->
               <div class="golden-idea thin mb-2 mx-auto" />
               <v-card-title class="justify-center py-0">
-                <div class="font-weight-bold text-body-1 fardaGreen--text">
+                <div class="font-weight-bold text-body-1 fardaGreen--text text-center">
                   {{ item.name }}
                 </div>
               </v-card-title>
@@ -99,8 +99,11 @@
                   color="fardaGreen"
                   small
                 >
-                  <span class="font-weight-regular">لاین‌های قهوه</span>
+                  <span class="font-weight-regular">مشاهده گزینه‌ها</span>
                 </v-btn>
+                <p v-else-if="item.hasVariablePrice" class="mb-0">
+                  <span class="fardaGreen--text font-weight-bold text-caption text-md-body-2">بسته به لاین قهوه انتخابی</span>
+                </p>
                 <p v-else class="text-body-1 mb-0 d-flex">
                   <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span>
                   <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>

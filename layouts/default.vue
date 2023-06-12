@@ -29,11 +29,6 @@
                   />
                 </v-col>
                 <v-col cols="8" class="text-left d-flex align-center justify-end">
-                  <transition name="slide-x-transition">
-                    <v-btn v-show="showSearchIcon" icon fab @click.stop="openSearchDialog">
-                      <v-icon>mdi-magnify</v-icon>
-                    </v-btn>
-                  </transition>
                   <v-btn v-if="$route.path === '/classic'" :to="'/'" link outlined rounded>
                     مشاهده منو مدرن
                   </v-btn>
@@ -49,7 +44,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <v-row justify-md="center">
+        <!-- <v-row justify-md="center">
           <v-col cols="12" md="9">
             <div id="search-field-container">
               <v-text-field
@@ -67,10 +62,24 @@
               />
             </div>
           </v-col>
-        </v-row>
+        </v-row> -->
         <Nuxt />
       </v-container>
     </v-main>
+    <v-btn
+      color="fardaGreen lighten-1"
+      elevation="4"
+      fab
+      bottom
+      fixed
+      app
+      class="ms-4"
+      @click.stop="openSearchDialog"
+    >
+      <v-icon color="white">
+        mdi-magnify
+      </v-icon>
+    </v-btn>
     <!-- <v-speed-dial
       v-model="fab"
       bottom
@@ -195,7 +204,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get('/menu.json').then((response) => {
+    this.$axios.get('http://192.168.37.156:3001/menu.json').then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })
