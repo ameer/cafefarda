@@ -11,12 +11,12 @@
   >
     <div class="pa-2">
       <v-img
-        :src="`${apiURL}/images/${imageExt}/${product.image}.${imageExt}`"
+        :src="`${apiURL}/icons/${title}.svg`"
         eager
         style="border-radius: 24px"
         class="mx-auto"
         aspect-ratio="1"
-        :lazy-src="`${apiURL}/images/jpg/${product.image}.jpg`"
+        :lazy-src="`${apiURL}/icons/${title}.svg`"
       />
     </div>
     <div class="golden-idea thin mb-2 mx-auto" />

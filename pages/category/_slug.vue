@@ -321,7 +321,7 @@ export default {
       })
     },
     onScroll () {
-      const t = window.pageYOffset || document.documentElement.offsetTop || 0
+      const t = window.scrollY || document.documentElement.offsetTop || 0
       if (!this.isScrolling) {
         this.fixedSlideGroup = t > 70
       }

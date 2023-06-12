@@ -17,8 +17,8 @@
         <v-row align="center" justify-md="center">
           <v-col cols="12" md="9">
             <v-container fluid class="px-0 px-md-3">
-              <v-row no-gutters>
-                <v-col cols="6">
+              <v-row no-gutters align="center">
+                <v-col cols="4">
                   <v-img
                     src="/cafe-farda-logo.svg"
                     contain
@@ -28,7 +28,12 @@
                     @click="$router.push('/')"
                   />
                 </v-col>
-                <v-col cols="6" class="text-left">
+                <v-col cols="8" class="text-left d-flex align-center justify-end">
+                  <transition name="slide-x-transition">
+                    <v-btn v-show="showSearchIcon" icon fab @click.stop="openSearchDialog">
+                      <v-icon>mdi-magnify</v-icon>
+                    </v-btn>
+                  </transition>
                   <v-btn v-if="$route.path === '/classic'" :to="'/'" link outlined rounded>
                     مشاهده منو مدرن
                   </v-btn>
@@ -55,9 +60,10 @@
                 dense
                 rounded
                 single-line
+                readonly
                 prepend-inner-icon="mdi-magnify"
                 hide-details="auto"
-                @click="openSearchDialog"
+                @click.stop="openSearchDialog"
               />
             </div>
           </v-col>
@@ -131,6 +137,7 @@ export default {
     return {
       value: null,
       fab: false,
+      showSearchIcon: false,
       searchDialog: {
         open: false
       },
@@ -192,27 +199,42 @@ export default {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })
+    window.addEventListener('popstate', (event) => {
+      this.closeSearchDialog()
+      this.closeProductDetailsDialog()
+    })
+    document.addEventListener('scroll', this.onScroll)
   },
   created () {
     this.$nuxt.$on('setSelectedProduct', this.setSelectedProduct)
   },
   beforeDestroy () {
+    document.removeEventListener('scroll', this.onScroll)
     this.$nuxt.$off('setSelectedProduct', this.setSelectedProduct)
   },
   methods: {
+    onScroll () {
+      const t = window.scrollY || document.documentElement.offsetTop || 0
+      this.showSearchIcon = t > 70
+    },
     setSelectedProduct (product, hash = '') {
       this.selectedProduct = product
       this.pdDialog.hash = hash
       this.openProductDetailsDialog()
     },
     openSearchDialog () {
+      window.history.pushState({}, '')
       this.searchDialog.open = true
     },
     closeSearchDialog () {
       this.searchDialog.open = false
     },
     openProductDetailsDialog () {
+      window.history.pushState({}, '')
       this.pdDialog.open = true
+    },
+    closeProductDetailsDialog () {
+      this.pdDialog.open = false
     },
     search (query) {
       if (query === '') { this.searchResults.splice(0) }

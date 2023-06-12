@@ -18,7 +18,7 @@
       <v-col cols="12" class="pa-0">
         <v-slide-group class="no-arrows-slide-group" :show-arrows="false">
           <v-slide-item v-for="(subCategory, i) in subCategories" :key="`sub-category-${i}`">
-            <CategoryCard :title="subCategory" :product="products[0]" :index="i" :category="category" />
+            <CategoryCard :title="subCategory" :index="i" :category="category" />
           </v-slide-item>
           <!-- <v-row>
               <v-col v-for="(products, subCategory, i) in subCategories"
