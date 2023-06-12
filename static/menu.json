@@ -140,7 +140,7 @@
     {
         "id": "densqd",
         "name": "لاته",
-        "image": "late",
+        "image": "latte",
         "price": 60,
         "images": [
             ""
@@ -164,7 +164,7 @@
     {
         "id": "mlvev2",
         "name": "موکا",
-        "image": "moca",
+        "image": "mocha",
         "price": 62,
         "images": [
             ""
@@ -191,7 +191,7 @@
     {
         "id": "ahq7h8",
         "name": "كارامل ماکیاتو",
-        "image": "karamel",
+        "image": "macchiato",
         "price": 62,
         "images": [
             ""
@@ -291,7 +291,7 @@
     {
         "id": "pf95e2",
         "name": "کاپوچینو",
-        "image": "capochino",
+        "image": "cappuccino",
         "price": 58,
         "images": [
             ""
@@ -310,7 +310,7 @@
     {
         "id": "n7simh",
         "name": "شیر نسکافه",
-        "image": "shir-nescafe",
+        "image": "milk-honey-cinnamon",
         "price": 60,
         "images": [
             ""
@@ -329,7 +329,7 @@
     {
         "id": "n7simh",
         "name": "کوکی لاته",
-        "image": "late-cooci",
+        "image": "latte",
         "price": 65,
         "images": [
             ""
@@ -1280,7 +1280,7 @@
     {
         "id": "4k5d9e",
         "name": "هات چاکلت",
-        "image": "hot-choclet",
+        "image": "hot-chocolate",
         "price": 65,
         "images": [
             ""
@@ -1317,7 +1317,7 @@
     {
         "id": "s09ikc",
         "name": "ویسکوزی چاکلت",
-        "image": "viscozi",
+        "image": "viscose-chocolate",
         "price": 85,
         "images": [
             ""
@@ -1335,7 +1335,7 @@
     {
         "id": "nllywt",
         "name": "شیر نوتلا",
-        "image": "shir-notela",
+        "image": "nutella-milk",
         "price": 90,
         "images": [
             ""
@@ -1373,7 +1373,7 @@
     {
         "id": "htxwry",
         "name": "وایت چاکلت",
-        "image": "white-choclote",
+        "image": "white-chocolate",
         "price": 65,
         "images": [
             ""
@@ -1394,7 +1394,7 @@
     {
         "id": "p04y91",
         "name": "دارک چاکلت",
-        "image": "dark",
+        "image": "dark-chocolate",
         "price": 70,
         "images": [
             ""
@@ -1431,7 +1431,7 @@
     {
         "id": "umlucc",
         "name": "ماسالا",
-        "image": "masalaa",
+        "image": "masala",
         "price": 65,
         "images": [
             ""
@@ -1454,7 +1454,7 @@
     {
         "id": "1jv5b4",
         "name": "چای لاته",
-        "image": "chayi-late",
+        "image": "latte-tea",
         "price": 55,
         "images": [
             ""
@@ -1553,7 +1553,7 @@
     {
         "id": "ucob6b",
         "name": "مولن رژ",
-        "image": "molin-rozh",
+        "image": "molen-rozh",
         "price": 85,
         "images": [
             ""
@@ -1641,7 +1641,7 @@
     {
         "id": "1hkwdb",
         "name": "چای سیاه معطر",
-        "image": "blacktea",
+        "image": "aromatic-black-tea",
         "price": 45,
         "images": [
             ""
@@ -1696,7 +1696,7 @@
     {
         "id": "ag11g6",
         "name": "آیس تی",
-        "image": "ice-americano",
+        "image": "black-ice",
         "price": 45,
         "images": [
             ""
@@ -1713,7 +1713,7 @@
     {
         "id": "ag1g16",
         "name": "آیس آمریکانو",
-        "image": "ice-americano",
+        "image": "americano-ice",
         "price": 45,
         "images": [
             ""
@@ -1749,7 +1749,7 @@
     {
         "id": "z98r8r",
         "name": "آیس کافی (کارامل)",
-        "image": "ice-coffe",
+        "image": "coffee-ice",
         "price": 64,
         "images": [
             ""
@@ -1787,7 +1787,7 @@
     {
         "id": "q4e85t",
         "name": "بیسکاف آیس لاته",
-        "image": "ice-late",
+        "image": "latte-ice",
         "price": 86,
         "images": [
             ""
@@ -1940,7 +1940,7 @@
     {
         "id": "piq9mt",
         "name": "رد اسپارو",
-        "image": "smoothy-red-sparo",
+        "image": "red-smoothie",
         "price": 100,
         "images": [
             ""
@@ -1997,7 +1997,7 @@
     {
         "id": "01rxb4",
         "name": "آبمیوه طبیعی",
-        "image": "frosty-lime-mint",
+        "image": "frasti-limo-khiar",
         "price": 70,
         "images": [
             ""
@@ -2013,7 +2013,7 @@
     {
         "id": "01rb4x",
         "name": "فراستی لایم/مینت",
-        "image": "frosty-lime-mint",
+        "image": "frasti-limo-khiar",
         "price": 68,
         "images": [
             ""
@@ -2166,7 +2166,7 @@
     {
         "id": "xss7gx",
         "name": "کلاسیک (وانیل / شکلات)",
-        "image": "shake-classic",
+        "image": "shake-classic-chocolate",
         "price": 75,
         "images": [
             ""
@@ -2183,7 +2183,7 @@
     {
         "id": "xssg7x",
         "name": "کارامل نسکافه",
-        "image": "shake-khorma-shireangor",
+        "image": "shake-caramel-nescafee",
         "price": 90,
         "images": [
             ""
@@ -2201,7 +2201,7 @@
     {
         "id": "nm14fr",
         "name": "نوتلا",
-        "image": "shake-notella",
+        "image": "shake-nutella",
         "price": 110,
         "images": [
             ""
@@ -2219,7 +2219,7 @@
     {
         "id": "3dugwc",
         "name": "بادام زمینی گرانول",
-        "image": "shake-badamzamini-granol",
+        "image": "shake-badamzamini",
         "price": 95,
         "images": [
             ""
