@@ -86,9 +86,10 @@
               > -->
               <div class="golden-idea thin mb-2 mx-auto" />
               <v-card-title class="justify-center py-0">
-                <div class="font-weight-bold text-body-1 fardaGreen--text text-center">
+                <div v-if="key !== 'cakes'" class="font-weight-bold text-body-1 fardaGreen--text text-center">
                   {{ item.name }}
                 </div>
+                <span v-else class="text-body-1 fardaGreen--text text-center">{{ item.name }}</span>
               </v-card-title>
               <v-card-actions class="justify-center">
                 <v-btn
