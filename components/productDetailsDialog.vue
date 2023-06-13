@@ -24,7 +24,7 @@
       <v-card-text
         v-for="(variable, k) in product.variables"
         :key="'vars-' + k"
-        class="d-flex align-center flex-wrap mt-8"
+        class="d-flex align-center flex-wrap mt-2"
       >
         <div class="font-weight-bold text-h5 mb-2 fardaGreen--text">
           {{ variable.name }}
@@ -40,15 +40,25 @@
             <v-icon color="fardaGreen lighten-1">
               mdi-waves-arrow-up
             </v-icon>
-            <span class="mx-1 fardaGreen--text">ارتفاع کشت:</span>
-            <span class="faNum">{{ variable.height }} متر</span>
+            <span class="mx-1 fardaGreen--text">محتویات:</span>
+            <span class="faNum">
+              <v-chip
+                v-for="(ing, i) in variable.ingredients"
+                :key="'ing-' + i"
+                color="fardaGreen"
+                class="mx-1"
+                dark
+                small
+              >
+                <span class="text-body-2">{{ ing }}</span>
+              </v-chip></span>
           </div>
           <div class="mb-2">
             <v-icon color="fardaGreen lighten-1">
               mdi-coffee-maker-outline
             </v-icon>
-            <span class="mx-1 fardaGreen--text">روش فرآوری:</span>
-            <span class="faNum">{{ variable.method }}</span>
+            <span class="mx-1 fardaGreen--text">کافئین:</span>
+            <span class="faNum">{{ variable.cafein }}</span>
           </div>
           <div class="mb-2">
             <v-icon color="fardaGreen lighten-1">
@@ -69,7 +79,7 @@
             </v-chip>
           </div>
         </div>
-        <v-divider class="flex-100 mt-8" />
+        <v-divider class="flex-100 mt-3" />
       </v-card-text>
     </v-card>
     <v-card v-else-if="product.hasVariablePrice" color="#f7f6f2" class="product-detail-card">
