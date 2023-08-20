@@ -119,6 +119,10 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     rtl: true,
+    defaultAssets: {
+      font: false,
+      icons: false
+    },
     theme: {
       dark: false,
       themes: {

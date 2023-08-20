@@ -35,6 +35,7 @@
           <span class="price faNum">{{ variable.price }}</span>
           <span class="text--secondary text-caption price-unit">هــزار تومان</span>
         </div>
+        <div class="text-secondary text-caption mr-auto" v-text="'به قیمت فوق ۹٪ مالیات بر ارزش افزوده اضافه خواهد شد.'" />
         <div class="flex-100 mt-4">
           <div class="mb-2">
             <v-icon color="fardaGreen lighten-1">
@@ -111,6 +112,7 @@
           </div>
           <div class="mb-0 text-center">
             <span class="price text-body-1 font-weight-bold">قیمت بسته به لاین قهوه انتخابی</span>
+            <div class="text-secondary text-caption mr-auto" v-text="'+۹٪ مالیات بر ارزش افزوده'" />
             <!-- <span class="text-caption price-unit">هــزار تومان</span> -->
           </div>
           <v-divider class="my-4" style="border-width:2px !important;border-color:#eae9e5 !important;" />
@@ -186,6 +188,7 @@
           <div class="text-h5 font-weight-bold mb-0 text-center">
             <span class="price faNum">{{ product.price }}</span>
             <span class="text-caption price-unit">هــزار تومان</span>
+            <div class="text-secondary text-caption" v-text="'به قیمت فوق ۹٪ مالیات بر ارزش افزوده اضافه خواهد شد.'" />
           </div>
           <v-divider class="my-4" style="border-width:2px !important;border-color:#eae9e5 !important;" />
           <div class="mt-2 text-body-2">

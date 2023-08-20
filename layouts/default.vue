@@ -204,7 +204,7 @@ export default {
     }
   },
   mounted () {
-    this.$axios.get('http://192.168.37.156:3001/menu.json').then((response) => {
+    this.$axios.get('menu.json').then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
     })
