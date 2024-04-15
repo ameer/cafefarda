@@ -2,7 +2,7 @@
   <v-row justify-md="center">
     <v-col cols="12" lg="9" class="px-0">
       <div class="text-center text--secondary vat-notice pa-4">
-        به قیمت‌های پایین ۹٪ مالیات بر ارزش افزوده، اضافه خواهد شد.
+        به قیمت‌های پایین ۱۰٪ مالیات بر ارزش افزوده، اضافه خواهد شد.
       </div>
       <v-container fluid class="mt-n4">
         <v-row

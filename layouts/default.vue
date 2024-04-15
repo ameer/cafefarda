@@ -25,14 +25,14 @@
                     max-height="42px"
                     max-width="128px"
                     class="flex-1 pointer"
-                    @click="$router.push('/')"
+                    @click="$router.push(`/menu/${$route.params.branch}`)"
                   />
                 </v-col>
-                <v-col cols="8" class="text-left d-flex align-center justify-end">
-                  <v-btn v-if="$route.path === '/classic'" :to="'/'" link outlined rounded>
+                <v-col v-if="weHaveMenu" cols="8" class="text-left d-flex align-center justify-end">
+                  <v-btn v-if="isClassic" :to="`/menu/${$route.params.branch}`" link outlined rounded>
                     مشاهده منو مدرن
                   </v-btn>
-                  <v-btn v-else :to="'/classic'" link outlined rounded>
+                  <v-btn v-else :to="`/menu/${$route.params.branch}/classic`" link outlined rounded>
                     مشاهده منو کلاسیک
                   </v-btn>
                 </v-col>
@@ -201,12 +201,25 @@ export default {
     },
     products () {
       return this.$store.state.products
+    },
+    isClassic () {
+      try {
+        return this.$route.name.startsWith('menu-branch-classic')
+      } catch (error) {
+        return false
+      }
+    },
+    weHaveMenu () {
+      return this.$route.params.branch !== undefined && Array.isArray(this.$store.state.products) && this.$store.state.products.length > 0
     }
   },
   mounted () {
-    this.$axios.get('menu.json').then((response) => {
+    const branch = this.$route.params.branch
+    this.$axios.get(`menu-${branch}.json`).then((response) => {
       this.$store.commit('setProducts', response.data)
       this.$nuxt.$emit('dataLoaded')
+    }).catch((err) => {
+      this.$nuxt.error({ statusCode: 404, message: err })
     })
     window.addEventListener('popstate', (event) => {
       this.closeSearchDialog()

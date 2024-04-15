@@ -7,7 +7,7 @@
     class="category-card d-block ma-3 pb-3"
     :class="index > 3 ? 'd-md-none' : ''"
     color="#e1ddd4"
-    @click="$router.push(`/category/${category}#${title}`)"
+    :to="{path:`/menu/${$route.params.branch}/category/${category}#${title}`, replace: true}"
   >
     <div class="pa-2">
       <v-img

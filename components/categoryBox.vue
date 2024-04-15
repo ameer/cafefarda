@@ -10,7 +10,7 @@
             ساندویچ‌ها
           </v-chip>
           <v-spacer />
-          <v-btn text :to="`/category/${category}`">
+          <v-btn text :to="`/menu/${$route.params.branch}/category/${category}`">
             <span>مشاهده همه</span>
             <v-icon right>
               mdi-arrow-left

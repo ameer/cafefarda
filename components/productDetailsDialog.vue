@@ -35,7 +35,7 @@
           <span class="price faNum">{{ variable.price }}</span>
           <span class="text--secondary text-caption price-unit">هــزار تومان</span>
         </div>
-        <div class="text-secondary text-caption mr-auto" v-text="'به قیمت فوق ۹٪ مالیات بر ارزش افزوده اضافه خواهد شد.'" />
+        <div class="text-secondary text-caption mr-auto" v-text="'به قیمت فوق ۱۰٪ مالیات بر ارزش افزوده اضافه خواهد شد.'" />
         <div class="flex-100 mt-4">
           <div class="mb-2">
             <v-icon color="fardaGreen lighten-1">
