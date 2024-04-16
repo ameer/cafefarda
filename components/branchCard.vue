@@ -10,11 +10,18 @@
         {{ name }}
       </v-card-title>
       <v-card-subtitle>{{ address }}</v-card-subtitle>
-      <div class="px-4 pb-4 d-flex align-center">
-        <v-btn icon outlined dark :href="`tel:${phone}`">
+      <div v-if="!disabled" class="px-4 pb-4 d-flex align-center">
+        <v-btn icon outlined dark :href="phone">
           <v-img contain src="/icons/phone.svg" max-width="20" height="20" />
         </v-btn>
-        <v-btn icon outlined dark :href="location" class="mr-3">
+        <v-btn
+          v-if="location"
+          icon
+          outlined
+          dark
+          :href="location"
+          class="mr-3"
+        >
           <v-img contain src="/icons/directions.svg" max-width="20" height="20" />
         </v-btn>
         <v-spacer />
@@ -61,6 +68,10 @@ export default {
     branch: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 }
