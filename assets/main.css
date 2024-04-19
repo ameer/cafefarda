@@ -211,3 +211,6 @@ label[for="username"] {
 .theme--light.v-btn--active::before {
   opacity: 0 !important;
 }
+.theme--dark.v-btn:hover::before {
+  opacity: 0 !important;
+}

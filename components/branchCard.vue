@@ -1,10 +1,11 @@
 <template>
-  <v-card>
+  <v-card color="transparent">
     <v-img
       :src="image"
       class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8)"
+      gradient="to bottom, rgba(0,0,0,.15), rgba(0,0,0,.85)"
       height="200px"
+      :position="position"
     >
       <v-card-title class="pt-0">
         {{ name }}
@@ -26,9 +27,16 @@
         </v-btn>
         <v-spacer />
 
-        <v-btn class="rounded-lg" :to="{path: `/menu/${branch}`}" outlined dark>
+        <v-btn
+          class="rounded-lg"
+          :href="link ?? null"
+          :to="branch ? {path: `/menu/${branch}`} : null"
+          :target="link ? '_blank' : null"
+          outlined
+          dark
+        >
           <v-img class="mr-n2" contain src="/icons/list.svg" max-width="20" height="20" />
-          <span class="mr-2">منو</span>
+          <span class="mr-2" v-text="btnText" />
         </v-btn>
       </div>
     </v-img>
@@ -72,6 +80,18 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    btnText: {
+      type: String,
+      default: 'منو'
+    },
+    link: {
+      type: String,
+      default: null
+    },
+    position: {
+      type: String,
+      default: 'center center'
     }
   }
 }

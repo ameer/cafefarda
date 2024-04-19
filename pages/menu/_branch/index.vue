@@ -130,7 +130,7 @@ export default {
   },
   head () {
     return {
-      title: this.title
+      title: 'منوی ' + this.branchTitle
     }
   },
   computed: {
@@ -146,7 +146,9 @@ export default {
       }
       return featuredProducts
     },
-
+    branchTitle () {
+      return this.$t(this.$route.params.branch)
+    },
     // products() {
     //   if (Object.keys(this.menuData).length === 0) {
     //     return []

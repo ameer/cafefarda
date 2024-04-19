@@ -54,6 +54,11 @@
 <script>
 export default {
   layout: 'default',
+  head () {
+    return {
+      title: 'منوی کلاسیک ' + this.branchTitle
+    }
+  },
   computed: {
     menuData () {
       return this.$store.state.products
@@ -83,6 +88,9 @@ export default {
         _products[subCat] = this.products.filter(p => p.subCategory === subCat)
       })
       return _products
+    },
+    branchTitle () {
+      return this.$t(this.$route.params.branch)
     }
   },
   methods: {

@@ -1,46 +1,65 @@
 <template>
   <v-app>
-    <v-app-bar fixed app elevate-on-scroll color="#f7f6f2">
-      <SearchDialog
-        :open="searchDialog.open"
-        @closeDialog="closeSearchDialog"
-      />
-      <product-details-dialog
-        :open="pdDialog.open"
-        :product="selectedProduct"
-        :image="dialogImageURL"
-        :image-ext="imageExt"
-        :hash="pdDialog.hash"
-        @close="pdDialog.open = false"
-      />
-      <v-container class="px-0 px-md-3">
-        <v-row align="center" justify-md="center">
-          <v-col cols="12" md="9">
-            <v-container fluid class="px-0 px-md-3">
-              <v-row no-gutters align="center">
-                <v-col cols="4">
-                  <v-img
-                    src="/cafe-farda-logo.svg"
-                    contain
-                    max-height="42px"
-                    max-width="128px"
-                    class="flex-1 pointer"
-                    @click="$router.push(`/menu/${$route.params.branch}`)"
-                  />
-                </v-col>
-                <v-col v-if="weHaveMenu" cols="8" class="text-left d-flex align-center justify-end">
-                  <v-btn v-if="isClassic" :to="`/menu/${$route.params.branch}`" link outlined rounded>
-                    مشاهده منو مدرن
-                  </v-btn>
-                  <v-btn v-else :to="`/menu/${$route.params.branch}/classic`" link outlined rounded>
-                    مشاهده منو کلاسیک
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-col>
-        </v-row>
-      </v-container>
+    <v-app-bar
+      fixed
+      app
+      elevate-on-scroll
+      color="#f7f6f2"
+    >
+      <div class="d-flex align-center" @click="$router.push(`/menu/${$route.params.branch}`)">
+        <v-img src="/farda-icon.png" contain max-height="42" max-width="42" class="ml-1" />
+        <div class="d-flex flex-column">
+          <v-img
+            src="/farda-logotype.png"
+            contain
+            max-height="22px"
+            max-width="100px"
+            position="right center"
+            class="flex-1 pointer"
+          />
+          <h1 class="text-body-2">
+            {{ branchTitle }}
+          </h1>
+        </div>
+      </div>
+      <v-spacer />
+      <div v-if="weHaveMenu" cols="8" class="text-left d-flex align-center justify-end">
+        <v-btn
+          v-if="isClassic"
+          :to="`/menu/${$route.params.branch}`"
+          outlined
+          dark
+
+          small
+          color="fardaGreen"
+          class="px-2 elevation-0"
+        >
+          منو مدرن
+        </v-btn>
+        <v-btn
+          v-else
+          :to="`/menu/${$route.params.branch}/classic`"
+          outlined
+          dark
+
+          small
+          color="fardaGreen"
+          class="px-2 elevation-0"
+        >
+          منو کلاسیک
+        </v-btn>
+      </div>
+      <v-divider vertical inset class="mx-2" />
+      <v-btn
+        to="/"
+        dark
+        small
+        color="fardaGreen"
+        class="px-2 elevation-0"
+      >
+        <v-img class="mr-n1" contain src="/icons/map-marker.svg" max-width="20" height="20" />
+        <span class="mr-1" v-text="'دیگر فضاها'" />
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -66,6 +85,18 @@
         <Nuxt />
       </v-container>
     </v-main>
+    <SearchDialog
+      :open="searchDialog.open"
+      @closeDialog="closeSearchDialog"
+    />
+    <product-details-dialog
+      :open="pdDialog.open"
+      :product="selectedProduct"
+      :image="dialogImageURL"
+      :image-ext="imageExt"
+      :hash="pdDialog.hash"
+      @close="pdDialog.open = false"
+    />
     <v-btn
       color="fardaGreen lighten-1"
       elevation="4"
@@ -211,6 +242,9 @@ export default {
     },
     weHaveMenu () {
       return this.$route.params.branch !== undefined && Array.isArray(this.$store.state.products) && this.$store.state.products.length > 0
+    },
+    branchTitle () {
+      return this.$t(this.$route.params.branch)
     }
   },
   mounted () {
@@ -299,7 +333,9 @@ export default {
   color: #386864;
   font-weight: bold;
 }
-
+.v-toolbar__content {
+  padding: 4px 12px;
+}
 @media (min-width: 960px) {
   .golden-idea.position-absolute {
     width: 64px;
