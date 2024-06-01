@@ -8,6 +8,18 @@
   >
     <v-card v-if="product.isVariable" color="grey lighten-3" class="product-detail-card" rounded="0">
       <v-img :src="image" :lazy-src="image.replaceAll('png', 'jpg')">
+        <template #placeholder>
+          <v-row
+            class="fill-height ma-0 fardaGreen"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            />
+          </v-row>
+        </template>
         <v-btn
           icon
           text
@@ -84,8 +96,19 @@
       </v-card-text>
     </v-card>
     <v-card v-else-if="product.hasVariablePrice" color="#f7f6f2" class="product-detail-card">
-      <div />
-      <v-img :src="image">
+      <v-img :src="image" min-height="360px">
+        <template #placeholder>
+          <v-row
+            class="fill-height ma-0 fardaGreen"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            />
+          </v-row>
+        </template>
         <v-btn
           icon
           text
@@ -160,7 +183,19 @@
     </v-card>
     <v-card v-else color="#f7f6f2" class="product-detail-card">
       <div />
-      <v-img :src="image">
+      <v-img :src="image" min-height="360px">
+        <template #placeholder>
+          <v-row
+            class="fill-height ma-0 fardaGreen"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            />
+          </v-row>
+        </template>
         <v-btn
           icon
           text
@@ -186,7 +221,8 @@
             {{ product.desc }}
           </div>
           <div class="text-h5 font-weight-bold mb-0 text-center">
-            <span class="price faNum">{{ product.price }}</span>
+            <span class="faNum" :class="product.sale_price ? 'text-decoration-line-through text--secondary' : 'price'">{{ product.price }}</span>
+            <span v-if="product.sale_price" class="price faNum mt-0">{{ product.sale_price }}</span>
             <span class="text-caption price-unit">هــزار تومان</span>
             <div class="text-secondary text-caption" v-text="'به قیمت فوق ۱۰٪ مالیات بر ارزش افزوده اضافه خواهد شد.'" />
           </div>
@@ -202,7 +238,6 @@
               dark
             >
               {{ ing }}
-              <span v-if="j + 1 < product.ingredients.length">،</span>
             </v-chip>
           </div>
           <div v-if="hasFlavor" class="mt-4">
@@ -236,6 +271,7 @@
   </v-dialog>
 </template>
 <script>
+//  ssssslss;
 export default {
   props: {
     open: {

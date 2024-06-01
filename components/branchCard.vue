@@ -3,12 +3,13 @@
     <v-img
       :src="image"
       class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.15), rgba(0,0,0,.85)"
-      height="200px"
+      gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,.85)"
+      height="256px"
       :position="position"
     >
-      <v-card-title class="pt-0">
-        {{ name }}
+      <v-card-title class="pt-0 flex-column align-start">
+        <span>{{ name }}</span>
+        <span v-if="subtitle" class="text-caption my-1" v-text="subtitle" />
       </v-card-title>
       <v-card-subtitle>{{ address }}</v-card-subtitle>
       <div v-if="!disabled" class="px-4 pb-4 d-flex align-center">
@@ -60,6 +61,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    subtitle: {
+      type: [String, Boolean],
+      default: false
     },
     address: {
       type: String,

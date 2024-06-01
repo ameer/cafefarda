@@ -103,7 +103,7 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.baseUrl || '//fardacafe.ir', // '//localhost:3000',
+    baseURL: process.env.baseUrl || '//localhost:3000',
     withCredentials: true
   },
 

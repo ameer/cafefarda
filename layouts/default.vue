@@ -17,7 +17,7 @@
             position="right center"
             class="flex-1 pointer"
           />
-          <h1 class="text-body-2">
+          <h1 class="text-body-2 text-no-wrap">
             {{ branchTitle }}
           </h1>
         </div>

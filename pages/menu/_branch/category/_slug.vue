@@ -106,7 +106,9 @@
                   <span class="fardaGreen--text font-weight-bold text-caption text-md-body-2">بسته به لاین قهوه انتخابی</span>
                 </p>
                 <p v-else class="text-body-1 mb-0 d-flex">
-                  <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span>
+                  <span class="faNum" :class="item.sale_price ? 'text-decoration-line-through text--secondary' : 'fardaGreen--text price faNum me-1'">{{ item.price }}</span>
+                  <span v-if="item.sale_price" class="fardaGreen--text price faNum me-1">{{ item.sale_price }}</span>
+                  <!-- <span class="fardaGreen--text price faNum me-1">{{ item.price }}</span> -->
                   <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>
                 </p>
                 <!-- <v-btn fab icon small color="cGreen"

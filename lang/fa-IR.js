@@ -2,6 +2,8 @@ export default {
   mehrvila: 'فضای مهرویلا',
   gohardasht: 'فضای گوهردشت',
   '3rah': 'فضای سه‌راه گوهردشت',
+  onsale: 'پیشنهاد ویژه',
+  mehrshahr: 'فضای مهرشهر',
   espresso: 'اسپرسو بار',
   browing: 'بروئینگ بار',
   chocolate: 'چاکلت بار',
