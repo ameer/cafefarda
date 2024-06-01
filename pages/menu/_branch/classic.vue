@@ -41,12 +41,13 @@
             <p v-else-if="item.hasVariablePrice" class="mb-0">
               <span class="fardaGreen--text font-weight-bold text-body-2">بسته به لاین قهوه انتخابی</span>
             </p>
-            <p v-else class="text-body-1 mb-0 d-flex" /><div class="d-flex flex-column">
-              <span v-if="item.sale_price" class="fardaGreen--text price faNum me-1">{{ item.sale_price }}</span>
-              <span class="faNum" :class="item.sale_price ? 'text-decoration-line-through text--secondary' : 'fardaGreen--text price faNum me-1'">{{ item.price }}</span>
+            <div v-else class="text-body-1 mb-0 d-flex">
+              <div class="d-flex flex-column">
+                <span class="faNum" :class="item.sale_price ? 'text-decoration-line-through text--secondary' : 'fardaGreen--text price faNum me-1'">{{ item.price }}</span>
+                <span v-if="item.sale_price" class="fardaGreen--text price faNum me-1">{{ item.sale_price }}</span>
+              </div>
+              <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>
             </div>
-            <span class="fardaGreen--text price-unit faNum">هــزار تومان</span>
-            </p>
           </v-col>
         </v-row>
       </v-container>
