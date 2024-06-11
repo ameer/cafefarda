@@ -2,6 +2,11 @@
   <v-container class="pa-0">
     <v-row no-gutters>
       <v-col cols="12">
+        <v-card class="rounded-xl my-4" :to="`/menu/${$route.params.branch}/category/offer`">
+          <v-img src="/offer-banner.jpg" />
+        </v-card>
+      </v-col>
+      <v-col cols="12">
         <div class="d-flex align-center">
           <v-chip v-if="category !== 'breakfast'" color="fardaGreen" dark>
             {{ $t(`${category}.name`) }}

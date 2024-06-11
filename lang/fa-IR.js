@@ -18,6 +18,10 @@ export default {
   cakes: 'کیک‌ها',
   sandwiches: 'ساندویچ',
   club: 'کلاب',
+  offer: {
+    name: 'پیشنهاد ویژه',
+    onsale: ''
+  },
   hot: {
     name: 'نوشیدنی گرم',
     espresso: 'اسپرسو بار',

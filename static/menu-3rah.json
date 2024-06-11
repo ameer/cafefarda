@@ -1,10 +1,10 @@
 [
     {
         "id": "denghfsqd",
-        "name": "لاته+ کیک",
-        "image": "latte",
-        "price": 50,
-        "sale_price": 30,
+        "name": "لته + کیک سیب یا شکلاتی یا وانیلی",
+        "image": "late-and-cake",
+        "price": 140,
+        "sale_price": 90,
         "images": [
             ""
         ],
@@ -21,7 +21,127 @@
         ],
         "category": "offer",
         "subCategory": "onsale",
-        "precache": "لاته اسپرسو کامرشیال شیر فوم شیر"
+        "precache": "لته لاته کیک سیب شکلاتی وانیلی"
+    },
+    {
+        "id": "dqwefsqd",
+        "name": "آیس لته + کیک سیب یا شکلاتی یا وانیلی",
+        "image": "late-and-cake",
+        "price": 110,
+        "sale_price": 90,
+        "images": [
+            ""
+        ],
+        "desc": "خرید این دو محصول با هم تخفیف ویژه دارد.",
+        "etc": {
+            "mem": [
+                ""
+            ],
+            "cafein": "H"
+        },
+        "ingredients": [
+            "کیک",
+            "آیس لاته"
+        ],
+        "category": "offer",
+        "subCategory": "onsale",
+        "precache": "آیس لته لاته کیک سیب شکلاتی وانیلی"
+    },
+    {
+        "id": "dewerfsqd",
+        "name": "ساندویچ مرغ و قارچ + لیموناد یا بلواسکای",
+        "image": "sandwich-and-limon",
+        "price": 200,
+        "sale_price": 140,
+        "images": [
+            ""
+        ],
+        "desc": "خرید این دو محصول با هم تخفیف ویژه دارد.",
+        "etc": {
+            "mem": [
+                ""
+            ],
+            "cafein": "H"
+        },
+        "ingredients": [
+            "ساندویچ مرغ و قارچ",
+            "لیموناد یا بلواسکای"
+        ],
+        "category": "offer",
+        "subCategory": "onsale",
+        "precache": "ساندویچ مرغ قارچ لیموناد بلواسکای"
+    },
+    {
+        "id": "dengqweqd",
+        "name": "ساندویچ لیونر + لیموناد یا بلواسکای",
+        "image": "sandwich-and-limon",
+        "price": 200,
+        "sale_price": 140,
+        "images": [
+            ""
+        ],
+        "desc": "خرید این دو محصول با هم تخفیف ویژه دارد.",
+        "etc": {
+            "mem": [
+                ""
+            ],
+            "cafein": ""
+        },
+        "ingredients": [
+            "ساندویچ لیونر",
+            "لیموناد یا بلواسکای"
+        ],
+        "category": "offer",
+        "subCategory": "onsale",
+        "precache": "ساندویچ لیونر لیموناد بلواسکای"
+    },
+    {
+        "id": "denlpkkd",
+        "name": "ساندویچ پپرونی + لیموناد یا بلواسکای",
+        "image": "sandwich-and-limon",
+        "price": 200,
+        "sale_price": 140,
+        "images": [
+            ""
+        ],
+        "desc": "خرید این دو محصول با هم تخفیف ویژه دارد.",
+        "etc": {
+            "mem": [
+                ""
+            ],
+            "cafein": ""
+        },
+        "ingredients": [
+            "ساندویچ پپرونی",
+            "لیموناد یا بلواسکای"
+        ],
+        "category": "offer",
+        "subCategory": "onsale",
+        "precache": "ساندویچ پپرونی لیموناد بلواسکای"
+    },
+    {
+        "id": "djiubcqd",
+        "name": "کلد برو + کوکی",
+        "image": "Cold-brew-and-cake",
+        "price": 110,
+        "sale_price": 80,
+        "images": [
+            ""
+        ],
+        "desc": "خرید این دو محصول با هم تخفیف ویژه دارد.",
+        "etc": {
+            "mem": [
+                ""
+            ],
+            "cafein": ""
+        },
+        "ingredients": [
+            "کلد برو",
+            "کوکی"
+        ],
+        "category": "offer",
+        "subCategory": "onsale",
+        "precache": "کلد برو کوکی"
     },
     {
         "id": "xl2225",
