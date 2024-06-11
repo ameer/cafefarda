@@ -34,20 +34,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/vuetify'
   ],
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID // Use as fallback if no runtime config is provided
-  },
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    },
-    gtm: {
-      id: process.env.GOOGLE_TAG_MANAGER_ID
-    }
-  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -56,12 +44,8 @@ export default {
     '@nuxtjs/auth-next',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/i18n',
-    '@nuxtjs/gtm'
+    '@nuxtjs/i18n'
   ],
-  gtm: {
-    id: 'GTM-KN2BKP3' // Used as fallback if no runtime config is provided
-  },
   auth: {
     strategies: {
       laravelSanctum: {

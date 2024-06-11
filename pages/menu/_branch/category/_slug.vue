@@ -13,6 +13,7 @@
         v-if="$route.params.slug !== 'cake'"
         v-model="selectedChip"
         center-active
+        :class="{ 'fixed-slide-group': fixedSlideGroup }"
       >
         <v-slide-item v-for="(subcat, n) in subCategories" :key="n" v-slot="{ active, toggle }">
           <v-btn
@@ -47,10 +48,6 @@
           <v-col
             cols="12"
             class="d-flex align-center"
-            style="position: sticky;
-    top: 55px;
-    z-index: 3;
-    background: #e7e6e1;"
           >
             <h2 class="spanishGrey--text text--darken-1">
               {{ $t(`${key}`) }}
