@@ -8,6 +8,11 @@
               سلام {{ user.username }}، {{ greetingsBasedOnTime }}!
             </p> -->
           </v-col>
+          <v-col cols="12">
+            <v-card class="rounded-xl my-4" :to="`/menu/${$route.params.branch}/category/offer`">
+              <v-img src="/offer-banner.jpg" />
+            </v-card>
+          </v-col>
           <v-col
             v-for="(category, i) in toShowCategories"
             :key="`category-box-${i}`"
